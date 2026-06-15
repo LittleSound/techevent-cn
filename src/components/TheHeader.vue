@@ -13,7 +13,7 @@ const webcalUrl = computed(() => `webcal://${location.host}${calendarUrl}`)
         techevent-cn
       </h1>
       <p text-sm op60>
-        固执己见的中国（及周边）技术活动日历
+        中国（及周边）科技活动日历
       </p>
     </div>
 

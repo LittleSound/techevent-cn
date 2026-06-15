@@ -59,7 +59,7 @@ const lines = [
   'CALSCALE:GREGORIAN',
   'METHOD:PUBLISH',
   'X-WR-CALNAME:techevent-cn',
-  'X-WR-CALDESC:固执己见的中国（及周边）技术活动日历',
+  'X-WR-CALDESC:中国（及周边）科技活动日历',
 ]
 
 for (const e of events) {

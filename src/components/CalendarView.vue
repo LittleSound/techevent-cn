@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NormalizedEvent } from '~/types'
-import { monthMatrix, occursOn, sameDay } from '~/utils/events'
+import { layoutWeek, monthMatrix, sameDay } from '~/utils/events'
 
 const { events, initialDate } = defineProps<{
   events: NormalizedEvent[]
@@ -22,8 +22,16 @@ const canHover = useMediaQuery('(hover: hover) and (pointer: fine)')
 const monthLabel = computed(() =>
   new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long' }).format(cursor.value),
 )
-const days = computed(() => monthMatrix(cursor.value).flat())
 const weekdays = ['一', '二', '三', '四', '五', '六', '日']
+
+/** Each week carries its day cells plus the laid-out event bars for that row. */
+const weeks = computed(() =>
+  monthMatrix(cursor.value).map((cells) => {
+    const segments = layoutWeek(cells.map(c => c.date), events)
+    const lanes = segments.reduce((max, s) => Math.max(max, s.lane + 1), 0)
+    return { cells, segments, lanes }
+  }),
+)
 
 function shiftMonth(delta: number) {
   cursor.value = new Date(cursor.value.getFullYear(), cursor.value.getMonth() + delta, 1)
@@ -31,10 +39,6 @@ function shiftMonth(delta: number) {
 
 function goToday() {
   cursor.value = startOfMonth(today)
-}
-
-function eventsOn(day: Date): NormalizedEvent[] {
-  return events.filter(e => occursOn(e, day))
 }
 
 // --- detail popover ---
@@ -96,7 +100,7 @@ watch(cursor, close)
 
 <template>
   <div>
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 px-4 flex items-center justify-between sm:px-0">
       <h2 class="text-lg font-600">
         {{ monthLabel }}
       </h2>
@@ -113,49 +117,75 @@ watch(cursor, close)
       </div>
     </div>
 
-    <div class="border border-gray-200 rounded-lg grid grid-cols-7 overflow-hidden dark:border-gray-800">
-      <div
-        v-for="d in weekdays"
-        :key="d"
-        class="text-xs py-2 text-center border-b border-gray-200 op50 dark:border-gray-800"
-      >
-        {{ d }}
+    <div class="border-y border-gray-200 sm:border dark:border-gray-800 sm:rounded-lg sm:overflow-hidden">
+      <div class="border-b border-gray-200 grid grid-cols-7 dark:border-gray-800">
+        <div
+          v-for="d in weekdays"
+          :key="d"
+          class="text-[10px] py-1.5 text-center op50 sm:text-xs"
+        >
+          {{ d }}
+        </div>
       </div>
 
       <div
-        v-for="(cell, i) in days"
-        :key="i"
-        class="p-1 border-b border-r border-gray-100 min-h-15 min-w-0 dark:border-gray-800/60 sm:min-h-24"
-        :class="[
-          cell.inMonth ? '' : 'bg-gray-50/60 dark:bg-gray-900/30',
-          (i + 1) % 7 === 0 ? 'border-r-0' : '',
-          i >= days.length - 7 ? 'border-b-0' : '',
-        ]"
+        v-for="(week, w) in weeks"
+        :key="w"
+        class="min-h-13 relative sm:min-h-24"
+        :class="w < weeks.length - 1 ? 'border-b border-gray-100 dark:border-gray-800/60' : ''"
       >
-        <div
-          class="text-xs mb-1 rounded-full flex h-6 w-6 items-center justify-center"
-          :class="sameDay(cell.date, today)
-            ? 'bg-teal-600 text-white'
-            : cell.inMonth ? 'op70' : 'op30'"
-        >
-          {{ cell.date.getDate() }}
+        <!-- Background columns: vertical separators (desktop only) and out-of-month shading. -->
+        <div class="grid grid-cols-7 inset-0 absolute">
+          <div
+            v-for="(cell, c) in week.cells"
+            :key="c"
+            :class="[
+              cell.inMonth ? '' : 'bg-gray-50/60 dark:bg-gray-900/30',
+              c < 6 ? 'sm:border-r sm:border-gray-100 sm:dark:border-gray-800/60' : '',
+            ]"
+          />
         </div>
 
-        <div class="flex flex-col gap-0.5">
-          <button
-            v-for="e in eventsOn(cell.date)"
-            :key="e.id"
-            type="button"
-            class="text-xs leading-tight px-1 py-0.5 text-left rounded w-full block truncate transition"
-            :class="selected === e
-              ? 'bg-teal-600 text-white'
-              : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70'"
-            :title="e.name"
-            @mouseenter="onChipEnter(e, $event.currentTarget)"
-            @mouseleave="scheduleClose()"
-            @click="onChipClick(e, $event.currentTarget)"
+        <!-- Content: day numbers on row 1, event bars on the lanes below. -->
+        <div
+          class="pb-1 gap-y-0.5 grid grid-cols-7 relative"
+          :style="{ gridTemplateRows: `auto repeat(${week.lanes}, auto)` }"
+        >
+          <div
+            v-for="(cell, c) in week.cells"
+            :key="c"
+            class="px-0.5 pt-0.5"
+            :style="{ gridColumn: c + 1, gridRow: 1 }"
           >
-            {{ e.name }}
+            <div
+              class="text-[10px] rounded-full flex h-5 w-5 items-center justify-center sm:text-xs sm:h-6 sm:w-6"
+              :class="sameDay(cell.date, today)
+                ? 'bg-teal-600 text-white'
+                : cell.inMonth ? 'op70' : 'op30'"
+            >
+              {{ cell.date.getDate() }}
+            </div>
+          </div>
+
+          <button
+            v-for="seg in week.segments"
+            :key="seg.event.id + seg.startCol"
+            type="button"
+            class="text-[10px] leading-4.5 mx-0.5 px-1 text-left block truncate transition sm:text-xs sm:leading-5"
+            :class="[
+              selected === seg.event
+                ? 'bg-teal-600 text-white'
+                : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70',
+              seg.continuesLeft ? 'rounded-l-none' : 'rounded-l',
+              seg.continuesRight ? 'rounded-r-none' : 'rounded-r',
+            ]"
+            :style="{ gridColumn: `${seg.startCol + 1} / span ${seg.span}`, gridRow: seg.lane + 2 }"
+            :title="seg.event.name"
+            @mouseenter="onChipEnter(seg.event, $event.currentTarget)"
+            @mouseleave="scheduleClose()"
+            @click="onChipClick(seg.event, $event.currentTarget)"
+          >
+            {{ seg.continuesLeft ? '◂ ' : '' }}{{ seg.event.name }}
           </button>
         </div>
       </div>

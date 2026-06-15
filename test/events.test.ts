@@ -2,8 +2,10 @@ import type { TechEvent } from '~/types'
 import { describe, expect, it } from 'vitest'
 import {
   cityFacets,
+  dayDiff,
   emptyFilter,
   filterEvents,
+  layoutWeek,
   monthMatrix,
   normalizeEvent,
   occursOn,
@@ -124,6 +126,57 @@ describe('calendar helpers', () => {
     expect(weeks[0][0].inMonth).toBe(false) // Monday belongs to June
     expect(weeks[0][2].date.getDate()).toBe(1) // Wednesday is July 1
     expect(weeks[0][2].inMonth).toBe(true)
+  })
+})
+
+describe('layoutWeek', () => {
+  // Week of Mon 2026-06-15 … Sun 2026-06-21.
+  const week = Array.from({ length: 7 }, (_, i) => new Date(2026, 5, 15 + i))
+
+  it('spans a multi-day event across its columns', () => {
+    const e = make('a', { startDate: '2026-06-16', endDate: '2026-06-18' })
+    const [seg] = layoutWeek(week, [e])
+    expect(seg.startCol).toBe(1) // Tuesday
+    expect(seg.span).toBe(3) // Tue–Thu
+    expect(seg.lane).toBe(0)
+    expect(seg.continuesLeft).toBe(false)
+    expect(seg.continuesRight).toBe(false)
+  })
+
+  it('clamps and flags an event that overflows the week edges', () => {
+    const e = make('a', { startDate: '2026-06-10', endDate: '2026-06-25' })
+    const [seg] = layoutWeek(week, [e])
+    expect(seg.startCol).toBe(0)
+    expect(seg.span).toBe(7)
+    expect(seg.continuesLeft).toBe(true)
+    expect(seg.continuesRight).toBe(true)
+  })
+
+  it('pushes overlapping events onto separate lanes', () => {
+    const a = make('a', { startDate: '2026-06-15', endDate: '2026-06-17' })
+    const b = make('b', { startDate: '2026-06-16', endDate: '2026-06-18' })
+    const segs = layoutWeek(week, [a, b])
+    expect(segs.map(s => s.lane).sort()).toEqual([0, 1])
+  })
+
+  it('reuses a lane when events do not overlap', () => {
+    const a = make('a', { startDate: '2026-06-15', endDate: '2026-06-16' })
+    const b = make('b', { startDate: '2026-06-18', endDate: '2026-06-19' })
+    const segs = layoutWeek(week, [a, b])
+    expect(segs.every(s => s.lane === 0)).toBe(true)
+  })
+
+  it('ignores events outside the week', () => {
+    const e = make('a', { startDate: '2026-07-01' })
+    expect(layoutWeek(week, [e])).toHaveLength(0)
+  })
+})
+
+describe('dayDiff', () => {
+  it('counts whole days between dates', () => {
+    expect(dayDiff(new Date(2026, 5, 15), new Date(2026, 5, 18))).toBe(3)
+    expect(dayDiff(new Date(2026, 5, 18), new Date(2026, 5, 15))).toBe(-3)
+    expect(dayDiff(new Date(2026, 5, 15), new Date(2026, 5, 15))).toBe(0)
   })
 })
 

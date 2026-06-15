@@ -148,6 +148,70 @@ export function sameDay(a: Date, b: Date): boolean {
   return startOfDay(a).getTime() === startOfDay(b).getTime()
 }
 
+const MS_PER_DAY = 86_400_000
+
+/** Whole-day distance from `from` to `to` (negative if `to` is earlier). */
+export function dayDiff(from: Date, to: Date): number {
+  return Math.round((startOfDay(to).getTime() - startOfDay(from).getTime()) / MS_PER_DAY)
+}
+
+export interface EventSegment {
+  event: NormalizedEvent
+  /** Column index within the week, 0 (Monday) … 6 (Sunday). */
+  startCol: number
+  /** Number of columns this bar spans within the week, 1 … 7. */
+  span: number
+  /** Stacking row so overlapping events don't collide. */
+  lane: number
+  /** Event began before this week (bar should look open on the left). */
+  continuesLeft: boolean
+  /** Event ends after this week (bar should look open on the right). */
+  continuesRight: boolean
+}
+
+/**
+ * Lay out a single week's events as horizontal bars. A multi-day event becomes
+ * one segment spanning its days; events that would overlap on a row are pushed
+ * to a lower lane. Longer events are placed first so they form stable base rows.
+ */
+export function layoutWeek(week: Date[], events: NormalizedEvent[]): EventSegment[] {
+  const weekStart = startOfDay(week[0])
+  const weekEnd = startOfDay(week[week.length - 1])
+
+  const overlapping = events
+    .filter(e => e.end >= weekStart && e.start <= weekEnd)
+    .sort((a, b) =>
+      a.start.getTime() - b.start.getTime()
+      || (b.end.getTime() - b.start.getTime()) - (a.end.getTime() - a.start.getTime()),
+    )
+
+  const lanes: EventSegment[][] = []
+  const segments: EventSegment[] = []
+
+  for (const event of overlapping) {
+    const startCol = Math.max(0, dayDiff(weekStart, event.start))
+    const endCol = Math.min(6, dayDiff(weekStart, event.end))
+    const span = endCol - startCol + 1
+
+    let lane = 0
+    while (lanes[lane]?.some(s => startCol <= s.startCol + s.span - 1 && endCol >= s.startCol))
+      lane++
+
+    const segment: EventSegment = {
+      event,
+      startCol,
+      span,
+      lane,
+      continuesLeft: event.start < weekStart,
+      continuesRight: event.end > weekEnd,
+    }
+    ;(lanes[lane] ??= []).push(segment)
+    segments.push(segment)
+  }
+
+  return segments
+}
+
 export function cityFacets(events: NormalizedEvent[]): Facet[] {
   return tally(events, e => [e.city])
 }

@@ -2,6 +2,12 @@
   "type": "module",
   "private": true,
   "packageManager": "pnpm@10.30.3",
+  "homepage": "https://github.com/LittleSound/techevent-cn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LittleSound/techevent-cn.git"
+  },
+  "bugs": "https://github.com/LittleSound/techevent-cn/issues",
   "scripts": {
     "build": "pnpm gen:ics && vite build",
     "dev": "vite --port 3333 --open",

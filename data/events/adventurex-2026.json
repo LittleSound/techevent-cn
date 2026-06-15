@@ -1,12 +1,13 @@
 {
   "name": "AdventureX 2026",
-  "description": "中国规模领先的青年黑客松，聚集学生与年轻开发者在数天内从零做出项目。",
+  "description": "中国最大的青年黑客松，约 800 名创造者在 5 天内从 0 到 1 完成软硬件项目，提供食宿与硬件资源，对所有人免费。",
   "startDate": "2026-07-22",
   "endDate": "2026-07-26",
   "city": "杭州",
   "country": "中国",
+  "venue": "杭州未来科技城 · 学术交流中心",
   "format": "offline",
   "url": "https://adventure-x.org/",
-  "tags": ["hackathon", "youth", "maker", "ai"],
+  "tags": ["hackathon", "youth", "student", "maker", "ai"],
   "organizer": "AdventureX"
 }

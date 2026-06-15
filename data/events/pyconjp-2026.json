@@ -1,12 +1,13 @@
 {
   "name": "PyCon JP 2026",
-  "description": "日本最大的 Python 社区大会。虽不在中国，但距离近、内容有趣，适合顺路参加。",
-  "startDate": "2026-09-26",
-  "endDate": "2026-09-27",
-  "city": "东京",
+  "description": "日本最大的 Python 社区大会，2026 年继续在广岛举办，会场就在和平纪念公园旁。不在中国，但距离近、适合顺路参加。",
+  "startDate": "2026-08-21",
+  "endDate": "2026-08-22",
+  "city": "广岛",
   "country": "日本",
+  "venue": "広島国際会議場 (International Conference Center Hiroshima)",
   "format": "offline",
-  "url": "https://pycon.jp/",
+  "url": "https://2026.pycon.jp/",
   "tags": ["python", "community"],
   "organizer": "PyCon JP Association"
 }

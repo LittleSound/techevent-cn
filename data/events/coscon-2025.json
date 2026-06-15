@@ -1,0 +1,13 @@
+{
+  "name": "COSCon'25 第十届中国开源年会",
+  "description": "开源社主办的中国开源年会最近一届，2025 年在北京举办，主题「众智开源」，聚焦 AI 与开源融合。2026 年场次待官方公布。",
+  "startDate": "2025-12-06",
+  "endDate": "2025-12-07",
+  "city": "北京",
+  "country": "中国",
+  "venue": "北京丽亭华苑酒店",
+  "format": "offline",
+  "url": "https://kaiyuanshe.cn/",
+  "tags": ["opensource", "community", "ai"],
+  "organizer": "开源社 KAIYUANSHE"
+}

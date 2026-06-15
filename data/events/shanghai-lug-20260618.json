@@ -1,0 +1,12 @@
+{
+  "name": "SHLUG Hacking Thursday Night",
+  "description": "上海 Linux 用户组（SHLUG）的每周四线下聚会，闲聊式聚餐交流 Linux 与开源话题，欢迎新朋友。具体安排以每周邮件列表公告为准。",
+  "startDate": "2026-06-18",
+  "city": "上海",
+  "country": "中国",
+  "venue": "星巴克臻选上海烘焙坊（南京西路 789 号兴业太古汇二楼）",
+  "format": "offline",
+  "url": "https://www.shlug.org/",
+  "tags": ["linux", "opensource", "meetup", "foss", "community"],
+  "organizer": "Shanghai Linux User Group (SHLUG)"
+}

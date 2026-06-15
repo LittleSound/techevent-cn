@@ -1,0 +1,12 @@
+{
+  "name": "PyCon China 2025",
+  "description": "中国 Python 开发者大会最近一届，2025 年在上海举办，聚焦 AI 时代 Python 生态与工程实践。2026 年场次待官方公布。",
+  "startDate": "2025-09-20",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海对外经贸大学",
+  "format": "offline",
+  "url": "https://cn.pycon.org/2025/",
+  "tags": ["python", "community", "ai"],
+  "organizer": "PyChina 社区"
+}

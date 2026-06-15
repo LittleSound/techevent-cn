@@ -1,0 +1,11 @@
+{
+  "name": "FEDAY 2025",
+  "description": "前端圈主办的前端技术大会最近一届，2025 年在长沙举办，主题「前端，不止于 AI」。2026 年场次待官方公布。",
+  "startDate": "2025-12-20",
+  "city": "长沙",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://www.fequan.com/2025/",
+  "tags": ["frontend", "web", "javascript", "ai"],
+  "organizer": "前端圈"
+}

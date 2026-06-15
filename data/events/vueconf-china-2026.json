@@ -1,0 +1,12 @@
+{
+  "name": "Vue × Vite 开发者大会 2026 (VueConf China)",
+  "description": "Vue.js 官方主办的开发者大会，2026 年移师上海，可与尤雨溪及 Vue / Vite 生态核心成员面对面交流。",
+  "startDate": "2026-07-18",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海东方万国会议中心宴会厅",
+  "format": "offline",
+  "url": "https://vueconf.cn/",
+  "tags": ["vue", "vite", "vueconf", "frontend", "javascript", "typescript"],
+  "organizer": "Vue.js 官方"
+}

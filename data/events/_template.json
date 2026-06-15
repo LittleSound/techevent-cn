@@ -1,0 +1,13 @@
+{
+  "name": "活动名称 Event Name",
+  "description": "一两句话简介，可省略。",
+  "startDate": "2026-01-01",
+  "endDate": "2026-01-02",
+  "city": "上海",
+  "country": "中国",
+  "venue": "具体场馆，可省略",
+  "format": "offline",
+  "url": "https://example.com/",
+  "tags": ["关键词", "lowercase"],
+  "organizer": "主办方，可省略"
+}

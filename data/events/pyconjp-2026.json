@@ -1,0 +1,12 @@
+{
+  "name": "PyCon JP 2026",
+  "description": "日本最大的 Python 社区大会。虽不在中国，但距离近、内容有趣，适合顺路参加。",
+  "startDate": "2026-09-26",
+  "endDate": "2026-09-27",
+  "city": "东京",
+  "country": "日本",
+  "format": "offline",
+  "url": "https://pycon.jp/",
+  "tags": ["python", "community"],
+  "organizer": "PyCon JP Association"
+}

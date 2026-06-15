@@ -1,0 +1,12 @@
+{
+  "name": "COSCon 2026 中国开源年会",
+  "description": "开源社主办的中国开源年会，覆盖开源治理、社区运营、AI 与各类开源项目分享。",
+  "startDate": "2026-11-07",
+  "endDate": "2026-11-08",
+  "city": "北京",
+  "country": "中国",
+  "format": "hybrid",
+  "url": "https://kaiyuanshe.cn/activity/coscon",
+  "tags": ["opensource", "community", "ai"],
+  "organizer": "开源社 KAIYUANSHE"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "上海 Linux 用户组 7 月线下聚会",
+  "description": "上海 LUG 的常规线下聚会，自由分享 Linux、开源软件与自托管相关话题，欢迎新朋友。",
+  "startDate": "2026-07-12",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://www.shlug.org/",
+  "tags": ["linux", "opensource", "meetup", "selfhosting"],
+  "organizer": "Shanghai Linux User Group"
+}

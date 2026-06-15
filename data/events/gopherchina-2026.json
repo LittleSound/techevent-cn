@@ -1,0 +1,12 @@
+{
+  "name": "GopherChina 2026",
+  "description": "中国最具影响力的 Go 语言技术大会，聚焦云原生、高并发服务与 Go 工程实践。",
+  "startDate": "2026-06-20",
+  "endDate": "2026-06-21",
+  "city": "上海",
+  "country": "中国",
+  "format": "hybrid",
+  "url": "https://gopherchina.org/",
+  "tags": ["go", "golang", "cloud-native", "backend"],
+  "organizer": "GopherChina"
+}

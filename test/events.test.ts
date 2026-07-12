@@ -40,6 +40,11 @@ describe('normalizeEvent', () => {
     expect(e.tags).toEqual(['vue', 'frontend'])
     expect(e.end.getDate()).toBe(22)
   })
+
+  it('preserves provenance sources', () => {
+    const e = make('a', { sources: ['https://example.com/announcement'] })
+    expect(e.sources).toEqual(['https://example.com/announcement'])
+  })
 })
 
 describe('filterEvents', () => {

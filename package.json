@@ -10,7 +10,7 @@
   "bugs": "https://github.com/LittleSound/techevent-cn/issues",
   "scripts": {
     "build": "pnpm gen:ics && vite build",
-    "dev": "vite --port 3333 --open",
+    "dev": "vite --port 60086",
     "gen:ics": "node scripts/generate-ics.mjs",
     "lint": "eslint .",
     "typecheck": "vue-tsc",

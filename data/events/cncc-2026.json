@@ -1,0 +1,14 @@
+{
+  "name": "CNCC 2026 中国计算机大会",
+  "description": "中国计算机学会（CCF）主办的年度旗舰学术会议，主题「数聚驱动，智算未来」，涵盖大数据、智能计算等前沿领域的特邀报告与专题论坛。",
+  "startDate": "2026-10-21",
+  "endDate": "2026-10-24",
+  "city": "成都",
+  "country": "中国",
+  "venue": "中国西部国际博览城 & 天府国际会议中心",
+  "format": "offline",
+  "url": "https://www.ccf.org.cn/Media_list/cncc/",
+  "tags": ["academic", "computer-science", "ai", "conference"],
+  "organizer": "中国计算机学会 CCF",
+  "sources": ["https://www.ccf.org.cn/Media_list/cncc/"]
+}

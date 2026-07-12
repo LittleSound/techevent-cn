@@ -1,0 +1,14 @@
+{
+  "name": "Open Source Summit Korea 2026",
+  "description": "Linux 基金会主办的开源开发者峰会韩国场，汇聚全球开源贡献者，围绕 Linux、云原生、AI 等议题展开技术分享。",
+  "startDate": "2026-08-11",
+  "endDate": "2026-08-12",
+  "city": "首尔",
+  "country": "韩国",
+  "venue": "Grand InterContinental Seoul Parnas",
+  "format": "offline",
+  "url": "https://events.linuxfoundation.org/open-source-summit-korea/",
+  "tags": ["opensource", "linux", "cloud-native", "conference"],
+  "organizer": "Linux Foundation",
+  "sources": ["https://events.linuxfoundation.org/open-source-summit-korea/"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "KCD x Ceph x OpenInfra Day Korea 2026",
+  "description": "由 Kubernetes、Ceph 分布式存储社区与 OpenInfra 社区联合主办的韩国云原生技术大会。",
+  "startDate": "2026-09-01",
+  "endDate": "2026-09-01",
+  "city": "首尔",
+  "country": "韩国",
+  "venue": "백범김구기념관 (Baekbeom Kim Koo Memorial Hall)",
+  "format": "offline",
+  "url": "https://community2.cncf.io/events/details/cncf-kcd-south-korea-presents-kcd-x-ceph-x-openinfra-day-korea-2026/",
+  "tags": ["cloud-native", "kubernetes", "cncf", "openinfra", "conference"],
+  "organizer": "CNCF KCD South Korea / Ceph 社区 / OpenInfra 社区",
+  "sources": ["https://community2.cncf.io/events/details/cncf-kcd-south-korea-presents-kcd-x-ceph-x-openinfra-day-korea-2026/"]
+}

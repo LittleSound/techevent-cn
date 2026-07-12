@@ -1,0 +1,16 @@
+{
+  "name": "PyCon Korea 2026",
+  "description": "韩国最大的 Python 社区年度大会，在首尔举办，汇聚韩国及周边地区的 Python 开发者与爱好者。",
+  "startDate": "2026-08-15",
+  "endDate": "2026-08-17",
+  "city": "首尔",
+  "country": "韩国",
+  "format": "offline",
+  "url": "https://2026.pycon.kr/",
+  "tags": ["python", "pycon", "community", "conference"],
+  "organizer": "PyCon Korea 组委会",
+  "sources": [
+    "https://www.python.org/events/python-events/2176/",
+    "https://2026.pycon.kr/"
+  ]
+}

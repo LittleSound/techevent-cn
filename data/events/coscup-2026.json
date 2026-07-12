@@ -1,0 +1,17 @@
+{
+  "name": "COSCUP 2026 x UbuCon Asia",
+  "description": "台湾最大的开源社群年会，2026 年与 UbuCon Asia 联合举办，汇聚亚洲各地开源开发者、教育者与爱好者。",
+  "startDate": "2026-08-08",
+  "endDate": "2026-08-09",
+  "city": "台北",
+  "country": "中国",
+  "venue": "国立台湾科技大学 (NTUST)",
+  "format": "offline",
+  "url": "https://coscup.org/2026/en/",
+  "tags": ["opensource", "community", "ubuntu", "conference"],
+  "organizer": "COSCUP 筹备团队 / UbuCon Asia",
+  "sources": [
+    "https://coscup.org/2026/en/",
+    "https://www.lpi.org/event/coscup-26/"
+  ]
+}

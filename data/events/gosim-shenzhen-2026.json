@@ -7,7 +7,7 @@
   "country": "中国",
   "format": "offline",
   "url": "https://shenzhen2026.gosim.org/",
-  "tags": ["open-source", "ai", "robotics", "gosim", "conference"],
+  "tags": ["opensource", "ai", "robotics", "gosim", "conference"],
   "organizer": "GOSIM Foundation",
   "sources": ["https://shenzhen2026.gosim.org/"]
 }

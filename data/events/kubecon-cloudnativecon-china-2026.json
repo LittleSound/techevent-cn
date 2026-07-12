@@ -1,0 +1,17 @@
+{
+  "name": "KubeCon + CloudNativeCon + OpenInfra Summit + PyTorch Conference China 2026",
+  "description": "CNCF、OpenInfra 基金会与 PyTorch 基金会在中国联合举办的云原生与 AI 基础设施旗舰大会，OpenInfra Days China 系列已并入本次联合大会。",
+  "startDate": "2026-09-07",
+  "endDate": "2026-09-09",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海国际会议中心",
+  "format": "offline",
+  "url": "https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-china/",
+  "tags": ["cloud-native", "kubernetes", "kubecon", "cncf", "openinfra", "pytorch", "ai", "conference"],
+  "organizer": "CNCF / OpenInfra Foundation / PyTorch Foundation",
+  "sources": [
+    "https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-china/",
+    "https://www.cncf.io/announcements/2026/06/18/kubecon-cloudnativecon-openinfra-summit-and-pytorch-conference-unite-in-china-to-scale-ai/"
+  ]
+}

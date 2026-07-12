@@ -1,0 +1,13 @@
+{
+  "name": "GOSIM Shenzhen 2026",
+  "description": "全球开源创新峰会深圳站，聚焦 AI、机器人、开放模型等领域的前沿开源技术与实践。",
+  "startDate": "2026-10-16",
+  "endDate": "2026-10-17",
+  "city": "深圳",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://shenzhen2026.gosim.org/",
+  "tags": ["open-source", "ai", "robotics", "gosim", "conference"],
+  "organizer": "GOSIM Foundation",
+  "sources": ["https://shenzhen2026.gosim.org/"]
+}

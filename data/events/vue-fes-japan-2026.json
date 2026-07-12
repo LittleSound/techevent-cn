@@ -1,0 +1,13 @@
+{
+  "name": "Vue Fes Japan 2026",
+  "description": "日本地区最大的 Vue.js 社区大会，汇聚 Vue 核心团队成员与本地生态开发者分享最新实践。",
+  "startDate": "2026-10-24",
+  "city": "东京",
+  "country": "日本",
+  "venue": "Otemachi PLACE HALL & CONFERENCE",
+  "format": "offline",
+  "url": "https://vuefes.jp/2026/en",
+  "tags": ["vue", "javascript", "frontend", "vuefes", "conference"],
+  "organizer": "Vue Fes Japan 实行委员会",
+  "sources": ["https://vuefes.jp/2026/en"]
+}

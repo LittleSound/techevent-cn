@@ -1,0 +1,17 @@
+{
+  "name": "2026世界机器人大会 (World Robot Conference 2026)",
+  "description": "由多部委与北京市政府联合主办的年度机器人产业盛会，涵盖主论坛、专题论坛、博览会及机器人大赛，聚焦具身智能与人形机器人等前沿技术。",
+  "startDate": "2026-08-19",
+  "endDate": "2026-08-23",
+  "city": "北京",
+  "country": "中国",
+  "venue": "北京经济技术开发区北人亦创国际会展中心",
+  "format": "offline",
+  "url": "https://www.worldrobotconference.com/",
+  "tags": ["robotics", "embodied-ai", "ai", "conference"],
+  "organizer": "工业和信息化部、中国科协、北京市人民政府等",
+  "sources": [
+    "https://www.worldrobotconference.com/",
+    "https://www.ncsti.gov.cn/kjdt/kjrd/202607/t20260707_250855.html"
+  ]
+}

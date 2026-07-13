@@ -1,0 +1,14 @@
+{
+  "name": "2026 TCT 深圳 3D 打印展",
+  "description": "华南 3D 打印与增材制造旗舰展会，汇聚 250+ 家全球展商与 80+ 场专业论坛，覆盖工业级到消费级 3D 打印全产业链。",
+  "startDate": "2026-10-14",
+  "endDate": "2026-10-16",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "深圳国际会展中心（宝安）15号馆",
+  "format": "offline",
+  "url": "https://www.tctasia.cn/",
+  "tags": ["3dprinting", "additive-manufacturing", "tct", "expo", "hardware"],
+  "organizer": "TCT Group / 上海万耀科迅展览有限公司",
+  "sources": ["https://www.tctasia.cn/shenzhennews/2376.shtml", "https://www.tctasia.cn/"]
+}

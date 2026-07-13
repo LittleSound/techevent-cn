@@ -1,0 +1,17 @@
+{
+  "name": "Formnext Asia Shenzhen 2026",
+  "description": "德国 Formnext 的亚洲子展，深圳国际 3D 打印、增材制造及精密成型展览会，覆盖设备、材料、软件与工业应用全产业链。",
+  "startDate": "2026-08-26",
+  "endDate": "2026-08-28",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "深圳国际会展中心（宝安）",
+  "format": "offline",
+  "url": "https://formnext-sz.hk.messefrankfurt.com/shenzhen/en.html",
+  "tags": ["3dprinting", "additive-manufacturing", "formnext", "expo", "hardware"],
+  "organizer": "Messe Frankfurt / 广州光亚法兰克福展览有限公司",
+  "sources": [
+    "https://formnext-sz.hk.messefrankfurt.com/shenzhen/en.html",
+    "https://formnextasia.gymf.com.cn/"
+  ]
+}

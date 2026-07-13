@@ -1,0 +1,14 @@
+{
+  "name": "TCT 亚洲展 2027 (TCT Asia)",
+  "description": "亚洲最大的 3D 打印与增材制造专业展会，2027 年移师浦东，展览面积横跨上海新国际博览中心 N1–N5 五个展馆。",
+  "startDate": "2027-05-27",
+  "endDate": "2027-05-29",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海新国际博览中心（浦东）N1-N5",
+  "format": "offline",
+  "url": "https://www.tctasia.cn/",
+  "tags": ["3dprinting", "additive-manufacturing", "tct", "expo", "hardware"],
+  "organizer": "TCT Group / 上海万耀科迅展览有限公司",
+  "sources": ["https://www.tctasia.cn/", "https://www.tctmagazine.com/events/tct-asia-2027/"]
+}

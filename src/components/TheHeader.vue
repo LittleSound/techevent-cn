@@ -18,7 +18,7 @@ const webcalUrl = computed(() => `webcal://${location.host}${calendarUrl}`)
     </div>
 
     <nav flex="~ items-center gap-4">
-      <div relative>
+      <div inline-flex relative>
         <button class="icon-btn" title="订阅日历" @click="subscribeOpen = !subscribeOpen">
           <div i-carbon-calendar-add />
         </button>

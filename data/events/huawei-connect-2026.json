@@ -1,0 +1,14 @@
+{
+  "name": "华为全联接大会 2026 (HUAWEI CONNECT 2026)",
+  "description": "华为面向全球客户与合作伙伴举办的年度旗舰 ICT 大会，聚焦云计算、AI 算力、数字化转型等技术方向，含大量开发者向分论坛。",
+  "startDate": "2026-09-17",
+  "endDate": "2026-09-19",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海世博展览馆 / 上海世博中心",
+  "format": "offline",
+  "url": "https://www.huawei.com/cn/events/huaweiconnect",
+  "tags": ["cloud", "ai", "enterprise", "conference"],
+  "organizer": "华为",
+  "sources": ["https://www.huawei.com/cn/events/huaweiconnect"]
+}

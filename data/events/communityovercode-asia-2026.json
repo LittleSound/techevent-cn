@@ -1,0 +1,14 @@
+{
+  "name": "Community Over Code Asia 2026",
+  "description": "Apache 软件基金会亚洲区旗舰开发者大会，覆盖开源社区治理、消息中间件、数据与 AI 等多个技术方向。",
+  "startDate": "2026-08-07",
+  "endDate": "2026-08-09",
+  "city": "北京",
+  "country": "中国",
+  "venue": "中关村国家自主创新示范区会议中心",
+  "format": "offline",
+  "url": "https://asia.communityovercode.org/",
+  "tags": ["opensource", "apache", "community-over-code", "conference"],
+  "organizer": "Apache Software Foundation / ALC Beijing",
+  "sources": ["https://asia.communityovercode.org/"]
+}

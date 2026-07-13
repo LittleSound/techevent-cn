@@ -1,0 +1,14 @@
+{
+  "name": "AWS Community Day Hong Kong 2026",
+  "description": "由 AWS 用户社群主导的技术大会香港场，涵盖云计算、DevOps 等主题的技术分享与实践案例。",
+  "startDate": "2026-10-24",
+  "endDate": "2026-10-24",
+  "city": "香港",
+  "country": "中国",
+  "venue": "VTC Auditorium",
+  "format": "offline",
+  "url": "https://awscommunity.hk/",
+  "tags": ["aws", "cloud", "community", "conference"],
+  "organizer": "AWS User Group Hong Kong",
+  "sources": ["https://awscommunity.hk/"]
+}

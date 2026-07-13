@@ -1,0 +1,15 @@
+{
+  "name": "Google DevFest 2026 Shanghai",
+  "description": "GDG 上海主办的年度开发者大会，主题「超越模型，为真实而构建」，聚焦 AI 系统的可靠落地与基础设施优化。",
+  "startDate": "2026-11-07",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-shanghai-presents-google-devfest-2026-shanghai/",
+  "tags": ["ai", "gdg", "devfest", "community", "meetup"],
+  "organizer": "GDG Shanghai",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-shanghai-presents-google-devfest-2026-shanghai/",
+    "https://gdg.community.dev/gdg-shanghai/"
+  ]
+}

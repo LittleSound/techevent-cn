@@ -9,5 +9,6 @@
   "format": "offline",
   "url": "https://example.com/",
   "tags": ["关键词", "lowercase"],
-  "organizer": "主办方，可省略"
+  "organizer": "主办方，可省略",
+  "sources": ["https://example.com/官方发布页，记录数据出处，可省略"]
 }

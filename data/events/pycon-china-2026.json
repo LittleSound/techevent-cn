@@ -1,0 +1,12 @@
+{
+  "name": "PyCon China 2026（上海站）",
+  "description": "中国 Python 社区年度大会上海场，主题围绕 AI 时代下的 Python 应用与生态展开；深圳场日期待官宣。",
+  "startDate": "2026-09-05",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://cn.pycon.org/2026/en/",
+  "tags": ["python", "pycon", "ai", "conference"],
+  "organizer": "PyCon China 组委会",
+  "sources": ["https://cn.pycon.org/2026/en/"]
+}

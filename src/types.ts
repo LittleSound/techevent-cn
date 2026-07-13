@@ -28,6 +28,8 @@ export interface TechEvent {
   tags?: string[]
   /** Hosting organization or community. */
   organizer?: string
+  /** Provenance URLs (official site, announcement post) the data was verified against. Not rendered in the UI. */
+  sources?: string[]
 }
 
 export type EventFormat = 'offline' | 'online' | 'hybrid'
@@ -46,6 +48,8 @@ export interface NormalizedEvent {
   url: string
   tags: string[]
   organizer?: string
+  /** Provenance URLs (official site, announcement post) the data was verified against. Not rendered in the UI. */
+  sources?: string[]
   /** Parsed `startDate`, set to local midnight. */
   start: Date
   /** Parsed `endDate` (or `startDate`), set to local midnight. */

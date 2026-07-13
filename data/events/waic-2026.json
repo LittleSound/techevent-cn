@@ -1,0 +1,17 @@
+{
+  "name": "2026世界人工智能大会 (WAIC 2026)",
+  "description": "由多部委与上海市政府联合主办的年度人工智能盛会，涵盖论坛、展览、大赛及人才招聘等内容。",
+  "startDate": "2026-07-17",
+  "endDate": "2026-07-20",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海世博展览馆 / 世博中心 / 张江 / 西岸",
+  "format": "offline",
+  "url": "https://www.worldaic.com.cn/",
+  "tags": ["ai", "artificial-intelligence", "waic", "conference"],
+  "organizer": "国家发展改革委、工业和信息化部、科学技术部、上海市人民政府等",
+  "sources": [
+    "https://www.worldaic.com.cn/",
+    "https://business.cctv.com/2026/06/18/ARTIqtjxJlq4F4cdSJH9RPBa260618.shtml"
+  ]
+}

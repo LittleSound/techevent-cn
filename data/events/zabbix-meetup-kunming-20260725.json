@@ -1,0 +1,12 @@
+{
+  "name": "Zabbix Meetup 昆明",
+  "description": "Zabbix 开源监控社区首次落地云南，汇聚 Zabbix 技术专家与行业实践者分享技术趋势与实践经验。",
+  "startDate": "2026-07-25",
+  "city": "昆明",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://www.zabbix.com/events",
+  "tags": ["zabbix", "opensource", "monitoring", "meetup"],
+  "organizer": "Zabbix 社区",
+  "sources": ["https://www.zabbix.com/events"]
+}

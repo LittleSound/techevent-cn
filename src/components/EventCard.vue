@@ -69,7 +69,7 @@ const taggedChips = computed(() =>
 
         text-xs px-2 py-0.5 rounded op80 inline-flex gap-1 items-center
       >
-        <div v-if="def" :class="def.icon" text-xs :style="{ color: def.color }" />
+        <div v-if="def" :class="def.icon" class="ev-icon-tinted" text-xs :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
         {{ tag }}
       </span>
     </div>
@@ -78,8 +78,8 @@ const taggedChips = computed(() =>
       <div
         v-for="def in theme.icons.slice(1).reverse()"
         :key="def.icon"
-        :class="def.icon"
-        :style="{ fontSize: '58px', marginRight: '-18px', marginBottom: '6px', color: def.color }"
+        class="ev-icon-tinted" :class="[def.icon]"
+        :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }"
       />
       <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
     </div>

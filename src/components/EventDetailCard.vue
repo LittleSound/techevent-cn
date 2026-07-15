@@ -11,13 +11,16 @@ const formatLabel: Record<NormalizedEvent['format'], string> = {
   hybrid: '线上+线下',
 }
 
+/** Resolved theme (primary icon/color + up to 2 secondary icons) for this event's tags, or null if none matched. */
 const theme = computed(() => resolveEventTheme(event))
 
+/** Inline CSS vars feeding .ev-themed; undefined keeps the plain card. */
 const themeStyle = computed(() => theme.value && {
   '--ev-color': theme.value.primary.color,
   '--ev-color-dark': theme.value.primary.colorDark ?? theme.value.primary.color,
 })
 
+/** Each tag paired with its icon definition (if any) for rendering the tag chips. */
 const taggedChips = computed(() =>
   event.tags.map(tag => ({ tag, def: tagIconFor(tag) })),
 )
@@ -55,7 +58,7 @@ const taggedChips = computed(() =>
         :key="tag"
         class="text-xs px-2 py-0.5 rounded bg-gray-100 op80 inline-flex gap-1 items-center dark:bg-gray-800"
       >
-        <div v-if="def" :class="def.icon" class="text-xs" :style="{ color: def.color }" />
+        <div v-if="def" :class="[def.icon]" class="ev-icon-tinted text-xs" :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
         {{ tag }}
       </span>
     </div>

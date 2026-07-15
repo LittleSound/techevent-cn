@@ -77,7 +77,17 @@ html.dark .ev-bar:hover {
   background: color-mix(in srgb, var(--ev-c) 32%, transparent);
 }
 .ev-bar-selected,
-html.dark .ev-bar-selected {
+.ev-bar-selected:hover,
+html.dark .ev-bar-selected,
+html.dark .ev-bar-selected:hover {
   background: var(--ev-c);
   color: white;
+}
+
+/* Per-icon color that follows the color scheme (chips, secondary watermark icons). */
+.ev-icon-tinted {
+  color: var(--ev-icon-c);
+}
+html.dark .ev-icon-tinted {
+  color: var(--ev-icon-c-dark, var(--ev-icon-c));
 }

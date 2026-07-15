@@ -9,6 +9,12 @@ catalogs:
     '@iconify-json/carbon':
       specifier: ^1.2.19
       version: 1.2.19
+    '@iconify-json/mdi':
+      specifier: ^1.2.3
+      version: 1.2.3
+    '@iconify-json/simple-icons':
+      specifier: ^1.2.60
+      version: 1.2.90
     '@vitejs/plugin-vue':
       specifier: ^6.0.4
       version: 6.0.4
@@ -102,6 +108,12 @@ importers:
       '@iconify-json/carbon':
         specifier: catalog:build
         version: 1.2.19
+      '@iconify-json/mdi':
+        specifier: catalog:build
+        version: 1.2.3
+      '@iconify-json/simple-icons':
+        specifier: catalog:build
+        version: 1.2.90
       '@types/node':
         specifier: catalog:dev
         version: 25.3.3
@@ -767,6 +779,12 @@ packages:
 
   '@iconify-json/carbon@1.2.19':
     resolution: {integrity: sha512-l89XjtEeSA5fxlxPTNSU9AA+rxaz/Dn0X/ux0/3awR+tAayY8iJqWQu3AKxhchfx3LB/fX1Nv3ZppZzrBAt7aA==}
+
+  '@iconify-json/mdi@1.2.3':
+    resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
+
+  '@iconify-json/simple-icons@1.2.90':
+    resolution: {integrity: sha512-zt2o2ZvQpHVvZJARIkZ51RnaHY2oqcPJMvHE+mVnxkSr+c33fnX4gciiXu+wyX5ei+s0qbVX1wD0DWBbaGBYMA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3953,6 +3971,14 @@ snapshots:
   '@humanwhocodes/retry@0.4.2': {}
 
   '@iconify-json/carbon@1.2.19':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.90':
     dependencies:
       '@iconify/types': 2.0.0
 

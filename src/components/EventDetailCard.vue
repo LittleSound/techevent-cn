@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NormalizedEvent } from '~/types'
+import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange } from '~/utils/format'
 
 const { event } = defineProps<{ event: NormalizedEvent }>()
@@ -9,12 +10,26 @@ const formatLabel: Record<NormalizedEvent['format'], string> = {
   online: '线上',
   hybrid: '线上+线下',
 }
+
+/** Resolved theme (primary icon/color + up to 2 secondary icons) for this event's tags, or null if none matched. */
+const theme = computed(() => resolveEventTheme(event))
+
+/** Inline CSS vars feeding .ev-themed; undefined keeps the plain card. */
+const themeStyle = computed(() => theme.value && {
+  '--ev-color': theme.value.primary.color,
+  '--ev-color-dark': theme.value.primary.colorDark ?? theme.value.primary.color,
+})
+
+/** Each tag paired with its icon definition (if any) for rendering the tag chips. */
+const taggedChips = computed(() =>
+  event.tags.map(tag => ({ tag, def: tagIconFor(tag) })),
+)
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2" :class="theme ? 'ev-themed' : ''" :style="themeStyle">
     <div class="flex gap-2 items-start justify-between">
-      <h3 class="text-base leading-snug font-600">
+      <h3 class="text-base leading-snug font-600" :class="theme ? 'ev-title-themed' : ''">
         {{ event.name }}
       </h3>
       <span class="text-xs op70 shrink-0">{{ formatLabel[event.format] }}</span>
@@ -39,10 +54,11 @@ const formatLabel: Record<NormalizedEvent['format'], string> = {
 
     <div v-if="event.tags.length" class="flex flex-wrap gap-1.5">
       <span
-        v-for="tag in event.tags"
+        v-for="{ tag, def } in taggedChips"
         :key="tag"
-        class="text-xs px-2 py-0.5 rounded bg-gray-100 op80 dark:bg-gray-800"
+        class="text-xs px-2 py-0.5 rounded bg-gray-100 op80 inline-flex gap-1 items-center dark:bg-gray-800"
       >
+        <div v-if="def" :class="[def.icon]" class="ev-icon-tinted text-xs" :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
         {{ tag }}
       </span>
     </div>
@@ -55,5 +71,9 @@ const formatLabel: Record<NormalizedEvent['format'], string> = {
     >
       前往官网 <div class="i-carbon-arrow-up-right" />
     </a>
+
+    <div v-if="theme" class="ev-watermark" aria-hidden="true">
+      <div :class="theme.primary.icon" :style="{ fontSize: '70px', color: 'var(--ev-c)' }" />
+    </div>
   </div>
 </template>

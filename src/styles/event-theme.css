@@ -1,0 +1,93 @@
+/*
+ * Theme-colored event styling (design option C2). Components set the
+ * `--ev-color` (+ optional `--ev-color-dark`) inline variables; everything
+ * else derives via color-mix. Colors are runtime data from tag-icons.ts,
+ * so they cannot be UnoCSS utility classes.
+ */
+.ev-themed {
+  --ev-c: var(--ev-color);
+  position: relative;
+  overflow: hidden;
+  /* Layering: content > watermark > glow > card background, enabled by isolation. */
+  isolation: isolate;
+  border-color: color-mix(in srgb, var(--ev-c) 33%, transparent);
+}
+/* Needs higher specificity than .dark .card rules from the card shortcut. */
+html.dark .ev-themed {
+  --ev-c: var(--ev-color-dark, var(--ev-color));
+  border-color: color-mix(in srgb, var(--ev-c) 33%, transparent);
+}
+html.dark .ev-themed:hover {
+  border-color: color-mix(in srgb, var(--ev-c) 60%, transparent);
+}
+.ev-themed:hover {
+  border-color: color-mix(in srgb, var(--ev-c) 60%, transparent);
+}
+
+/* Corner glow behind the watermark. */
+.ev-themed::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 200px;
+  height: 180px;
+  pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(
+    circle at bottom right,
+    color-mix(in srgb, var(--ev-c) 18%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.ev-title-themed {
+  color: var(--ev-c);
+}
+
+.ev-watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -16px;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: -1;
+}
+html.dark .ev-watermark {
+  opacity: 0.13;
+}
+
+/* Calendar event bar. */
+.ev-bar {
+  --ev-c: var(--ev-color);
+  background: color-mix(in srgb, var(--ev-c) 12%, transparent);
+  color: color-mix(in srgb, var(--ev-c) 80%, black);
+}
+.ev-bar:hover {
+  background: color-mix(in srgb, var(--ev-c) 20%, transparent);
+}
+html.dark .ev-bar {
+  --ev-c: var(--ev-color-dark, var(--ev-color));
+  background: color-mix(in srgb, var(--ev-c) 22%, transparent);
+  color: color-mix(in srgb, var(--ev-c) 75%, white);
+}
+html.dark .ev-bar:hover {
+  background: color-mix(in srgb, var(--ev-c) 32%, transparent);
+}
+.ev-bar-selected,
+.ev-bar-selected:hover,
+html.dark .ev-bar-selected,
+html.dark .ev-bar-selected:hover {
+  background: var(--ev-c);
+  color: white;
+}
+
+/* Per-icon color that follows the color scheme (chips, secondary watermark icons). */
+.ev-icon-tinted {
+  color: var(--ev-icon-c);
+}
+html.dark .ev-icon-tinted {
+  color: var(--ev-icon-c-dark, var(--ev-icon-c));
+}

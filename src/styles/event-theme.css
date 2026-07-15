@@ -8,6 +8,8 @@
   --ev-c: var(--ev-color);
   position: relative;
   overflow: hidden;
+  /* Layering: content > watermark > glow > card background, enabled by isolation. */
+  isolation: isolate;
   border-color: color-mix(in srgb, var(--ev-c) 33%, transparent);
 }
 /* Needs higher specificity than .dark .card rules from the card shortcut. */
@@ -31,6 +33,7 @@ html.dark .ev-themed:hover {
   width: 200px;
   height: 180px;
   pointer-events: none;
+  z-index: -2;
   background: radial-gradient(
     circle at bottom right,
     color-mix(in srgb, var(--ev-c) 18%, transparent) 0%,
@@ -50,6 +53,7 @@ html.dark .ev-themed:hover {
   align-items: flex-end;
   opacity: 0.16;
   pointer-events: none;
+  z-index: -1;
 }
 html.dark .ev-watermark {
   opacity: 0.13;

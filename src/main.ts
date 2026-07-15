@@ -4,6 +4,7 @@ import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 
 import './styles/main.css'
+import './styles/event-theme.css'
 import 'uno.css'
 
 const app = createApp(App)

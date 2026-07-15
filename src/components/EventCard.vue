@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NormalizedEvent } from '~/types'
+import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange, isPast } from '~/utils/format'
 
 const { event } = defineProps<{ event: NormalizedEvent }>()
@@ -11,6 +12,18 @@ const formatLabel: Record<NormalizedEvent['format'], string> = {
 }
 
 const past = computed(() => isPast(event.end))
+
+const theme = computed(() => resolveEventTheme(event))
+
+/** Inline CSS vars feeding .ev-themed; undefined keeps the plain card. */
+const themeStyle = computed(() => theme.value && {
+  '--ev-color': theme.value.primary.color,
+  '--ev-color-dark': theme.value.primary.colorDark ?? theme.value.primary.color,
+})
+
+const taggedChips = computed(() =>
+  event.tags.map(tag => ({ tag, def: tagIconFor(tag) })),
+)
 </script>
 
 <template>
@@ -20,10 +33,11 @@ const past = computed(() => isPast(event.end))
     rel="noopener"
     class="card"
     p-4 block
-    :class="past ? 'op60 hover:op100' : ''"
+    :class="[past ? 'op60 hover:op100' : '', theme ? 'ev-themed' : '']"
+    :style="themeStyle"
   >
     <div flex="~ items-start justify-between gap-3">
-      <h3 text-lg leading-snug font-600>
+      <h3 text-lg leading-snug font-600 :class="theme ? 'ev-title-themed' : ''">
         {{ event.name }}
       </h3>
       <span text-xs mt-1 op70 shrink-0>{{ formatLabel[event.format] }}</span>
@@ -47,9 +61,27 @@ const past = computed(() => isPast(event.end))
     </p>
 
     <div v-if="event.tags.length" mt-3 flex="~ wrap gap-1.5">
-      <span v-for="tag in event.tags" :key="tag" text-xs px-2 py-0.5 rounded bg="gray-100 dark:gray-800" op80>
+      <span
+        v-for="{ tag, def } in taggedChips"
+        :key="tag"
+
+        bg="gray-100 dark:gray-800"
+
+        text-xs px-2 py-0.5 rounded op80 inline-flex gap-1 items-center
+      >
+        <div v-if="def" :class="def.icon" text-xs :style="{ color: def.color }" />
         {{ tag }}
       </span>
+    </div>
+
+    <div v-if="theme" class="ev-watermark" aria-hidden="true">
+      <div
+        v-for="def in theme.icons.slice(1).reverse()"
+        :key="def.icon"
+        :class="def.icon"
+        :style="{ fontSize: '58px', marginRight: '-18px', marginBottom: '6px', color: def.color }"
+      />
+      <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
     </div>
   </a>
 </template>

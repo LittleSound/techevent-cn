@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NormalizedEvent } from '~/types'
 import { layoutWeek, monthMatrix, sameDay } from '~/utils/events'
+import { resolveEventTheme } from '~/utils/eventTheme'
 
 const { events, initialDate } = defineProps<{
   events: NormalizedEvent[]
@@ -31,6 +32,11 @@ const weeks = computed(() =>
     const lanes = segments.reduce((max, s) => Math.max(max, s.lane + 1), 0)
     return { cells, segments, lanes }
   }),
+)
+
+/** One lookup per event id; segments of multi-week events share the entry. */
+const themeById = computed(() =>
+  new Map(events.map(e => [e.id, resolveEventTheme(e)])),
 )
 
 function shiftMonth(delta: number) {
@@ -173,18 +179,31 @@ watch(cursor, close)
             type="button"
             class="text-[10px] leading-4.5 mx-0.5 px-1 text-left block truncate transition sm:text-xs sm:leading-5"
             :class="[
-              selected === seg.event
-                ? 'bg-teal-600 text-white'
-                : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70',
+              themeById.get(seg.event.id)
+                ? (selected === seg.event ? 'ev-bar ev-bar-selected' : 'ev-bar')
+                : (selected === seg.event
+                  ? 'bg-teal-600 text-white'
+                  : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70'),
               seg.continuesLeft ? 'rounded-l-none' : 'rounded-l',
               seg.continuesRight ? 'rounded-r-none' : 'rounded-r',
             ]"
-            :style="{ gridColumn: `${seg.startCol + 1} / span ${seg.span}`, gridRow: seg.lane + 2 }"
+            :style="{
+              'gridColumn': `${seg.startCol + 1} / span ${seg.span}`,
+              'gridRow': seg.lane + 2,
+              '--ev-color': themeById.get(seg.event.id)?.primary.color,
+              '--ev-color-dark': themeById.get(seg.event.id)?.primary.colorDark
+                ?? themeById.get(seg.event.id)?.primary.color,
+            }"
             :title="seg.event.name"
             @mouseenter="onChipEnter(seg.event, $event.currentTarget)"
             @mouseleave="scheduleClose()"
             @click="onChipClick(seg.event, $event.currentTarget)"
           >
+            <div
+              v-if="themeById.get(seg.event.id) && !seg.continuesLeft"
+              :class="themeById.get(seg.event.id)!.primary.icon"
+              class="text-[11px] mr-0.5 align-[-2px] inline-block sm:text-xs"
+            />
             {{ seg.continuesLeft ? '◂ ' : '' }}{{ seg.event.name }}
           </button>
         </div>

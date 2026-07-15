@@ -6,6 +6,8 @@ packages: []
 catalogs:
   build:
     '@iconify-json/carbon': ^1.2.19
+    '@iconify-json/mdi': ^1.2.3
+    '@iconify-json/simple-icons': ^1.2.60
     '@vitejs/plugin-vue': ^6.0.4
     jsdom: ^28.1.0
     unocss: ^66.6.2

@@ -14,7 +14,7 @@ html.dark .ev-themed {
   --ev-c: var(--ev-color-dark, var(--ev-color));
 }
 .ev-themed:hover {
-  border-color: color-mix(in srgb, var(--ev-c) 60%, transparent) !important;
+  border-color: color-mix(in srgb, var(--ev-c) 60%, transparent);
 }
 
 /* Corner glow behind the watermark. */

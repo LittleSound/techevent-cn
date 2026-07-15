@@ -4,8 +4,9 @@ import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 
 import './styles/main.css'
-import './styles/event-theme.css'
 import 'uno.css'
+// Load event-theme.css after uno.css so .ev-themed border-color overrides .card shortcut at equal specificity
+import './styles/event-theme.css'
 
 const app = createApp(App)
 const router = createRouter({

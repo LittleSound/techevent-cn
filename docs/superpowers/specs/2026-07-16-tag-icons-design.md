@@ -61,21 +61,21 @@ Tier 1 — brand/tech logos (simple-icons, official brand colors):
 
 Tier 2 — domain concepts (grouped tags share icon + color):
 
-| Concept | Tags | Icon direction | Color |
-|---|---|---|---|
-| AI | `ai`, `artificial-intelligence`, `llm`, `agentic-ai` | carbon machine-learning | violet |
-| Open source | `opensource`, `foss` | simple-icons OSI | `#3DA639` |
-| 3D printing | `3dprinting`, `additive-manufacturing` | mdi printer-3d | orange |
-| Cloud | `cloud`, `cloud-native` | carbon cloud | sky blue |
-| Robotics | `robotics`, `embodied-ai` | mdi robot | blue gray |
-| Hardware | `hardware` | carbon chip | indigo |
-| Frontend/Web | `frontend`, `web` | carbon web | cyan |
-| Mobile | `mobile` | carbon mobile | green |
-| Hackathon | `hackathon` | mdi lightning/code | amber |
-| Startup | `startup`, `demoday`, `indiehacker` | rocket | rose |
-| Academia | `academic`, `computer-science`, `student`, `youth` | graduation cap | brown |
-| Monitoring | `monitoring` | carbon dashboard | gray blue |
-| Compiler | `compiler` | carbon code | dark gray |
+| Concept      | Tags                                                 | Icon direction          | Color     |
+| ------------ | ---------------------------------------------------- | ----------------------- | --------- |
+| AI           | `ai`, `artificial-intelligence`, `llm`, `agentic-ai` | carbon machine-learning | violet    |
+| Open source  | `opensource`, `foss`                                 | simple-icons OSI        | `#3DA639` |
+| 3D printing  | `3dprinting`, `additive-manufacturing`               | mdi printer-3d          | orange    |
+| Cloud        | `cloud`, `cloud-native`                              | carbon cloud            | sky blue  |
+| Robotics     | `robotics`, `embodied-ai`                            | mdi robot               | blue gray |
+| Hardware     | `hardware`                                           | carbon chip             | indigo    |
+| Frontend/Web | `frontend`, `web`                                    | carbon web              | cyan      |
+| Mobile       | `mobile`                                             | carbon mobile           | green     |
+| Hackathon    | `hackathon`                                          | mdi lightning/code      | amber     |
+| Startup      | `startup`, `demoday`, `indiehacker`                  | rocket                  | rose      |
+| Academia     | `academic`, `computer-science`, `student`, `youth`   | graduation cap          | brown     |
+| Monitoring   | `monitoring`                                         | carbon dashboard        | gray blue |
+| Compiler     | `compiler`                                           | carbon code             | dark gray |
 
 Tier 3 — chip-only: `conference` `meetup` `community` `expo` `enterprise` `maker`
 

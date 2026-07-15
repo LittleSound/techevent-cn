@@ -10,8 +10,13 @@
   overflow: hidden;
   border-color: color-mix(in srgb, var(--ev-c) 33%, transparent);
 }
+/* Needs higher specificity than .dark .card rules from the card shortcut. */
 html.dark .ev-themed {
   --ev-c: var(--ev-color-dark, var(--ev-color));
+  border-color: color-mix(in srgb, var(--ev-c) 33%, transparent);
+}
+html.dark .ev-themed:hover {
+  border-color: color-mix(in srgb, var(--ev-c) 60%, transparent);
 }
 .ev-themed:hover {
   border-color: color-mix(in srgb, var(--ev-c) 60%, transparent);

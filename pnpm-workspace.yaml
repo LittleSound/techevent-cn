@@ -16,6 +16,7 @@ catalogs:
     unplugin-vue-components: ^31.0.0
     unplugin-vue-macros: ^2.14.5
     vite: ^7.3.1
+    vite-ssg: ^28.3.0
   dev:
     '@antfu/eslint-config': ^7.6.1
     '@types/node': ^25.3.3
@@ -31,7 +32,11 @@ catalogs:
     vitest: ^4.0.18
     vue-tsc: ^3.2.5
   frontend:
-    '@unhead/vue': ^3.2.1
+    # Pinned to match vite-ssg's bundled @unhead/vue so pnpm dedupes to a
+    # single head instance — otherwise components' useHead/useSeoMeta calls
+    # register with a different head context than the one vite-ssg renders
+    # to string at build time, and prerendered pages get no meta tags.
+    '@unhead/vue': ^2.1.16
     '@vueuse/core': ^14.2.1
     vue: ^3.5.29
     vue-router: ^5.0.3

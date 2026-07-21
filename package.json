@@ -9,7 +9,7 @@
   },
   "bugs": "https://github.com/LittleSound/techevent-cn/issues",
   "scripts": {
-    "build": "pnpm gen:ics && vite build",
+    "build": "pnpm gen:ics && vite-ssg build",
     "dev": "vite --port 60086",
     "gen:ics": "node scripts/generate-ics.mjs",
     "lint": "eslint .",
@@ -47,6 +47,7 @@
     "unplugin-vue-components": "catalog:build",
     "unplugin-vue-macros": "catalog:build",
     "vite": "catalog:build",
+    "vite-ssg": "catalog:build",
     "vitest": "catalog:dev",
     "vue-tsc": "catalog:dev"
   },

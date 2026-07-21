@@ -7,10 +7,20 @@
   "country": "韩国",
   "format": "offline",
   "url": "https://2026.pycon.kr/",
-  "tags": ["python", "pycon", "community", "conference"],
+  "tags": [
+    "python",
+    "pycon",
+    "community",
+    "conference"
+  ],
   "organizer": "PyCon Korea 组委会",
   "sources": [
     "https://www.python.org/events/python-events/2176/",
     "https://2026.pycon.kr/"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/PyConKR"
+    }
   ]
 }

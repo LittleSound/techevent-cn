@@ -26,5 +26,10 @@
   "sources": [
     "https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-china/",
     "https://www.cncf.io/announcements/2026/06/18/kubecon-cloudnativecon-openinfra-summit-and-pytorch-conference-unite-in-china-to-scale-ai/"
+  ],
+  "links": [
+    {
+      "url": "https://twitter.com/KubeCon_"
+    }
   ]
 }

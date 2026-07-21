@@ -8,6 +8,18 @@
   "venue": "広島国際会議場 (International Conference Center Hiroshima)",
   "format": "offline",
   "url": "https://2026.pycon.jp/",
-  "tags": ["python", "community"],
-  "organizer": "PyCon JP Association"
+  "tags": [
+    "python",
+    "community"
+  ],
+  "organizer": "PyCon JP Association",
+  "links": [
+    {
+      "url": "https://x.com/pyconjapan"
+    },
+    {
+      "url": "https://www.instagram.com/pyconjp/",
+      "label": "Instagram"
+    }
+  ]
 }

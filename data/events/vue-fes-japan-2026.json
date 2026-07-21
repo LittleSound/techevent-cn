@@ -7,7 +7,26 @@
   "venue": "Otemachi PLACE HALL & CONFERENCE",
   "format": "offline",
   "url": "https://vuefes.jp/2026/en",
-  "tags": ["vue", "javascript", "frontend", "vuefes", "conference"],
+  "tags": [
+    "vue",
+    "javascript",
+    "frontend",
+    "vuefes",
+    "conference"
+  ],
   "organizer": "Vue Fes Japan 实行委员会",
-  "sources": ["https://vuefes.jp/2026/en"]
+  "sources": [
+    "https://vuefes.jp/2026/en"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/vuefes"
+    },
+    {
+      "url": "https://github.com/vuejs-jp"
+    },
+    {
+      "url": "https://www.youtube.com/channel/UC6KPwA1kZJtQYdlh8_2hxCA"
+    }
+  ]
 }

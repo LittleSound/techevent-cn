@@ -20,6 +20,8 @@ export interface TechEvent {
   country?: string
   /** Specific venue, e.g. "上海国际会议中心". */
   venue?: string
+  /** Venue coordinates as WGS-84 `[lng, lat]`; drafted by scripts/geocode-venues.mjs, hand-verified. */
+  coordinates?: [number, number]
   /** Whether attendees gather in person, remotely, or both. */
   format?: EventFormat
   /** Official link for details and registration. */
@@ -44,6 +46,8 @@ export interface NormalizedEvent {
   city: string
   country: string
   venue?: string
+  /** Venue coordinates as WGS-84 `[lng, lat]`; drafted by scripts/geocode-venues.mjs, hand-verified. */
+  coordinates?: [number, number]
   format: EventFormat
   url: string
   tags: string[]

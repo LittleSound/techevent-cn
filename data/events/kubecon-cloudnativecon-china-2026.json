@@ -6,9 +6,22 @@
   "city": "上海",
   "country": "中国",
   "venue": "上海国际会议中心",
+  "coordinates": [
+    121.49245,
+    31.24145
+  ],
   "format": "offline",
   "url": "https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-china/",
-  "tags": ["cloud-native", "kubernetes", "kubecon", "cncf", "openinfra", "pytorch", "ai", "conference"],
+  "tags": [
+    "cloud-native",
+    "kubernetes",
+    "kubecon",
+    "cncf",
+    "openinfra",
+    "pytorch",
+    "ai",
+    "conference"
+  ],
   "organizer": "CNCF / OpenInfra Foundation / PyTorch Foundation",
   "sources": [
     "https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-china/",

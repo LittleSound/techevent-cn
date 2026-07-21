@@ -6,6 +6,7 @@
   "city": "上海",
   "country": "中国",
   "venue": "具体场馆，可省略",
+  "coordinates": [121.4737, 31.2304],
   "format": "offline",
   "url": "https://example.com/",
   "tags": ["关键词", "lowercase"],

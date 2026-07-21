@@ -49,6 +49,9 @@ catalogs:
     '@antfu/eslint-config':
       specifier: ^7.6.1
       version: 7.6.1
+    '@types/leaflet':
+      specifier: ^1.9.21
+      version: 1.9.21
     '@types/node':
       specifier: ^25.3.3
       version: 25.3.3
@@ -92,6 +95,9 @@ catalogs:
     '@vueuse/core':
       specifier: ^14.2.1
       version: 14.2.1
+    leaflet:
+      specifier: ^1.9.4
+      version: 1.9.4
     vue:
       specifier: ^3.5.29
       version: 3.5.29
@@ -113,6 +119,9 @@ importers:
       '@vueuse/core':
         specifier: catalog:frontend
         version: 14.2.1(vue@3.5.29(typescript@5.9.3))
+      leaflet:
+        specifier: catalog:frontend
+        version: 1.9.4
       vue:
         specifier: catalog:frontend
         version: 3.5.29(typescript@5.9.3)
@@ -135,6 +144,9 @@ importers:
       '@resvg/resvg-js':
         specifier: catalog:build
         version: 2.6.2
+      '@types/leaflet':
+        specifier: catalog:dev
+        version: 1.9.21
       '@types/node':
         specifier: catalog:dev
         version: 25.3.3
@@ -1320,8 +1332,14 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
+  '@types/geojson@7946.0.16':
+    resolution: {integrity: sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/leaflet@1.9.21':
+    resolution: {integrity: sha512-TbAd9DaPGSnzp6QvtYngntMZgcRk+igFELwR2N99XZn7RXUdKgsXMR+28bUO0rPsWp8MIu/f47luLIQuSLYv/w==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -2752,6 +2770,9 @@ packages:
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
+
+  leaflet@1.9.4:
+    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -4610,7 +4631,13 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/geojson@7946.0.16': {}
+
   '@types/json-schema@7.0.15': {}
+
+  '@types/leaflet@1.9.21':
+    dependencies:
+      '@types/geojson': 7946.0.16
 
   '@types/mdast@4.0.4':
     dependencies:
@@ -6349,6 +6376,8 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
+
+  leaflet@1.9.4: {}
 
   levn@0.4.1:
     dependencies:

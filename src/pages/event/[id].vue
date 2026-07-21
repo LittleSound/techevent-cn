@@ -123,6 +123,7 @@ useHead(() => ({
         <h2 text-sm tracking-wide font-600 mb-3 op50>
           地点
         </h2>
+        <EventMapEmbed v-if="event.coordinates" :coordinates="event.coordinates" :label="event.venue ?? event.city" mb-3 />
         <div flex="~ wrap gap-2">
           <a
             :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener"

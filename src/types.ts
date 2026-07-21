@@ -32,6 +32,14 @@ export interface TechEvent {
   organizer?: string
   /** Provenance URLs (official site, announcement post) the data was verified against. Not rendered in the UI. */
   sources?: string[]
+  /** Related links (official X account, ticketing page, …). Platform icon and default label are inferred from the URL's hostname; `label` overrides. */
+  links?: EventLink[]
+}
+
+export interface EventLink {
+  url: string
+  /** Optional display text; defaults to the platform name inferred from the hostname. */
+  label?: string
 }
 
 export type EventFormat = 'offline' | 'online' | 'hybrid'
@@ -54,6 +62,8 @@ export interface NormalizedEvent {
   organizer?: string
   /** Provenance URLs (official site, announcement post) the data was verified against. Not rendered in the UI. */
   sources?: string[]
+  /** Related links (official X account, ticketing page, …). Platform icon and default label are inferred from the URL's hostname; `label` overrides. */
+  links?: EventLink[]
   /** Parsed `startDate`, set to local midnight. */
   start: Date
   /** Parsed `endDate` (or `startDate`), set to local midnight. */

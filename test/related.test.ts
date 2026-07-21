@@ -45,4 +45,12 @@ describe('relatedEvents', () => {
     const far = make('far', { tags: ['vue'], city: '北京', startDate: '2027-03-01' })
     expect(relatedEvents(self, [self, far, near]).map(e => e.id)).toEqual(['near', 'far'])
   })
+
+  it('sorts ended events after upcoming ones regardless of score', () => {
+    const now = new Date(2026, 7, 1)
+    const endedHighScore = make('ended-high', { tags: ['vue', 'frontend'], city: '上海', startDate: '2026-01-01', endDate: '2026-01-02' })
+    const upcomingLowScore = make('upcoming-low', { tags: ['ai'], city: '上海', startDate: '2026-09-01' })
+    expect(relatedEvents(self, [self, endedHighScore, upcomingLowScore], 4, now).map(e => e.id))
+      .toEqual(['upcoming-low', 'ended-high'])
+  })
 })

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { newEventUrl } from '~/config'
+import { resolveEventLink } from '~/utils/eventLinks'
 import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange, isPast } from '~/utils/format'
-import { amapSearchUrl, appleMapsSearchUrl, hasLocation, mapSearchQuery } from '~/utils/mapLinks'
+import { amapSearchUrl, appleMapsSearchUrl, baiduMapSearchUrl, hasLocation, hasPreciseLocation, mapSearchQuery } from '~/utils/mapLinks'
 import { relatedEvents } from '~/utils/related'
 import { buildEventJsonLd, eventCanonicalUrl, eventOgImageUrl } from '~/utils/seo'
 
@@ -28,6 +29,10 @@ const taggedChips = computed(() =>
 const formatLabel = { offline: '线下', online: '线上', hybrid: '线上+线下' } as const
 
 const mapQuery = computed(() => event.value ? mapSearchQuery(event.value) : '')
+
+const { copy: copyAddress, copied: addressCopied } = useClipboard({ source: mapQuery })
+
+const resolvedLinks = computed(() => (event.value?.links ?? []).map(resolveEventLink))
 
 useSeoMeta({
   title: () => event.value ? `${event.value.name} · techevent-cn` : '活动不存在 · techevent-cn',
@@ -98,47 +103,84 @@ useHead(() => ({
           </span>
         </div>
 
-        <div flex="~ wrap gap-2" mt-6>
-          <a
-            :href="event.url" target="_blank" rel="noopener"
-            text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 transition items-center hover:bg-teal-700
-          >
-            前往官网 <div i-carbon-arrow-up-right />
-          </a>
-          <a
-            :href="`/ics/${event.id}.ics`"
-
-            hover="border-teal-600 text-teal-600" download text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
-          >
-            <div i-carbon-calendar-add /> 加入日历
-          </a>
-          <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
-        </div>
-
         <div v-if="theme" class="ev-watermark" aria-hidden="true">
+          <div
+            v-for="def in theme.icons.slice(1).reverse()"
+            :key="def.icon"
+            class="ev-icon-tinted" :class="[def.icon]"
+            :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }"
+          />
           <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
         </div>
       </article>
+
+      <div grid="~ cols-2 sm:cols-4 gap-2" mt-3>
+        <a
+          :href="event.url" target="_blank" rel="noopener"
+          text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 w-full transition items-center justify-center hover:bg-teal-700
+        >
+          前往官网 <div i-carbon-arrow-up-right />
+        </a>
+        <a
+          :href="`/ics/${event.id}.ics`"
+          hover="border-teal-600 text-teal-600" download text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 w-full transition items-center justify-center dark:border-gray-700
+        >
+          <div i-carbon-calendar-add /> 加入日历
+        </a>
+        <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
+      </div>
 
       <section v-if="hasLocation(event)" mt-8>
         <h2 text-sm tracking-wide font-600 mb-3 op50>
           地点
         </h2>
-        <EventMapEmbed v-if="event.coordinates" :coordinates="event.coordinates" :label="event.venue ?? event.city" mb-3 />
+        <template v-if="hasPreciseLocation(event)">
+          <EventMapEmbed v-if="event.coordinates" :coordinates="event.coordinates" :label="event.venue ?? event.city" mb-3 />
+          <div flex="~ wrap gap-2">
+            <button
+              type="button"
+              hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+              @click="copyAddress()"
+            >
+              <div :class="addressCopied ? 'i-carbon-checkmark' : 'i-carbon-location'" />
+              {{ addressCopied ? '已复制' : '复制地址' }}
+            </button>
+            <a
+              :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener"
+              hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+            >
+              <div i-carbon-map /> 在高德地图中打开
+            </a>
+            <a
+              :href="baiduMapSearchUrl(mapQuery)" target="_blank" rel="noopener"
+              hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+            >
+              <div i-carbon-map /> 在百度地图中打开
+            </a>
+            <a
+              :href="appleMapsSearchUrl(mapQuery)" target="_blank" rel="noopener"
+              hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+            >
+              <div i-carbon-map /> 在 Apple 地图中打开
+            </a>
+          </div>
+        </template>
+        <div v-else text-sm op60 flex="~ items-center gap-1.5">
+          <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
+        </div>
+      </section>
+
+      <section v-if="resolvedLinks.length" mt-8>
+        <h2 text-sm tracking-wide font-600 mb-3 op50>
+          相关链接
+        </h2>
         <div flex="~ wrap gap-2">
           <a
-            :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener"
-
+            v-for="link in resolvedLinks" :key="link.url"
+            :href="link.url" target="_blank" rel="noopener"
             hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
           >
-            <div i-carbon-map /> 在高德地图中打开
-          </a>
-          <a
-            :href="appleMapsSearchUrl(mapQuery)" target="_blank" rel="noopener"
-
-            hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
-          >
-            <div i-carbon-map /> 在 Apple 地图中打开
+            <div :class="link.icon" /> {{ link.label }}
           </a>
         </div>
       </section>

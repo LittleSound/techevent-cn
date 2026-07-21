@@ -22,5 +22,8 @@
   "sources": [
     "https://aosc.io/aoscc/2026",
     "https://t.me/aosc_os/1173"
+  ],
+  "links": [
+    { "url": "https://t.me/aosc_os/1173" }
   ]
 }

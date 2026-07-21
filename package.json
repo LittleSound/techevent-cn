@@ -9,9 +9,10 @@
   },
   "bugs": "https://github.com/LittleSound/techevent-cn/issues",
   "scripts": {
-    "build": "pnpm gen:ics && vite-ssg build",
+    "build": "pnpm gen:ics && pnpm gen:sitemap && vite-ssg build",
     "dev": "vite --port 60086",
     "gen:ics": "node scripts/generate-ics.mjs",
+    "gen:sitemap": "node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "typecheck": "vue-tsc",
     "preview": "vite preview",

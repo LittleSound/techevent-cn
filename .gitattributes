@@ -1,0 +1,4 @@
+# Normalize all text files to LF on checkout so lint/format results are
+# identical across platforms (Windows runners default to core.autocrlf=true,
+# which turns files into CRLF and makes `format/prettier` demand CR insertions).
+* text=auto eol=lf

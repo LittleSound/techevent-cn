@@ -31,23 +31,84 @@ async function loadFont() {
   return readFileSync(fontPath)
 }
 
-/** Best-effort brand color per event from tag-icons.ts; teal fallback. */
-async function loadPrimaryColor() {
+/** Iconify collections referenced by tag-icons.ts, keyed by the `i-<collection>-` prefix. */
+const ICON_COLLECTIONS = ['simple-icons', 'carbon', 'mdi']
+const iconSetCache = new Map()
+
+/** Load (and cache) an @iconify-json collection's icons.json. */
+function loadIconSet(collection) {
+  if (!iconSetCache.has(collection)) {
+    const path = join(root, 'node_modules', '@iconify-json', collection, 'icons.json')
+    iconSetCache.set(collection, existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : null)
+  }
+  return iconSetCache.get(collection)
+}
+
+/**
+ * Resolve a UnoCSS icon class (`i-<collection>-<name>`) to an inline SVG data
+ * URI satori can render as an `img`. Longest-prefix match against the known
+ * collections since icon names themselves may contain dashes. Returns null
+ * (icon skipped, never a thrown error) when the collection or name is unknown.
+ */
+function resolveIcon(iconClass, color) {
+  const collection = ICON_COLLECTIONS.find(c => iconClass.startsWith(`i-${c}-`))
+  if (!collection)
+    return null
+  const set = loadIconSet(collection)
+  const name = iconClass.slice(`i-${collection}-`.length)
+  const icon = set?.icons?.[name]
+  if (!icon)
+    return null
+  const width = icon.width ?? set.width ?? 24
+  const height = icon.height ?? set.height ?? 24
+  const body = icon.body.replaceAll('currentColor', color)
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" fill="${color}">${body}</svg>`
+  return { src: `data:image/svg+xml,${encodeURIComponent(svg)}`, width, height }
+}
+
+/** Best-effort event theme (brand color + up to 3 watermark icons) from tag-icons.ts. */
+async function loadEventTheme() {
   try {
     // Node >= 23.6 strips types natively; older Node throws and we fall back.
     const { tagIcons } = await import('../src/data/tag-icons.ts')
     return (tags) => {
+      // Mirror src/utils/eventTheme.ts resolveEventTheme: tier !== 3, dedupe by
+      // def identity, stable sort by tier ascending, take up to 3, primary = first.
+      const defs = []
       for (const tag of tags ?? []) {
         const def = tagIcons[tag]
-        if (def && def.tier !== 3)
-          return def.colorDark ?? def.color
+        if (!def || def.tier === 3 || defs.includes(def))
+          continue
+        defs.push(def)
       }
-      return '#14b8a6'
+      const icons = defs.sort((a, b) => a.tier - b.tier).slice(0, 3)
+      return { color: icons[0]?.colorDark ?? icons[0]?.color ?? '#14b8a6', icons }
     }
   }
   catch {
-    return () => '#14b8a6'
+    return () => ({ color: '#14b8a6', icons: [] })
   }
+}
+
+/** Bottom-right watermark echoing the site's `ev-watermark`: primary icon large, up to 2 secondaries smaller behind it. */
+function watermark(icons, longName) {
+  if (!icons.length)
+    return h('div', { display: 'flex' })
+  const [primary, ...secondaries] = icons
+  const primaryIcon = resolveIcon(primary.icon, primary.colorDark ?? primary.color)
+  if (!primaryIcon)
+    return h('div', { display: 'flex' })
+  // Long event names already shrink to the 56px font branch; ease the watermark back too so text stays legible.
+  const primaryOpacity = longName ? 0.5 : 0.9
+  const secondaryOpacity = longName ? 0.4 : 0.75
+  const children = [
+    ...secondaries.slice().reverse().map((def) => {
+      const resolved = resolveIcon(def.icon, def.colorDark ?? def.color)
+      return resolved && { type: 'img', props: { src: resolved.src, width: 72, height: 72, style: { marginRight: '-16px', marginBottom: '4px', opacity: secondaryOpacity } } }
+    }).filter(Boolean),
+    { type: 'img', props: { src: primaryIcon.src, width: 150, height: 150, style: { opacity: primaryOpacity } } },
+  ]
+  return h('div', { display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '56px', bottom: '110px' }, children)
 }
 
 const events = readdirSync(join(root, 'data', 'events'))
@@ -66,8 +127,9 @@ function h(type, style, ...children) {
   return { type, props: { style, children: children.flat() } }
 }
 
-function card(e, color) {
+function card(e, color, icons) {
   const meta = [dateLabel(e), [e.city, e.country && e.country !== '中国' ? e.country : ''].filter(Boolean).join(' · ')]
+  const longName = e.name.length > 18
   return h('div', {
     width: '100%',
     height: '100%',
@@ -79,7 +141,9 @@ function card(e, color) {
     backgroundImage: `linear-gradient(135deg, #0f172a 0%, #1e293b 70%, ${color}33 100%)`,
     color: '#f8fafc',
     fontFamily: 'Noto Sans SC',
+    position: 'relative',
   }, [
+    watermark(icons, longName),
     h('div', { display: 'flex', flexDirection: 'column', gap: '28px' }, [
       h('div', { display: 'flex', fontSize: e.name.length > 18 ? '56px' : '68px', fontWeight: 700, lineHeight: 1.25 }, e.name),
       h('div', { display: 'flex', gap: '32px', fontSize: '34px', color: '#cbd5e1' }, meta.filter(Boolean).map(text => h('div', { display: 'flex' }, text))),
@@ -96,14 +160,15 @@ function card(e, color) {
 }
 
 const fullFont = await loadFont()
-const colorFor = await loadPrimaryColor()
+const themeFor = await loadEventTheme()
 
 const allText = `${events.map(e => `${e.name}${dateLabel(e)}${e.city}${e.country ?? ''}${(e.tags ?? []).join('')}`).join('')}${SITE}0123456789 –·`
 const font = await subsetFont(fullFont, allText, { targetFormat: 'sfnt' })
 console.log(`Font subset: ${(font.length / 1024).toFixed(0)} KB`)
 
 for (const e of events) {
-  const svg = await satori(card(e, colorFor(e.tags)), {
+  const { color, icons } = themeFor(e.tags)
+  const svg = await satori(card(e, color, icons), {
     width: 1200,
     height: 630,
     fonts: [{ name: 'Noto Sans SC', data: font, weight: 700, style: 'normal' }],

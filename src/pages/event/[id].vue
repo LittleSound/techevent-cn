@@ -43,7 +43,8 @@ useSeoMeta({
 useHead(() => ({
   link: event.value ? [{ rel: 'canonical', href: eventCanonicalUrl(event.value.id) }] : [],
   script: event.value
-    ? [{ type: 'application/ld+json', innerHTML: JSON.stringify(buildEventJsonLd(event.value)) }]
+    // Escape `<` so event text can never close the script tag early.
+    ? [{ type: 'application/ld+json', innerHTML: JSON.stringify(buildEventJsonLd(event.value)).replace(/</g, '\\u003C') }]
     : [],
 }))
 </script>

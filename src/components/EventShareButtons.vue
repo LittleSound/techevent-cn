@@ -15,8 +15,6 @@ function systemShare() {
   <div flex="~ wrap gap-2">
     <button
       type="button"
-      class="share-btn"
-
       hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
       @click="copy()"
     >

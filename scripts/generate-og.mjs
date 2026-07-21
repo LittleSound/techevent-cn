@@ -99,16 +99,17 @@ function watermark(icons, longName) {
   if (!primaryIcon)
     return h('div', { display: 'flex' })
   // Long event names already shrink to the 56px font branch; ease the watermark back too so text stays legible.
-  const primaryOpacity = longName ? 0.5 : 0.9
-  const secondaryOpacity = longName ? 0.4 : 0.75
+  const primaryOpacity = longName ? 0.4 : 0.75
+  const secondaryOpacity = longName ? 0.3 : 0.55
   const children = [
     ...secondaries.slice().reverse().map((def) => {
       const resolved = resolveIcon(def.icon, def.colorDark ?? def.color)
-      return resolved && { type: 'img', props: { src: resolved.src, width: 72, height: 72, style: { marginRight: '-16px', marginBottom: '4px', opacity: secondaryOpacity } } }
+      return resolved && { type: 'img', props: { src: resolved.src, width: 130, height: 130, style: { marginRight: '-28px', marginBottom: '10px', opacity: secondaryOpacity } } }
     }).filter(Boolean),
-    { type: 'img', props: { src: primaryIcon.src, width: 150, height: 150, style: { opacity: primaryOpacity } } },
+    { type: 'img', props: { src: primaryIcon.src, width: 280, height: 280, style: { opacity: primaryOpacity } } },
   ]
-  return h('div', { display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '56px', bottom: '110px' }, children)
+  // Bleed slightly off-canvas like the site's .ev-watermark for a broader, more generous look.
+  return h('div', { display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '-12px', bottom: '-28px' }, children)
 }
 
 const events = readdirSync(join(root, 'data', 'events'))
@@ -138,11 +139,13 @@ function card(e, color, icons) {
     justifyContent: 'space-between',
     padding: '64px',
     backgroundColor: '#0f172a',
-    backgroundImage: `linear-gradient(135deg, #0f172a 0%, #1e293b 70%, ${color}33 100%)`,
+    backgroundImage: `linear-gradient(135deg, #0f172a 0%, #1e293b 100%)`,
     color: '#f8fafc',
     fontFamily: 'Noto Sans SC',
     position: 'relative',
   }, [
+    // Soft corner glow mirroring the site's .ev-themed::after (18% brand color fading by 70%), instead of a loud corner gradient.
+    h('div', { display: 'flex', position: 'absolute', right: '-100px', bottom: '-100px', width: '640px', height: '560px', backgroundImage: `radial-gradient(circle at bottom right, ${color}2E 0%, ${color}00 70%)` }),
     watermark(icons, longName),
     h('div', { display: 'flex', flexDirection: 'column', gap: '28px' }, [
       h('div', { display: 'flex', fontSize: e.name.length > 18 ? '56px' : '68px', fontWeight: 700, lineHeight: 1.25 }, e.name),
@@ -152,9 +155,8 @@ function card(e, color, icons) {
             h('div', { display: 'flex', fontSize: '26px', padding: '6px 20px', borderRadius: '999px', backgroundColor: '#33415588', color: '#e2e8f0' }, tag)))
         : h('div', { display: 'flex' }),
     ]),
-    h('div', { display: 'flex', justifyContent: 'space-between', alignItems: 'center' }, [
+    h('div', { display: 'flex', alignItems: 'center' }, [
       h('div', { display: 'flex', fontSize: '30px', color }, SITE),
-      h('div', { display: 'flex', width: '18px', height: '18px', borderRadius: '999px', backgroundColor: color }),
     ]),
   ])
 }

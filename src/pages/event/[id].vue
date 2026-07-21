@@ -10,7 +10,10 @@ import { buildEventJsonLd, eventCanonicalUrl, eventOgImageUrl } from '~/utils/se
 
 const route = useRoute('/event/[id]')
 
-const event = computed(() => allEvents.find(e => e.id === route.params.id))
+/** Prerendered files live at /event/<id>.html, so direct visits may carry the extension in the param; strip it so both URL forms resolve to the same event. */
+const eventId = computed(() => String(route.params.id).replace(/\.html$/, ''))
+
+const event = computed(() => allEvents.find(e => e.id === eventId.value))
 
 const related = computed(() => event.value ? relatedEvents(event.value, allEvents) : [])
 

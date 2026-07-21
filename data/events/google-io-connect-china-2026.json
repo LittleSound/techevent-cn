@@ -1,0 +1,15 @@
+{
+  "name": "Google I/O Connect China 2026",
+  "description": "Google 在中国上海举办的 I/O Connect 活动，探索 Android、AI、Chrome 和 Cloud 的最新技术。",
+  "startDate": "2026-08-12",
+  "endDate": "2026-08-13",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://ioconnectchina.googlecnapps.cn/",
+  "tags": ["android", "ai", "cloud", "conference"],
+  "organizer": "Google",
+  "sources": [
+    "https://ioconnectchina.googlecnapps.cn/"
+  ]
+}

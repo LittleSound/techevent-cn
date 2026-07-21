@@ -175,8 +175,16 @@ useHead(() => ({
             </a>
           </div>
         </template>
-        <div v-else text-sm op60 flex="~ items-center gap-1.5">
-          <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
+        <div v-else p-3 border border-gray-200 rounded-lg dark:border-gray-800>
+          <div text-sm op90 flex="~ items-center gap-1.5">
+            <div i-carbon-location op60 shrink-0 />
+            {{ event.city }}<template v-if="event.country !== '中国'">
+              · {{ event.country }}
+            </template>
+          </div>
+          <div text-xs mt-1.5 op60 flex="~ items-center gap-1.5">
+            <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
+          </div>
         </div>
       </section>
 

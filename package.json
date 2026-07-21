@@ -20,6 +20,7 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
+    "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "vue": "catalog:frontend",
     "vue-router": "catalog:frontend"

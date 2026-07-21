@@ -14,6 +14,7 @@ declare module 'vue' {
     CalendarView: typeof import('./src/components/CalendarView.vue')['default']
     EventCard: typeof import('./src/components/EventCard.vue')['default']
     EventDetailCard: typeof import('./src/components/EventDetailCard.vue')['default']
+    EventShareButtons: typeof import('./src/components/EventShareButtons.vue')['default']
     FilterBar: typeof import('./src/components/FilterBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

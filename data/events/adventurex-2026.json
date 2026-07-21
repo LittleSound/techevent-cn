@@ -8,6 +8,24 @@
   "venue": "杭州未来科技城 · 学术交流中心",
   "format": "offline",
   "url": "https://adventure-x.org/",
-  "tags": ["hackathon", "youth", "student", "maker", "ai"],
-  "organizer": "AdventureX"
+  "tags": [
+    "hackathon",
+    "youth",
+    "student",
+    "maker",
+    "ai"
+  ],
+  "organizer": "AdventureX",
+  "links": [
+    {
+      "url": "https://x.com/adventurex_plan"
+    },
+    {
+      "url": "https://discord.com/invite/esmaUKcwrZ"
+    },
+    {
+      "url": "https://www.instagram.com/adventurex_plan",
+      "label": "Instagram"
+    }
+  ]
 }

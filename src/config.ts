@@ -6,3 +6,6 @@ export const newEventUrl = `${repoUrl}/blob/master/CONTRIBUTING.md`
 
 /** Published iCalendar feed for subscription. */
 export const calendarUrl = '/events.ics'
+
+/** Canonical production origin, no trailing slash. Used for OG/canonical/JSON-LD/sitemap. */
+export const siteUrl = 'https://event.rizumu.me'

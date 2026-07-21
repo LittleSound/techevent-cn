@@ -6,9 +6,19 @@
   "city": "深圳",
   "country": "中国",
   "venue": "深圳国际会展中心（宝安）",
+  "coordinates": [
+    113.76932,
+    22.70118
+  ],
   "format": "offline",
   "url": "https://formnext-sz.hk.messefrankfurt.com/shenzhen/en.html",
-  "tags": ["3dprinting", "additive-manufacturing", "formnext", "expo", "hardware"],
+  "tags": [
+    "3dprinting",
+    "additive-manufacturing",
+    "formnext",
+    "expo",
+    "hardware"
+  ],
   "organizer": "Messe Frankfurt / 广州光亚法兰克福展览有限公司",
   "sources": [
     "https://formnext-sz.hk.messefrankfurt.com/shenzhen/en.html",

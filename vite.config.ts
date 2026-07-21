@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 
+import { readdirSync } from 'node:fs'
 import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
@@ -66,5 +67,19 @@ export default defineConfig({
   // https://github.com/vitest-dev/vitest
   test: {
     environment: 'jsdom',
+  },
+
+  // vite-ssg: statically render the homepage plus one page per event JSON.
+  ssgOptions: {
+    formatting: 'minify',
+    includedRoutes(paths: string[]) {
+      const ids = readdirSync(path.resolve(__dirname, 'data/events'))
+        .filter(f => f.endsWith('.json') && !f.startsWith('_'))
+        .map(f => f.replace(/\.json$/, ''))
+      return [
+        ...paths.filter(p => !p.includes(':') && !p.includes('[')),
+        ...ids.map(id => `/event/${id}`),
+      ]
+    },
   },
 })

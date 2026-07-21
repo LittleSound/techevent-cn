@@ -6,9 +6,24 @@
   "city": "杭州",
   "country": "中国",
   "venue": "杭州电子科技大学（下沙校区）",
+  "coordinates": [
+    120.33916,
+    30.31501
+  ],
   "format": "hybrid",
   "url": "https://aosc.io/aoscc/2026",
-  "tags": ["opensource", "linux", "meetup", "community"],
+  "tags": [
+    "opensource",
+    "linux",
+    "meetup",
+    "community"
+  ],
   "organizer": "AOSC, HDU-ICU",
-  "sources": ["https://aosc.io/aoscc/2026", "https://t.me/aosc_os/1173"]
+  "sources": [
+    "https://aosc.io/aoscc/2026",
+    "https://t.me/aosc_os/1173"
+  ],
+  "links": [
+    { "url": "https://t.me/aosc_os/1173" }
+  ]
 }

@@ -9,6 +9,15 @@
       name="description"
       content="中国（及周边）科技活动日历 — VueConf、AdventureX、上海 LUG 聚会等，开发者可浏览、筛选与订阅。"
     />
+    <script>
+      // Apply the stored/system color scheme before first paint to avoid a light flash.
+      // Key and semantics follow @vueuse/core useDark defaults ('vueuse-color-scheme': 'auto'|'light'|'dark').
+      ;(function () {
+        var s = localStorage.getItem('vueuse-color-scheme') || 'auto'
+        var dark = s === 'dark' || (s === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

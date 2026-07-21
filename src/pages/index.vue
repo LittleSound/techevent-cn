@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { newEventUrl } from '~/config'
+import { useSeoMeta } from '@unhead/vue'
+import { newEventUrl, siteUrl } from '~/config'
 
 const { filter, filtered, filteredAnyTime, cities, tags, toggle, reset } = useEvents()
+
+useSeoMeta({
+  ogTitle: 'techevent-cn · 中国科技活动日历',
+  ogDescription: '中国（及周边）科技活动日历 — 开发者可浏览、筛选与订阅。',
+  ogType: 'website',
+  ogUrl: siteUrl,
+})
 
 /** Persisted so the user's preferred view survives reloads. */
 const view = useStorage<'list' | 'calendar'>('techevent-view', 'list')

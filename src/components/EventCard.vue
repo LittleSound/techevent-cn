@@ -27,12 +27,11 @@ const taggedChips = computed(() =>
 </script>
 
 <template>
-  <a
-    :href="event.url"
-    target="_blank"
-    rel="noopener"
+  <RouterLink
+    :to="`/event/${event.id}`"
     class="card"
-    p-4 block
+    p-4
+    block
     :class="[past ? 'op60 hover:op100' : '', theme ? 'ev-themed' : '']"
     :style="themeStyle"
   >
@@ -83,5 +82,5 @@ const taggedChips = computed(() =>
       />
       <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
     </div>
-  </a>
+  </RouterLink>
 </template>

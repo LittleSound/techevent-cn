@@ -1,5 +1,4 @@
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 
@@ -8,10 +7,11 @@ import 'uno.css'
 // Load event-theme.css after uno.css so .ev-themed border-color overrides .card shortcut at equal specificity
 import './styles/event-theme.css'
 
-const app = createApp(App)
-const router = createRouter({
+/**
+ * vite-ssg entry: creates the app + router per rendered route at build time
+ * and hydrates on the client. Head management (unhead) is wired in by ViteSSG.
+ */
+export const createApp = ViteSSG(App, {
   routes,
-  history: createWebHistory(import.meta.env.BASE_URL),
+  base: import.meta.env.BASE_URL,
 })
-app.use(router)
-app.mount('#app')

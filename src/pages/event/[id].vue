@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { newEventUrl } from '~/config'
+import { eventEditUrl, newEventUrl } from '~/config'
 import { resolveEventLink } from '~/utils/eventLinks'
 import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange, isPast } from '~/utils/format'
@@ -56,10 +56,13 @@ useHead(() => ({
 
 <template>
   <div mx-auto px-4 pb-16 max-w-3xl>
-    <div pt-6>
+    <div pt-6 flex="~ items-center justify-between">
       <RouterLink to="/" text-sm op60 inline-flex gap-1 items-center hover:text-teal-600 hover:op100>
         <div i-carbon-arrow-left /> 返回活动列表
       </RouterLink>
+      <button class="icon-btn" title="切换暗色模式" @click="toggleDark()">
+        <div i-carbon-sun dark:i-carbon-moon />
+      </button>
     </div>
 
     <template v-if="event">
@@ -193,6 +196,17 @@ useHead(() => ({
           <EventCard v-for="rel in related" :key="rel.id" :event="rel" />
         </div>
       </section>
+
+      <footer text-sm mt-12 pt-6 text-center border-t border-gray-100 op60 dark:border-gray-800>
+        发现信息有误或想补充？
+        <a :href="eventEditUrl(event.id)" target="_blank" rel="noopener" text-teal-600 inline-flex gap-1 items-center hover:underline>
+          <div i-carbon-edit /> 在 GitHub 上编辑此活动
+        </a>
+        ·
+        <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
+          贡献指南
+        </a>
+      </footer>
     </template>
 
     <div v-else mt-16 text-center op60>

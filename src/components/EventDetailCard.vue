@@ -63,14 +63,24 @@ const taggedChips = computed(() =>
       </span>
     </div>
 
-    <a
-      :href="event.url"
-      target="_blank"
-      rel="noopener"
-      class="text-sm text-white mt-1 px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 transition items-center justify-center hover:bg-teal-700"
-    >
-      前往官网 <div class="i-carbon-arrow-up-right" />
-    </a>
+    <div class="mt-1 flex gap-2">
+      <RouterLink
+        :to="`/event/${event.id}`"
+        class="text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 transition items-center justify-center hover:bg-teal-700"
+      >
+        查看详情
+        <div class="i-carbon-arrow-right" />
+      </RouterLink>
+      <a
+        :href="event.url"
+        target="_blank"
+        rel="noopener"
+        class="text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1 transition items-center justify-center hover:text-teal-600 dark:border-gray-700 hover:border-teal-600"
+      >
+        前往官网
+        <div class="i-carbon-arrow-up-right" />
+      </a>
+    </div>
 
     <div v-if="theme" class="ev-watermark" aria-hidden="true">
       <div :class="theme.primary.icon" :style="{ fontSize: '70px', color: 'var(--ev-c)' }" />

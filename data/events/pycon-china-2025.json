@@ -5,8 +5,16 @@
   "city": "上海",
   "country": "中国",
   "venue": "上海对外经贸大学",
+  "coordinates": [
+    121.3937,
+    31.20935
+  ],
   "format": "offline",
   "url": "https://cn.pycon.org/2025/",
-  "tags": ["python", "community", "ai"],
+  "tags": [
+    "python",
+    "community",
+    "ai"
+  ],
   "organizer": "PyChina 社区"
 }

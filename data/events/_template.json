@@ -6,9 +6,11 @@
   "city": "上海",
   "country": "中国",
   "venue": "具体场馆，可省略",
+  "coordinates": [121.4737, 31.2304],
   "format": "offline",
   "url": "https://example.com/",
   "tags": ["关键词", "lowercase"],
   "organizer": "主办方，可省略",
-  "sources": ["https://example.com/官方发布页，记录数据出处，可省略"]
+  "sources": ["https://example.com/官方发布页，记录数据出处，可省略"],
+  "links": [{ "url": "https://x.com/example", "label": "可省略，默认按平台推断" }]
 }

@@ -6,9 +6,22 @@
   "city": "上海",
   "country": "中国",
   "venue": "上海新国际博览中心（浦东）N1-N5",
+  "coordinates": [
+    121.56349,
+    31.21185
+  ],
   "format": "offline",
   "url": "https://www.tctasia.cn/",
-  "tags": ["3dprinting", "additive-manufacturing", "tct", "expo", "hardware"],
+  "tags": [
+    "3dprinting",
+    "additive-manufacturing",
+    "tct",
+    "expo",
+    "hardware"
+  ],
   "organizer": "TCT Group / 上海万耀科迅展览有限公司",
-  "sources": ["https://www.tctasia.cn/", "https://www.tctmagazine.com/events/tct-asia-2027/"]
+  "sources": [
+    "https://www.tctasia.cn/",
+    "https://www.tctmagazine.com/events/tct-asia-2027/"
+  ]
 }

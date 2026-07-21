@@ -6,8 +6,16 @@
   "city": "北京",
   "country": "中国",
   "venue": "北京丽亭华苑酒店",
+  "coordinates": [
+    116.3389,
+    39.97611
+  ],
   "format": "offline",
   "url": "https://kaiyuanshe.cn/",
-  "tags": ["opensource", "community", "ai"],
+  "tags": [
+    "opensource",
+    "community",
+    "ai"
+  ],
   "organizer": "开源社 KAIYUANSHE"
 }

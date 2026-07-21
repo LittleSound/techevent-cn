@@ -50,6 +50,7 @@ export const tagIcons: Record<string, TagIconDef> = {
   'openinfra': { icon: 'i-simple-icons-openstack', color: '#ed1944', tier: 1 },
   'gdg': google,
   'devfest': google,
+  'moonbit': { icon: 'i-carbon-moon', color: '#b92381', tier: 1 },
 
   // --- Tier 2: domain concepts ---
   'ai': ai,

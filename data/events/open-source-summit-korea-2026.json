@@ -6,9 +6,20 @@
   "city": "首尔",
   "country": "韩国",
   "venue": "Grand InterContinental Seoul Parnas",
+  "coordinates": [
+    127.06072,
+    37.50907
+  ],
   "format": "offline",
   "url": "https://events.linuxfoundation.org/open-source-summit-korea/",
-  "tags": ["opensource", "linux", "cloud-native", "conference"],
+  "tags": [
+    "opensource",
+    "linux",
+    "cloud-native",
+    "conference"
+  ],
   "organizer": "Linux Foundation",
-  "sources": ["https://events.linuxfoundation.org/open-source-summit-korea/"]
+  "sources": [
+    "https://events.linuxfoundation.org/open-source-summit-korea/"
+  ]
 }

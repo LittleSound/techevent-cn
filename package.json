@@ -9,9 +9,11 @@
   },
   "bugs": "https://github.com/LittleSound/techevent-cn/issues",
   "scripts": {
-    "build": "pnpm gen:ics && vite build",
+    "build": "pnpm gen:ics && pnpm gen:sitemap && pnpm gen:og && vite-ssg build",
     "dev": "vite --port 60086",
     "gen:ics": "node scripts/generate-ics.mjs",
+    "gen:og": "node scripts/generate-og.mjs",
+    "gen:sitemap": "node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "typecheck": "vue-tsc",
     "preview": "vite preview",
@@ -20,7 +22,9 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
+    "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
+    "leaflet": "catalog:frontend",
     "vue": "catalog:frontend",
     "vue-router": "catalog:frontend"
   },
@@ -29,6 +33,8 @@
     "@iconify-json/carbon": "catalog:build",
     "@iconify-json/mdi": "catalog:build",
     "@iconify-json/simple-icons": "catalog:build",
+    "@resvg/resvg-js": "catalog:build",
+    "@types/leaflet": "catalog:dev",
     "@types/node": "catalog:dev",
     "@unocss/eslint-plugin": "catalog:dev",
     "@vitejs/plugin-vue": "catalog:build",
@@ -38,7 +44,9 @@
     "eslint-plugin-format": "catalog:dev",
     "jsdom": "catalog:build",
     "lint-staged": "catalog:dev",
+    "satori": "catalog:build",
     "simple-git-hooks": "catalog:dev",
+    "subset-font": "catalog:build",
     "taze": "catalog:dev",
     "typescript": "catalog:dev",
     "unocss": "catalog:build",
@@ -46,6 +54,7 @@
     "unplugin-vue-components": "catalog:build",
     "unplugin-vue-macros": "catalog:build",
     "vite": "catalog:build",
+    "vite-ssg": "catalog:build",
     "vitest": "catalog:dev",
     "vue-tsc": "catalog:dev"
   },

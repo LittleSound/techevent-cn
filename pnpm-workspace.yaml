@@ -8,16 +8,21 @@ catalogs:
     '@iconify-json/carbon': ^1.2.19
     '@iconify-json/mdi': ^1.2.3
     '@iconify-json/simple-icons': ^1.2.60
+    '@resvg/resvg-js': ^2.6.2
     '@vitejs/plugin-vue': ^6.0.4
     jsdom: ^28.1.0
+    satori: ^0.28.1
+    subset-font: ^2.5.0
     unocss: ^66.6.2
     unplugin: ^3.0.0
     unplugin-auto-import: ^21.0.0
     unplugin-vue-components: ^31.0.0
     unplugin-vue-macros: ^2.14.5
     vite: ^7.3.1
+    vite-ssg: ^28.3.0
   dev:
     '@antfu/eslint-config': ^7.6.1
+    '@types/leaflet': ^1.9.21
     '@types/node': ^25.3.3
     '@unocss/eslint-plugin': ^66.6.3
     '@vue-macros/volar': ^3.1.2
@@ -31,7 +36,13 @@ catalogs:
     vitest: ^4.0.18
     vue-tsc: ^3.2.5
   frontend:
+    # Pinned to match vite-ssg's bundled @unhead/vue so pnpm dedupes to a
+    # single head instance — otherwise components' useHead/useSeoMeta calls
+    # register with a different head context than the one vite-ssg renders
+    # to string at build time, and prerendered pages get no meta tags.
+    '@unhead/vue': ^2.1.16
     '@vueuse/core': ^14.2.1
+    leaflet: ^1.9.4
     vue: ^3.5.29
     vue-router: ^5.0.3
 onlyBuiltDependencies:

@@ -1,7 +1,7 @@
 // Generate a static iCalendar feed from the event JSON files so calendar apps
 // can subscribe to the site. Run automatically before `vite build`.
 import { Buffer } from 'node:buffer'
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -52,20 +52,19 @@ const events = readdirSync(eventsDir)
   .map(f => ({ id: f.replace(/\.json$/, ''), ...JSON.parse(readFileSync(join(eventsDir, f), 'utf8')) }))
   .sort((a, b) => a.startDate.localeCompare(b.startDate))
 
-const lines = [
+const calendarHeader = [
   'BEGIN:VCALENDAR',
   'VERSION:2.0',
   'PRODID:-//techevent-cn//Tech Events Calendar//ZH',
   'CALSCALE:GREGORIAN',
   'METHOD:PUBLISH',
-  'X-WR-CALNAME:techevent-cn',
-  'X-WR-CALDESC:中国（及周边）科技活动日历',
 ]
 
-for (const e of events) {
+/** VEVENT block for one event; shared between the feed and per-event files. */
+function veventLines(e) {
   const end = e.endDate ?? e.startDate
   const place = [e.venue, e.city, e.country].filter(Boolean).join(', ')
-  lines.push(
+  return [
     'BEGIN:VEVENT',
     `UID:${e.id}@techevent-cn`,
     `DTSTAMP:${stamp}`,
@@ -76,10 +75,22 @@ for (const e of events) {
     fold(`LOCATION:${escapeText(place)}`),
     fold(`URL:${escapeText(e.url)}`),
     'END:VEVENT',
-  )
+  ]
 }
 
-lines.push('END:VCALENDAR')
-
+const lines = [
+  ...calendarHeader,
+  'X-WR-CALNAME:techevent-cn',
+  'X-WR-CALDESC:中国（及周边）科技活动日历',
+  ...events.flatMap(veventLines),
+  'END:VCALENDAR',
+]
 writeFileSync(outFile, `${lines.join('\r\n')}\r\n`, 'utf8')
-console.log(`Wrote ${events.length} events to ${outFile}`)
+
+const perEventDir = join(root, 'public', 'ics')
+mkdirSync(perEventDir, { recursive: true })
+for (const e of events) {
+  const single = [...calendarHeader, ...veventLines(e), 'END:VCALENDAR']
+  writeFileSync(join(perEventDir, `${e.id}.ics`), `${single.join('\r\n')}\r\n`, 'utf8')
+}
+console.log(`Wrote ${events.length} events to ${outFile} and ${perEventDir}/`)

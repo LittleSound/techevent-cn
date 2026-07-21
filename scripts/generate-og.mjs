@@ -85,7 +85,11 @@ async function loadEventTheme() {
       return { color: icons[0]?.colorDark ?? icons[0]?.color ?? '#14b8a6', icons }
     }
   }
-  catch {
+  catch (err) {
+    // A silent fallback here once shipped icon-less OG images from a CI whose
+    // Node predated type stripping (see .node-version) — stay loud about it.
+    console.warn(`[gen:og] WARNING: failed to import src/data/tag-icons.ts (${err.message}).`)
+    console.warn('[gen:og] OG images will have NO theme icons and use the fallback color. Check the Node version (needs >= 22.18 / 23.6 for native TS import; pinned via .node-version).')
     return () => ({ color: '#14b8a6', icons: [] })
   }
 }

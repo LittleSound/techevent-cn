@@ -165,7 +165,7 @@ useHead(() => ({
           <div text-sm mt-3 op80 flex="~ wrap items-center gap-x-2 gap-y-1.5">
             <span op60>在地图中打开：</span>
             <a :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
-              <div i-carbon-map /> 高德地图
+              <div i-carbon-send-alt /> 高德地图
             </a>
             <a :href="baiduMapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
               <div i-simple-icons-baidu /> 百度地图

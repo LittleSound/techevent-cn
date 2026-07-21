@@ -1,0 +1,12 @@
+{
+  "name": "MoonBit Meetup 北京站",
+  "description": "围绕 AI 时代的智能体开发，分享 MoonBit 在现代编程语言、智能体工程和 AI 开发工具链等方向的最新探索。",
+  "startDate": "2026-07-18",
+  "city": "北京",
+  "country": "中国",
+  "venue": "海淀区中关村东路辅路东升大厦A座9-10层·原点大厦原点学堂涌现厅",
+  "format": "offline",
+  "url": "https://mp.weixin.qq.com/s/CelgQ7gQE7YqjALv6EBcrg",
+  "tags": ["moonbit", "programming-language", "ai", "meetup"],
+  "organizer": "MoonBit / IDEA 研究院基础软件中心"
+}

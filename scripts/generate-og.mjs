@@ -66,11 +66,10 @@ function resolveIcon(iconClass, color) {
   return { src: `data:image/svg+xml,${encodeURIComponent(svg)}`, width, height }
 }
 
-/** Best-effort event theme (brand color + up to 3 watermark icons) from tag-icons.ts. */
+/** Best-effort event theme (brand color + up to 3 watermark icons) from the shared plain-JavaScript data module. */
 async function loadEventTheme() {
   try {
-    // Node >= 23.6 strips types natively; older Node throws and we fall back.
-    const { tagIcons } = await import('../src/data/tag-icons.ts')
+    const { tagIcons } = await import('../src/data/tag-icons.mjs')
     return (tags) => {
       // Mirror src/utils/eventTheme.ts resolveEventTheme: tier !== 3, dedupe by
       // def identity, stable sort by tier ascending, take up to 3, primary = first.
@@ -86,10 +85,8 @@ async function loadEventTheme() {
     }
   }
   catch (err) {
-    // A silent fallback here once shipped icon-less OG images from a CI whose
-    // Node predated type stripping (see .node-version) — stay loud about it.
-    console.warn(`[gen:og] WARNING: failed to import src/data/tag-icons.ts (${err.message}).`)
-    console.warn('[gen:og] OG images will have NO theme icons and use the fallback color. Check the Node version (needs >= 22.18 / 23.6 for native TS import; pinned via .node-version).')
+    console.warn(`[gen:og] WARNING: failed to import src/data/tag-icons.mjs (${err.message}).`)
+    console.warn('[gen:og] OG images will have NO theme icons and use the fallback color.')
     return () => ({ color: '#14b8a6', icons: [] })
   }
 }

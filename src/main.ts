@@ -1,6 +1,7 @@
 import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
+import { scrollBehavior } from './router'
 
 import './styles/main.css'
 import 'uno.css'
@@ -14,4 +15,5 @@ import './styles/event-theme.css'
 export const createApp = ViteSSG(App, {
   routes,
   base: import.meta.env.BASE_URL,
+  scrollBehavior,
 })

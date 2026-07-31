@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { newEventUrl } from '~/config'
 import { missingContributionFields } from '~/utils/contribution'
 import { resolveEventLink } from '~/utils/eventLinks'
 import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
@@ -198,10 +197,6 @@ useHead(() => ({
           >
             <span op65>知道具体场馆？欢迎帮大家补上。</span>
             <ContributionMenu intent="edit" :event="event" label="补充地点" />
-            <span op35>·</span>
-            <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
-              查看贡献指南
-            </a>
           </div>
         </div>
       </section>
@@ -227,10 +222,6 @@ useHead(() => ({
           <div i-carbon-link op45 shrink-0 />
           <span op65>暂时还没有收录报名、议程或官方社媒等相关链接。</span>
           <ContributionMenu intent="edit" :event="event" label="补充相关链接" />
-          <span op35>·</span>
-          <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
-            查看贡献指南
-          </a>
         </div>
       </section>
 

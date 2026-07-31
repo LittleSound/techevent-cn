@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { calendarUrl, newEventUrl, repoUrl } from '~/config'
+import { calendarUrl, repoUrl } from '~/config'
 
 const subscribeOpen = ref(false)
 /** Webcal scheme lets calendar apps subscribe with one click on most platforms. */
@@ -41,9 +41,7 @@ const webcalUrl = computed(() => `webcal://${location.host}${calendarUrl}`)
         </div>
       </div>
 
-      <a :href="newEventUrl" target="_blank" rel="noopener" class="icon-btn" title="提交活动">
-        <div i-carbon-add-alt />
-      </a>
+      <ContributionMenu intent="add" trigger-style="icon" label="贡献活动" />
       <a :href="repoUrl" target="_blank" rel="noopener" class="icon-btn" title="GitHub 仓库">
         <div i-carbon-logo-github />
       </a>

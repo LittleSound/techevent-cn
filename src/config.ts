@@ -4,6 +4,9 @@ export const repoUrl = 'https://github.com/LittleSound/techevent-cn'
 /** Link contributors land on when they want to add an event. */
 export const newEventUrl = `${repoUrl}/blob/master/CONTRIBUTING.md`
 
+/** GitHub's new-file editor, scoped to the event data directory. */
+export const newEventFileUrl = `${repoUrl}/new/master/data/events`
+
 /** Published iCalendar feed for subscription. */
 export const calendarUrl = '/events.ics'
 

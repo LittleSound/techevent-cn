@@ -12,6 +12,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CalendarView: typeof import('./src/components/CalendarView.vue')['default']
+    ContributionMenu: typeof import('./src/components/ContributionMenu.vue')['default']
     EventCard: typeof import('./src/components/EventCard.vue')['default']
     EventDetailCard: typeof import('./src/components/EventDetailCard.vue')['default']
     EventMapEmbed: typeof import('./src/components/EventMapEmbed.vue')['default']

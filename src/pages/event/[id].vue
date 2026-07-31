@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { eventEditUrl, newEventUrl } from '~/config'
+import { missingContributionFields } from '~/utils/contribution'
 import { resolveEventLink } from '~/utils/eventLinks'
 import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange, isPast } from '~/utils/format'
@@ -36,6 +36,8 @@ const mapQuery = computed(() => event.value ? mapSearchQuery(event.value) : '')
 const { copy: copyAddress, copied: addressCopied } = useClipboard({ source: mapQuery })
 
 const resolvedLinks = computed(() => (event.value?.links ?? []).map(resolveEventLink))
+
+const missingDetails = computed(() => event.value ? missingContributionFields(event.value) : [])
 
 useSeoMeta({
   title: () => event.value ? `${event.value.name} · techevent-cn` : '活动不存在 · techevent-cn',
@@ -188,14 +190,22 @@ useHead(() => ({
           <div text-xs mt-1.5 op60 flex="~ items-center gap-1.5">
             <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
           </div>
+          <div
+            v-if="missingDetails.includes('venue')"
+            text-sm mt-3 pt-3 border-t border-gray-100 flex="~ wrap items-center gap-x-2 gap-y-1.5"
+            dark:border-gray-800
+          >
+            <span op65>知道具体场馆？欢迎帮大家补上。</span>
+            <ContributionMenu intent="edit" :event="event" label="补充地点" />
+          </div>
         </div>
       </section>
 
-      <section v-if="resolvedLinks.length" mt-8>
+      <section mt-8>
         <h2 text-sm tracking-wide font-600 mb-3 op50>
           相关链接
         </h2>
-        <div flex="~ wrap gap-2">
+        <div v-if="resolvedLinks.length" flex="~ wrap gap-2">
           <a
             v-for="link in resolvedLinks" :key="link.url"
             :href="link.url" target="_blank" rel="noopener"
@@ -203,6 +213,34 @@ useHead(() => ({
           >
             <div :class="link.icon" /> {{ link.label }}
           </a>
+        </div>
+        <div
+          v-else
+          flex="~ wrap items-center gap-x-2 gap-y-1.5"
+          text-sm p-3 border border-gray-300 rounded-lg border-dashed dark:border-gray-700
+        >
+          <div i-carbon-link op45 shrink-0 />
+          <span op65>暂时还没有收录报名、议程或官方社媒等相关链接。</span>
+          <ContributionMenu intent="edit" :event="event" label="补充相关链接" />
+        </div>
+      </section>
+
+      <section
+        class="mt-10 p-5 border border-teal-200 rounded-xl bg-teal-50/60 dark:border-teal-900 dark:bg-teal-950/25"
+      >
+        <div flex="~ items-start gap-3">
+          <div i-carbon-collaborate text-xl text-teal-600 mt-0.5 shrink-0 />
+          <div>
+            <h2 text-base font-700>
+              发现信息有误或想补充？
+            </h2>
+            <p text-sm mt-1 op70>
+              活动由社区共同维护。你可以直接编辑数据，也可以复制一份完整提示词，让 Agent 帮你调查和整理。
+            </p>
+            <div mt-4>
+              <ContributionMenu intent="edit" :event="event" trigger-style="primary" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -214,17 +252,6 @@ useHead(() => ({
           <EventCard v-for="rel in related" :key="rel.id" :event="rel" />
         </div>
       </section>
-
-      <footer text-sm mt-12 pt-6 border-t border-gray-100 op60 flex="~ wrap items-center justify-center gap-x-2 gap-y-1" dark:border-gray-800>
-        <span>发现信息有误或想补充？</span>
-        <a :href="eventEditUrl(event.id)" target="_blank" rel="noopener" text-teal-600 inline-flex gap-1 items-center hover:underline>
-          <div i-carbon-edit /> 在 GitHub 上编辑此活动
-        </a>
-        <span op50>·</span>
-        <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
-          贡献指南
-        </a>
-      </footer>
     </template>
 
     <div v-else mt-16 text-center op60>
@@ -234,7 +261,7 @@ useHead(() => ({
         返回活动列表 →
       </RouterLink>
       <p text-sm mt-2>
-        知道这个活动？<a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>欢迎提交 →</a>
+        知道这个活动？<ContributionMenu intent="add" label="欢迎提交" />
       </p>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from '@unhead/vue'
-import { newEventUrl, siteUrl } from '~/config'
+import { siteUrl } from '~/config'
 
 const { filter, filtered, filteredAnyTime, cities, tags, toggle, reset } = useEvents()
 
@@ -78,17 +78,13 @@ const calendarStart = computed(() => {
       <div v-else mt-12 px-4 text-center op60>
         <div i-carbon-calendar text-4xl mx-auto mb-3 op50 />
         <p>没有符合条件的活动。</p>
-        <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
-          知道一个？欢迎提交 →
-        </a>
+        <ContributionMenu intent="add" label="知道一个？欢迎提交" />
       </div>
     </template>
 
     <footer text-sm mt-16 px-4 pt-6 text-center border-t border-gray-100 op50 dark:border-gray-800>
       以开源精神维护 · 由社区共同补充 ·
-      <a :href="newEventUrl" target="_blank" rel="noopener" text-teal-600 hover:underline>
-        提交活动
-      </a>
+      <ContributionMenu intent="add" label="贡献活动" />
     </footer>
   </div>
 </template>

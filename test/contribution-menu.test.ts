@@ -32,6 +32,15 @@ describe('contributionMenu', () => {
     expect(wrapper.get('[role="dialog"]').text()).toContain('复制给 Agent 的提示词')
   })
 
+  it('puts the Agent prompt before the less common contribution paths', async () => {
+    const wrapper = mountMenu({ intent: 'add' })
+    await wrapper.get('button').trigger('click')
+
+    const dialogText = wrapper.get('[role="dialog"]').text()
+    expect(dialogText.indexOf('复制给 Agent 的提示词')).toBeLessThan(dialogText.indexOf('在 GitHub 上添加活动'))
+    expect(dialogText.indexOf('复制给 Agent 的提示词')).toBeLessThan(dialogText.indexOf('阅读贡献指南'))
+  })
+
   it('shows the exact GitHub editor and edit-specific wording for an existing event', async () => {
     const wrapper = mountMenu({ intent: 'edit', event })
     await wrapper.get('button').trigger('click')

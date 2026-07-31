@@ -135,6 +135,19 @@ onKeyStroke('Escape', () => {
         </div>
 
         <div mt-5 flex="~ col gap-2">
+          <button
+            type="button"
+            class="p-3 text-left border border-gray-200 rounded-lg flex gap-3 w-full transition items-start dark:border-gray-700 hover:border-teal-500 hover:bg-teal-50/50 dark:hover:bg-teal-950/30"
+            :disabled="!isSupported"
+            @click="copyPrompt"
+          >
+            <div :class="copied ? 'i-carbon-checkmark' : 'i-carbon-copy'" text-xl text-teal-600 mt-0.5 shrink-0 />
+            <span>
+              <span font-600 block>{{ copied ? '提示词已复制' : '复制给 Agent 的提示词' }}</span>
+              <span text-xs mt-0.5 op60 block>{{ copied ? '现在可以粘贴给你的编码 Agent' : copyDescription }}</span>
+            </span>
+          </button>
+
           <a
             :href="githubUrl"
             target="_blank"
@@ -162,19 +175,6 @@ onKeyStroke('Escape', () => {
             </span>
             <div i-carbon-arrow-up-right ml-auto mt-1 op45 shrink-0 />
           </a>
-
-          <button
-            type="button"
-            class="p-3 text-left border border-gray-200 rounded-lg flex gap-3 w-full transition items-start dark:border-gray-700 hover:border-teal-500 hover:bg-teal-50/50 dark:hover:bg-teal-950/30"
-            :disabled="!isSupported"
-            @click="copyPrompt"
-          >
-            <div :class="copied ? 'i-carbon-checkmark' : 'i-carbon-copy'" text-xl text-teal-600 mt-0.5 shrink-0 />
-            <span>
-              <span font-600 block>{{ copied ? '提示词已复制' : '复制给 Agent 的提示词' }}</span>
-              <span text-xs mt-0.5 op60 block>{{ copied ? '现在可以粘贴给你的编码 Agent' : copyDescription }}</span>
-            </span>
-          </button>
         </div>
 
         <p v-if="!isSupported" text-xs text-red-600 mt-3>

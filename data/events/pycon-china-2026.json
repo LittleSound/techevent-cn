@@ -6,7 +6,28 @@
   "country": "中国",
   "format": "offline",
   "url": "https://cn.pycon.org/2026/en/",
-  "tags": ["python", "pycon", "ai", "conference"],
+  "tags": [
+    "python",
+    "pycon",
+    "ai",
+    "conference"
+  ],
   "organizer": "PyCon China 组委会",
-  "sources": ["https://cn.pycon.org/2026/en/"]
+  "sources": [
+    "https://cn.pycon.org/2026/en/"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/PyConChina"
+    },
+    {
+      "url": "https://github.com/PyConChina"
+    },
+    {
+      "url": "https://space.bilibili.com/474764697"
+    },
+    {
+      "url": "https://weibo.com/PyConCN"
+    }
+  ]
 }

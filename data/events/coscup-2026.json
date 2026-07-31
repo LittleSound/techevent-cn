@@ -8,10 +8,26 @@
   "venue": "国立台湾科技大学 (NTUST)",
   "format": "offline",
   "url": "https://coscup.org/2026/en/",
-  "tags": ["opensource", "community", "ubuntu", "conference"],
+  "tags": [
+    "opensource",
+    "community",
+    "ubuntu",
+    "conference"
+  ],
   "organizer": "COSCUP 筹备团队 / UbuCon Asia",
   "sources": [
     "https://coscup.org/2026/en/",
     "https://www.lpi.org/event/coscup-26/"
+  ],
+  "links": [
+    {
+      "url": "https://twitter.com/coscup"
+    },
+    {
+      "url": "https://t.me/coscupchat"
+    },
+    {
+      "url": "https://www.youtube.com/user/thecoscup"
+    }
   ]
 }

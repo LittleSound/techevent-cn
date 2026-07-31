@@ -7,7 +7,20 @@
   "country": "日本",
   "format": "offline",
   "url": "https://2026.droidkaigi.jp/en/",
-  "tags": ["android", "kotlin", "mobile", "droidkaigi", "conference"],
+  "tags": [
+    "android",
+    "kotlin",
+    "mobile",
+    "droidkaigi",
+    "conference"
+  ],
   "organizer": "DroidKaigi 实行委员会",
-  "sources": ["https://2026.droidkaigi.jp/en/"]
+  "sources": [
+    "https://2026.droidkaigi.jp/en/"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/DroidKaigi"
+    }
+  ]
 }

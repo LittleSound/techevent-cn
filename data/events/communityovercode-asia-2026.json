@@ -8,7 +8,23 @@
   "venue": "中关村国家自主创新示范区会议中心",
   "format": "offline",
   "url": "https://asia.communityovercode.org/",
-  "tags": ["opensource", "apache", "community-over-code", "conference"],
+  "tags": [
+    "opensource",
+    "apache",
+    "community-over-code",
+    "conference"
+  ],
   "organizer": "Apache Software Foundation / ALC Beijing",
-  "sources": ["https://asia.communityovercode.org/"]
+  "sources": [
+    "https://asia.communityovercode.org/"
+  ],
+  "links": [
+    {
+      "url": "https://twitter.com/ApacheCon"
+    },
+    {
+      "url": "http://s.apache.org/apachecon-slack",
+      "label": "Slack"
+    }
+  ]
 }

@@ -10,6 +10,7 @@ const cloud = /** @type {const} */ ({ icon: 'i-carbon-cloud', color: '#0ea5e9', 
 const robotics = /** @type {const} */ ({ icon: 'i-mdi-robot', color: '#64748b', colorDark: '#94a3b8', tier: 2 })
 const frontend = /** @type {const} */ ({ icon: 'i-carbon-application-web', color: '#0891b2', tier: 2 })
 const startup = /** @type {const} */ ({ icon: 'i-mdi-rocket-launch', color: '#f43f5e', tier: 2 })
+const fintech = /** @type {const} */ ({ icon: 'i-mdi-finance', color: '#0f766e', tier: 2 })
 const academia = /** @type {const} */ ({ icon: 'i-mdi-school', color: '#92400e', colorDark: '#d97706', tier: 2 })
 const python = /** @type {const} */ ({ icon: 'i-simple-icons-python', color: '#3776ab', tier: 1 })
 const google = /** @type {const} */ ({ icon: 'i-simple-icons-google', color: '#4285f4', tier: 1 })
@@ -58,6 +59,7 @@ export const tagIcons = /** @type {const} */ ({
   'startup': startup,
   'demoday': startup,
   'indiehacker': startup,
+  'fintech': fintech,
   'academic': academia,
   'computer-science': academia,
   'student': academia,

@@ -1,0 +1,28 @@
+{
+  "name": "Inclusion·外滩大会 2026",
+  "description": "在上海举办的全球高级别前沿科技与金融科技盛会，由外滩大会组委会主办，自 2020 年起连续举办，涵盖主论坛、见解论坛、主题科技展、创新者舞台与科技人才招聘会等。",
+  "startDate": "2026-09-09",
+  "endDate": "2026-09-12",
+  "city": "上海",
+  "country": "中国",
+  "venue": "黄浦世博园区局门路689号（Inclusion外滩大会-1号门）",
+  "format": "offline",
+  "url": "https://www.inclusionconf.com/",
+  "tags": ["ai", "fintech", "conference"],
+  "organizer": "外滩大会组委会",
+  "sources": [
+    "https://www.inclusionconf.com/",
+    "https://www.inclusionconf.com/agenda",
+    "https://register.inclusionconf.com/"
+  ],
+  "links": [
+    {
+      "url": "https://register.inclusionconf.com/",
+      "label": "即刻参会（报名）"
+    },
+    {
+      "url": "https://www.inclusionconf.com/agenda",
+      "label": "大会议程"
+    }
+  ]
+}

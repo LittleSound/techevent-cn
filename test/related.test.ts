@@ -41,9 +41,10 @@ describe('relatedEvents', () => {
   })
 
   it('breaks score ties by date proximity to the source event', () => {
+    const now = new Date(2026, 7, 1)
     const near = make('near', { tags: ['vue'], city: '北京', startDate: '2026-08-10' })
     const far = make('far', { tags: ['vue'], city: '北京', startDate: '2027-03-01' })
-    expect(relatedEvents(self, [self, far, near]).map(e => e.id)).toEqual(['near', 'far'])
+    expect(relatedEvents(self, [self, far, near], 4, now).map(e => e.id)).toEqual(['near', 'far'])
   })
 
   it('sorts ended events after upcoming ones regardless of score', () => {

@@ -1,0 +1,21 @@
+{
+  "name": "Grok Bot Meetup Shanghai",
+  "description": "面向 Grok Bot 用户与感兴趣开发者的线下交流活动，安排包括交流破冰和分享 / Workshop。报名需经主办方审核。",
+  "startDate": "2026-10-17",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/spacexai-kh2x",
+  "tags": ["ai", "agentic-ai", "meetup"],
+  "organizer": "SpaceXAI for Shanghai, China",
+  "sources": [
+    "https://luma.com/spacexai-kh2x",
+    "https://cursor.com/community",
+    "https://forum.cursor.com/t/new-event-grok-bot-meetup-shanghai/170454",
+    "https://x.com/MaiYangAI/status/2096074726305362387"
+  ],
+  "links": [
+    { "url": "https://luma.com/spacexai-shanghai", "label": "上海社区活动日历" },
+    { "url": "https://forum.cursor.com/t/new-event-grok-bot-meetup-shanghai/170454", "label": "Cursor 社区公告" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "2026 Inclusion·外滩大会",
+  "description": "以“共创AI新经济”为主题的前沿科技与金融科技大会，设有主论坛、见解论坛、主题科技展、开发者日、创新赛及AI艺术节等活动。",
+  "startDate": "2026-09-09",
+  "endDate": "2026-09-12",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海黄浦世博园区",
+  "format": "offline",
+  "url": "https://www.inclusionconf.com/",
+  "tags": ["ai", "conference", "expo"],
+  "organizer": "外滩大会组委会",
+  "sources": [
+    "https://www.inclusionconf.com/",
+    "https://register.inclusionconf.com/"
+  ],
+  "links": [
+    { "url": "https://register.inclusionconf.com/", "label": "报名与参会服务" },
+    { "url": "https://www.inclusionconf.com/?openLogin=1", "label": "大会议程" }
+  ]
+}

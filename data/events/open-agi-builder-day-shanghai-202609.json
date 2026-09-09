@@ -1,0 +1,22 @@
+{
+  "name": "Open AGI Builder Day 上海站",
+  "description": "面向 AI 开发者、智能体产品团队与生态参与者的线下交流活动，围绕开源 AGI、产品实践与生态投资展开分享。",
+  "startDate": "2026-09-19",
+  "city": "上海",
+  "country": "中国",
+  "venue": "盛邦国际大厦 2F",
+  "format": "offline",
+  "url": "https://luma.com/88etf2ms",
+  "tags": ["ai", "agent", "opensource", "meetup"],
+  "organizer": "Sentient Foundation / 聚翼汇智科技",
+  "sources": [
+    "https://x.com/sentient_zh/status/2094760855212831210",
+    "https://luma.com/88etf2ms"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/sentient_found",
+      "label": "Sentient Foundation"
+    }
+  ]
+}

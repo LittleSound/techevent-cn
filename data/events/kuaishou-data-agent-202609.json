@@ -1,0 +1,15 @@
+{
+  "name": "快手技术沙龙：Data Agent——数据生产与智能决策新范式",
+  "description": "结合快手电商、A/B 实验平台等真实业务场景，分享快手技术团队在数据智能体方向的技术探索、产品建设与业务落地实践。",
+  "startDate": "2026-09-19",
+  "city": "北京",
+  "country": "中国",
+  "venue": "快手公司 T12-101",
+  "format": "offline",
+  "url": "https://mp.weixin.qq.com/s/eLM_PvHuiodMTM6n31WnkA",
+  "tags": ["ai", "agent", "data", "meetup"],
+  "organizer": "快手技术",
+  "sources": [
+    "https://mp.weixin.qq.com/s/eLM_PvHuiodMTM6n31WnkA"
+  ]
+}

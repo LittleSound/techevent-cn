@@ -1,0 +1,20 @@
+{
+  "name": "德邻杯｜2026 AI 创业大赛",
+  "description": "面向以 AI 应用或 AI 硬件解决真实场景问题的创业团队。报名项目经评审后，60 支团队将进入深圳线下决赛，优胜团队可进入为期 10 周的 Delin Residency 驻场共创。",
+  "startDate": "2026-10-15",
+  "endDate": "2026-10-16",
+  "city": "深圳",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://delincapital.com.cn/delin-cup.html",
+  "tags": ["ai", "startup", "competition"],
+  "organizer": "德邻资本",
+  "sources": [
+    "https://delincapital.com.cn/delin-cup.html",
+    "https://mp.weixin.qq.com/s/eZDzbsoQyR_i3SIy6ersEw"
+  ],
+  "links": [
+    { "url": "https://delincapital.com.cn/apply.html", "label": "在线报名（截止 9 月 30 日）" },
+    { "url": "https://x.com/Delincapital8", "label": "德邻资本 X" }
+  ]
+}

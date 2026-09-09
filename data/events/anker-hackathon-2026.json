@@ -1,0 +1,16 @@
+{
+  "name": "Anker 首届黑客松挑战赛",
+  "description": "安克创新围绕智能录音、智能安防、充电储能与智能服务四个真实业务方向举办的 AI 原生软硬件黑客松，先在线上提交预赛作品，入围团队参加深圳现场决赛。",
+  "startDate": "2026-09-07",
+  "endDate": "2026-10-17",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "安克大楼",
+  "format": "hybrid",
+  "url": "https://career.anker.com.cn/hackathon/",
+  "tags": ["ai", "hardware", "hackathon"],
+  "organizer": "安克创新",
+  "sources": [
+    "https://career.anker.com.cn/hackathon/"
+  ]
+}

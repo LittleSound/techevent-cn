@@ -1,0 +1,15 @@
+{
+  "name": "Arm Create 2026 深圳站",
+  "description": "Arm 年度开发者活动深圳站，围绕从云端到边缘的智能体 AI，涵盖 Armv9、端侧 AI、游戏渲染、机器人与性能优化等技术方向。",
+  "startDate": "2026-09-11",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "深圳湾万丽酒店",
+  "format": "offline",
+  "url": "https://developer.arm.com/",
+  "tags": ["arm", "ai", "edge-ai", "robotics", "conference"],
+  "organizer": "Arm",
+  "sources": [
+    "https://developer.arm.com/"
+  ]
+}

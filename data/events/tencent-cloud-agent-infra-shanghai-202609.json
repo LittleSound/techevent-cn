@@ -1,0 +1,14 @@
+{
+  "name": "腾讯云架构师城市沙龙：AI Agent Infra——让智能体跑得更稳",
+  "description": "面向智能体工程实践的技术沙龙，讨论智能体基础设施、记忆系统及其在真实产品与团队中的落地。",
+  "startDate": "2026-09-19",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://developer.cloud.tencent.com/salon/salon-2513",
+  "tags": ["ai", "agent", "cloud", "meetup"],
+  "organizer": "腾讯云开发者社区",
+  "sources": [
+    "https://developer.cloud.tencent.com/salon/salon-2513"
+  ]
+}

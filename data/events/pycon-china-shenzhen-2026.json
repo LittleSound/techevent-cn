@@ -1,0 +1,29 @@
+{
+  "name": "PyCon China 2026（深圳站）",
+  "description": "中国 Python 社区年度大会深圳场，围绕 AI 时代的 Python 应用与生态，覆盖智能体、大模型、物理 AI、数据科学、Web 开发、云原生与自动化。",
+  "startDate": "2026-09-13",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "华润城万象天地北京银行总部 10 楼创客中心",
+  "format": "offline",
+  "url": "https://cn.pycon.org/2026/",
+  "tags": ["python", "pycon", "ai", "opensource", "conference"],
+  "organizer": "PyCon China 组委会",
+  "sources": [
+    "https://cn.pycon.org/2026/"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/PyConChina"
+    },
+    {
+      "url": "https://github.com/PyConChina"
+    },
+    {
+      "url": "https://space.bilibili.com/474764697"
+    },
+    {
+      "url": "https://weibo.com/PyConCN"
+    }
+  ]
+}

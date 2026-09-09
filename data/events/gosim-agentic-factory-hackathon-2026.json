@@ -1,8 +1,7 @@
 {
   "name": "GOSIM Agentic Factory Hackathon 2026",
-  "description": "面向全球开发者的智能体软件工程竞赛，通过线上资格赛和大奖赛构建可完成需求理解、代码生成、测试验证与交付任务的软件工程智能体，并在 GOSIM Shenzhen 展示成果。",
-  "startDate": "2026-09-07",
-  "endDate": "2026-10-17",
+  "description": "面向全球开发者的智能体软件工程竞赛，9 月起通过线上资格赛和大奖赛构建可完成需求理解、代码生成、测试验证与交付任务的软件工程智能体，并在 GOSIM Shenzhen 展示成果。",
+  "startDate": "2026-10-17",
   "city": "深圳",
   "country": "中国",
   "format": "hybrid",

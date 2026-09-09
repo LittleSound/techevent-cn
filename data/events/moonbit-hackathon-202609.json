@@ -1,0 +1,21 @@
+{
+  "name": "2026 MoonBit 九月黑客松",
+  "description": "面向所有开发者的线上开源黑客松，使用 MoonBit 构建并公开参赛项目；报名与项目验收均于 9 月 24 日截止。",
+  "startDate": "2026-09-01",
+  "endDate": "2026-09-24",
+  "city": "线上",
+  "country": "中国",
+  "format": "online",
+  "url": "https://moonbitlang.github.io/Hackathon2026/",
+  "tags": ["moonbit", "opensource", "hackathon"],
+  "organizer": "MoonBit",
+  "sources": [
+    "https://moonbitlang.github.io/Hackathon2026/"
+  ],
+  "links": [
+    {
+      "url": "https://github.com/moonbitlang",
+      "label": "MoonBit GitHub"
+    }
+  ]
+}

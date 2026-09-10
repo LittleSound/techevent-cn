@@ -29,7 +29,7 @@ describe('resolveEventTheme', () => {
   it('sorts tier 1 before tier 2 regardless of tag order', () => {
     const theme = resolveEventTheme(make(['ai', 'python']))!
     expect(theme.primary.icon).toBe('i-simple-icons-python')
-    expect(theme.icons[1].icon).toBe('i-carbon-machine-learning-model')
+    expect(theme.icons[1].icon).toBe('i-hugeicons-ai-brain-03')
   })
 
   it('dedupes grouped tags sharing one def', () => {

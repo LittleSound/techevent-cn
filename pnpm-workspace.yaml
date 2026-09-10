@@ -6,6 +6,7 @@ packages: []
 catalogs:
   build:
     '@iconify-json/carbon': ^1.2.19
+    '@iconify-json/hugeicons': ^1.2.30
     '@iconify-json/mdi': ^1.2.3
     '@iconify-json/simple-icons': ^1.2.60
     '@resvg/resvg-js': ^2.6.2

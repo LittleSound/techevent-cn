@@ -3,7 +3,7 @@
 // plain .ts file (it is outside the default extraction pipeline).
 
 /** Shared defs so grouped tags (e.g. the AI family) dedupe to one card icon. */
-const ai = /** @type {const} */ ({ icon: 'i-carbon-machine-learning-model', color: '#8b5cf6', tier: 2 })
+const ai = /** @type {const} */ ({ icon: 'i-hugeicons-ai-brain-03', color: '#8b5cf6', tier: 2 })
 const opensource = /** @type {const} */ ({ icon: 'i-simple-icons-opensourceinitiative', color: '#3da639', tier: 2 })
 const printing3d = /** @type {const} */ ({ icon: 'i-mdi-printer-3d', color: '#f97316', tier: 2 })
 const cloud = /** @type {const} */ ({ icon: 'i-carbon-cloud', color: '#0ea5e9', tier: 2 })

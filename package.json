@@ -31,6 +31,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev",
     "@iconify-json/carbon": "catalog:build",
+    "@iconify-json/hugeicons": "catalog:build",
     "@iconify-json/mdi": "catalog:build",
     "@iconify-json/simple-icons": "catalog:build",
     "@resvg/resvg-js": "catalog:build",

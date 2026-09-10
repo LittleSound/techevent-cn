@@ -6,7 +6,7 @@ import { tagIcons } from '~/data/tag-icons'
  * @iconify-json collection — guards against typos in icon names, which
  * would otherwise silently render as an empty box.
  */
-const collections = ['simple-icons', 'carbon', 'mdi'] as const
+const collections = ['simple-icons', 'carbon', 'hugeicons', 'mdi'] as const
 
 async function loadIconNames(): Promise<Map<string, Set<string>>> {
   const map = new Map<string, Set<string>>()

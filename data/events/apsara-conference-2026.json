@@ -1,0 +1,28 @@
+{
+  "name": "2026 云栖大会 (Apsara Conference 2026)",
+  "description": "阿里云年度旗舰技术大会，以“智以致用”为主题，设置主论坛、专题论坛、展览、动手实验室与创新活动，聚焦大模型、智能体、AI 云与算力基础设施。",
+  "startDate": "2026-09-22",
+  "endDate": "2026-09-24",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "杭州国际博览中心一期、二期",
+  "format": "offline",
+  "url": "https://yunqi.aliyun.com/",
+  "tags": ["cloud", "ai", "agent", "conference"],
+  "organizer": "阿里云",
+  "sources": [
+    "https://yunqi.aliyun.com/",
+    "https://yunqi.aliyun.com/2026/guide",
+    "https://www.alibabacloud.com/en/apsara-conference/2026-about"
+  ],
+  "links": [
+    {
+      "url": "https://yunqi.aliyun.com/2026/agenda",
+      "label": "大会日程"
+    },
+    {
+      "url": "https://yunqi.aliyun.com/2026/exhibition",
+      "label": "展览介绍"
+    }
+  ]
+}

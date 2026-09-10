@@ -1,0 +1,17 @@
+{
+  "name": "AWS Community Day Shenzhen 2026",
+  "description": "由 AWS 用户社群主导的年度技术大会深圳场，汇聚社区力量，涵盖云计算、AI/ML 等主题的技术分享与实践案例。",
+  "startDate": "2026-10-17",
+  "endDate": "2026-10-17",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "雪花科技大厦 6 楼（宝安区雪花路 1 号，地铁 5 号线兴东站 B 口）",
+  "format": "offline",
+  "url": "https://2026-autumn.awscommunityday.cn/",
+  "tags": ["aws", "cloud", "community", "conference"],
+  "organizer": "亚马逊云科技 User Group",
+  "sources": [
+    "https://2026-autumn.awscommunityday.cn/",
+    "https://awscommunity.cn/events/community-day-2026-%E6%B7%B1%E5%9C%B3-9872593983600/"
+  ]
+}

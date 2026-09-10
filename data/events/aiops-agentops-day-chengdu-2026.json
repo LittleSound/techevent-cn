@@ -1,0 +1,16 @@
+{
+  "name": "AIOps Day 成都站：可观测性、AIOps 与 AgentOps 闭门交流会",
+  "description": "聚焦 Observability × AI Agent 融合实践的闭门交流会，亚马逊云科技、观测云、NebulaGraph 一线专家分享 AI for Ops 与 Ops for AI 的双向重塑。50 人闭门邀请制。",
+  "startDate": "2026-09-18",
+  "endDate": "2026-09-18",
+  "city": "成都",
+  "country": "中国",
+  "venue": "亚马逊云科技成都办公室（武侯区益州大道中段 1999 号银泰城写字楼 4 号楼 19 层）",
+  "format": "offline",
+  "url": "https://awscommunity.cn/events/aiops-day-%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7aiops-%E4%B8%8E-agentops-%E9%97%AD%E9%97%A8%E4%BA%A4%E6%B5%81%E4%BC%9A-7876684283200/",
+  "tags": ["aws", "aiops", "agentops", "observability", "meetup"],
+  "organizer": "亚马逊云科技 User Group",
+  "sources": [
+    "https://awscommunity.cn/events/aiops-day-%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7aiops-%E4%B8%8E-agentops-%E9%97%AD%E9%97%A8%E4%BA%A4%E6%B5%81%E4%BC%9A-7876684283200/"
+  ]
+}

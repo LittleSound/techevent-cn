@@ -8,7 +8,7 @@
   "venue": "杭州国际博览中心一期、二期",
   "format": "offline",
   "url": "https://yunqi.aliyun.com/",
-  "tags": ["cloud", "ai", "agent", "conference"],
+  "tags": ["alibabacloud", "cloud", "ai", "agent", "conference"],
   "organizer": "阿里云",
   "sources": [
     "https://yunqi.aliyun.com/",

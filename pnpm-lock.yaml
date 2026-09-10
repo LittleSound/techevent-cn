@@ -9,6 +9,9 @@ catalogs:
     '@iconify-json/carbon':
       specifier: ^1.2.19
       version: 1.2.19
+    '@iconify-json/hugeicons':
+      specifier: ^1.2.30
+      version: 1.2.34
     '@iconify-json/mdi':
       specifier: ^1.2.3
       version: 1.2.3
@@ -135,6 +138,9 @@ importers:
       '@iconify-json/carbon':
         specifier: catalog:build
         version: 1.2.19
+      '@iconify-json/hugeicons':
+        specifier: catalog:build
+        version: 1.2.34
       '@iconify-json/mdi':
         specifier: catalog:build
         version: 1.2.3
@@ -821,6 +827,9 @@ packages:
 
   '@iconify-json/carbon@1.2.19':
     resolution: {integrity: sha512-l89XjtEeSA5fxlxPTNSU9AA+rxaz/Dn0X/ux0/3awR+tAayY8iJqWQu3AKxhchfx3LB/fX1Nv3ZppZzrBAt7aA==}
+
+  '@iconify-json/hugeicons@1.2.34':
+    resolution: {integrity: sha512-DxTrDx+P/NNgBE0wo6yXRMSyzZziCUqyb/X/HLgvI/z8XynchCw0ptNeNwHac6B5vq3PtR0R2ltCSSGiltkzLg==}
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
@@ -4290,6 +4299,10 @@ snapshots:
   '@humanwhocodes/retry@0.4.2': {}
 
   '@iconify-json/carbon@1.2.19':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/hugeicons@1.2.34':
     dependencies:
       '@iconify/types': 2.0.0
 

@@ -3,7 +3,7 @@
 // plain .ts file (it is outside the default extraction pipeline).
 
 /** Shared defs so grouped tags (e.g. the AI family) dedupe to one card icon. */
-const ai = /** @type {const} */ ({ icon: 'i-carbon-machine-learning-model', color: '#8b5cf6', tier: 2 })
+const ai = /** @type {const} */ ({ icon: 'i-hugeicons-ai-brain-03', color: '#8b5cf6', tier: 2 })
 const opensource = /** @type {const} */ ({ icon: 'i-simple-icons-opensourceinitiative', color: '#3da639', tier: 2 })
 const printing3d = /** @type {const} */ ({ icon: 'i-mdi-printer-3d', color: '#f97316', tier: 2 })
 const cloud = /** @type {const} */ ({ icon: 'i-carbon-cloud', color: '#0ea5e9', tier: 2 })
@@ -28,6 +28,11 @@ export const tagIcons = /** @type {const} */ ({
   'kubernetes': { icon: 'i-simple-icons-kubernetes', color: '#326ce5', tier: 1 },
   'cncf': { icon: 'i-simple-icons-cncf', color: '#446ca9', colorDark: '#9cb4d8', tier: 1 },
   'aws': { icon: 'i-simple-icons-amazonwebservices', color: '#c77c02', colorDark: '#ff9900', tier: 1 },
+  'alibabacloud': { icon: 'i-simple-icons-alibabacloud', color: '#ff6a00', tier: 1 },
+  'huawei': { icon: 'i-simple-icons-huawei', color: '#cf0a2c', tier: 1 },
+  'arm': { icon: 'i-simple-icons-arm', color: '#0091bd', tier: 1 },
+  'kuaishou': { icon: 'i-simple-icons-kuaishou', color: '#ff4906', tier: 1 },
+  'xiaohongshu': { icon: 'i-simple-icons-xiaohongshu', color: '#ff2442', tier: 1 },
   'android': { icon: 'i-simple-icons-android', color: '#2aa15f', colorDark: '#3ddc84', tier: 1 },
   'kotlin': { icon: 'i-simple-icons-kotlin', color: '#7f52ff', tier: 1 },
   'apache': { icon: 'i-simple-icons-apache', color: '#d22128', tier: 1 },

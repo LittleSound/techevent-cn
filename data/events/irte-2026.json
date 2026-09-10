@@ -1,0 +1,22 @@
+{
+  "name": "iRTE2026 实时智能大会 (Intelligent Real-Time Engagement)",
+  "description": "全球首个聚焦“实时智能”的全产业峰会，由声网与 RTE 开发者社区主办，以实时互动（RTE）为核心纽带，探讨 RTE 技术与生成式 AI 的结合。15+ 论坛、100+ 场演讲，聚焦对话式 AI、AI Agent、音频/视频 AI、Real-Time AI Infra、具身智能等方向。",
+  "startDate": "2026-10-23",
+  "endDate": "2026-10-24",
+  "city": "北京",
+  "country": "中国",
+  "venue": "北京朝阳区悠唐皇冠假日酒店 (Crowne Plaza Beijing Chaoyang U-Town)",
+  "coordinates": [116.4328, 39.9206],
+  "format": "offline",
+  "url": "https://www.bagevent.com/event/9250068",
+  "tags": ["ai", "agentic-ai", "llm", "conference"],
+  "organizer": "声网 (Agora) / RTE 开发者社区",
+  "sources": [
+    "https://mp.weixin.qq.com/s/aVZgVjcTKm54VkO_1pCf9A",
+    "https://www.bagevent.com/event/9250068"
+  ],
+  "links": [
+    { "url": "https://mp.weixin.qq.com/s/aVZgVjcTKm54VkO_1pCf9A", "label": "微信公众号公告" },
+    { "url": "https://www.rtecommunity.dev", "label": "RTE 开发者社区" }
+  ]
+}

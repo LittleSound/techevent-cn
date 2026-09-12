@@ -13,4 +13,11 @@ describe('scrollBehavior', () => {
 
     expect(scrollBehavior(route, route, savedPosition)).toBe(savedPosition)
   })
+
+  it('preserves scroll when switching detail tabs and scrolls new deep links to the tabs', () => {
+    const details = { path: '/event/vueconf', hash: '#details' } as never
+    const discussion = { path: '/event/vueconf', hash: '#comments' } as never
+    expect(scrollBehavior(discussion, details, null)).toBe(false)
+    expect(scrollBehavior(discussion, route, null)).toEqual({ el: '#detail-tabs', top: 24 })
+  })
 })

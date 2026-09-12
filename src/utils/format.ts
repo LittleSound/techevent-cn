@@ -13,6 +13,8 @@ export function formatDateRange(start: Date, end: Date): string {
     return fmtWithYear.format(start)
   if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth())
     return `${fmtWithYear.format(start)} – ${end.getDate()}日`
+  if (start.getFullYear() !== end.getFullYear())
+    return `${fmtWithYear.format(start)} – ${fmtWithYear.format(end)}`
   return `${fmtWithYear.format(start)} – ${fmt.format(end)}`
 }
 

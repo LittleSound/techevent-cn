@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { eventPalette } from '../src/utils/eventPalette.mjs'
 
 describe('og theme data', () => {
   it('is available from a plain JavaScript module that Node can load without TypeScript stripping', async () => {
@@ -8,7 +9,7 @@ describe('og theme data', () => {
 
     expect(tagIcons.vue).toMatchObject({
       icon: 'i-simple-icons-vuedotjs',
-      color: '#42b883',
+      ...eventPalette('#42b883'),
       tier: 1,
     })
   })

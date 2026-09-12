@@ -64,7 +64,7 @@ const copyDescription = computed(() =>
 const triggerClass = computed(() => ({
   icon: 'icon-btn',
   link: 'text-teal-600 inline-flex gap-1 items-center hover:underline',
-  primary: 'text-sm text-white px-3 py-2 rounded-md bg-teal-600 inline-flex gap-1.5 transition items-center justify-center hover:bg-teal-700',
+  primary: 'action-button',
   secondary: 'text-sm px-3 py-2 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center justify-center hover:text-teal-600 hover:border-teal-600 dark:border-gray-700',
 })[triggerStyle])
 

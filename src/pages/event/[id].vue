@@ -234,13 +234,24 @@ useHead(() => ({
           </div>
         </section>
 
-        <aside mt-6 px-4 py-3 rounded-lg bg-gray-50 flex="~ wrap items-center justify-between gap-3" dark:bg-gray-900>
-          <div text-sm flex="~ items-center gap-2">
-            <div i-carbon-edit text-gray-500 shrink-0 aria-hidden="true" />
-            <span>信息有误或缺漏？一起完善这场活动。</span>
+        <section
+          class="mt-10 p-5 border border-teal-200 rounded-xl bg-teal-50/60 dark:border-teal-900 dark:bg-teal-950/25"
+        >
+          <div flex="~ items-start gap-3">
+            <div i-carbon-collaborate text-xl text-teal-600 mt-0.5 shrink-0 />
+            <div>
+              <h2 text-base font-700>
+                发现信息有误或想补充？
+              </h2>
+              <p text-sm mt-1 op70>
+                活动由社区共同维护。你可以直接编辑数据，也可以复制一份完整提示词，让 Agent 帮你调查和整理。
+              </p>
+              <div mt-4>
+                <ContributionMenu intent="edit" :event="event" trigger-style="primary" />
+              </div>
+            </div>
           </div>
-          <ContributionMenu intent="edit" :event="event" label="补充活动信息" />
-        </aside>
+        </section>
       </div>
 
       <RelatedEvents v-if="related.length" :key="event.id" :events="related" class="event-related" />

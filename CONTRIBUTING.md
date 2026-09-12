@@ -51,14 +51,15 @@ techevent-cn 的活动数据来自社区共同维护。添加或修改一个活�
 
 ### 在哪里加
 
-映射表在 [`src/data/tag-icons.ts`](./src/data/tag-icons.ts)，每个 tag 对应一条 `TagIconDef`：
+原始映射表在 [`src/data/tag-icons.mjs`](./src/data/tag-icons.mjs) 的 `tagIconSources` 中；页面和分享图共用生成后的 `tagIcons`：
 
-| 字段        | 必填 | 说明                                                                     |
-| ----------- | ---- | ------------------------------------------------------------------------ |
-| `icon`      | ✅   | UnoCSS 图标类名，如 `i-simple-icons-vuedotjs`，可以用任意 Iconify 图标集 |
-| `color`     | ✅   | 主题色（hex）。如果品牌色太浅/太亮，白底下不好看，选一个加深过的变体     |
-| `colorDark` |      | 暗色模式下的颜色覆盖，可选，用于在暗色模式对比度不够的颜色               |
-| `tier`      | ✅   | 图标的展示层级，见下面的说明                                             |
+| 字段    | 必填 | 说明                                                                     |
+| ------- | ---- | ------------------------------------------------------------------------ |
+| `icon`  | ✅   | UnoCSS 图标类名，如 `i-simple-icons-vuedotjs`，可以用任意 Iconify 图标集 |
+| `color` | ✅   | 品牌 / 概念原色（hex）。系统提取 OKLCH hue 后生成适合亮暗主题的颜色      |
+| `tier`  | ✅   | 图标的展示层级，见下面的说明                                             |
+
+颜色由 culori 提取原色的 OKLCH hue，再映射到 `@proj-airi/chromatic`：浅色主题用 800，深色主题用 300。原色的低色度会保留，灰色不会变成彩色；输出会做 sRGB 色域映射。无需再手动维护 `colorDark`。
 
 `tier` 决定图标出现在哪里：
 
@@ -69,9 +70,9 @@ techevent-cn 的活动数据来自社区共同维护。添加或修改一个活�
 如果多个相近的 tag 应该共享同一个图标（比如 `ai`、`llm`、`agentic-ai` 都算 AI 类），先定义一个变量，再在表里被多个 key 引用，避免卡片上出现重复图标：
 
 ```ts
-const ai: TagIconDef = { icon: 'i-carbon-machine-learning-model', color: '#8b5cf6', tier: 2 }
+const ai = { icon: 'i-carbon-machine-learning-model', color: '#8b5cf6', tier: 2 }
 
-export const tagIcons: Record<string, TagIconDef> = {
+export const tagIconSources = {
   'ai': ai,
   'llm': ai,
   'agentic-ai': ai,
@@ -97,7 +98,7 @@ export const tagIcons: Record<string, TagIconDef> = {
 
 ### 验证
 
-`pnpm test` 会自动校验：图标类名对应的图标在已安装的集合里是否真实存在、`color`/`colorDark` 是否是合法的 hex 颜色。写错了会直接报错并提示是哪个 tag，不需要手动去图标库里一个个核对。
+`pnpm test` 会自动校验：图标类名对应的图标在已安装的集合里是否真实存在、`color`/`colorDark` 是否是合法的 hex 颜色，以及生成颜色在亮暗卡片上的对比度是否达到 4.5:1。写错了会直接报错并提示是哪个 tag，不需要手动去图标库里一个个核对。
 
 ## 本地预览（可选）
 

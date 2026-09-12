@@ -84,6 +84,12 @@ html.dark .ev-bar-selected:hover {
   color: white;
 }
 
+/* A light accent fill needs dark text in dark mode. */
+html.dark .ev-bar-selected,
+html.dark .ev-bar-selected:hover {
+  color: #111827;
+}
+
 /* Per-icon color that follows the color scheme (chips, secondary watermark icons). */
 .ev-icon-tinted {
   color: var(--ev-icon-c);

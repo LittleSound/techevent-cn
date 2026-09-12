@@ -23,8 +23,10 @@
   },
   "dependencies": {
     "@giscus/vue": "catalog:frontend",
+    "@proj-airi/chromatic": "catalog:frontend",
     "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
+    "culori": "catalog:frontend",
     "leaflet": "catalog:frontend",
     "vue": "catalog:frontend",
     "vue-router": "catalog:frontend"
@@ -36,6 +38,7 @@
     "@iconify-json/mdi": "catalog:build",
     "@iconify-json/simple-icons": "catalog:build",
     "@resvg/resvg-js": "catalog:build",
+    "@types/culori": "catalog:dev",
     "@types/leaflet": "catalog:dev",
     "@types/node": "catalog:dev",
     "@unocss/eslint-plugin": "catalog:dev",

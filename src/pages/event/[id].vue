@@ -15,7 +15,7 @@ const eventId = computed(() => String(route.params.id).replace(/\.html$/, ''))
 
 const event = computed(() => allEvents.find(e => e.id === eventId.value))
 
-const related = computed(() => event.value ? relatedEvents(event.value, allEvents, 2) : [])
+const related = computed(() => event.value ? relatedEvents(event.value, allEvents, 4) : [])
 
 const theme = computed(() => event.value && resolveEventTheme(event.value))
 
@@ -61,7 +61,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <div mx-auto px-4 pb-16 max-w-3xl>
+  <div mx-auto px-4 pb-16 max-w-3xl :class="related.length ? 'lg:max-w-6xl' : ''">
     <header pt-6 flex="~ items-center justify-between gap-3">
       <RouterLink to="/" title="返回首页" class="group">
         <span text-base tracking-tight font-700 transition group-hover:text-teal-600>techevent-cn</span>
@@ -78,180 +78,174 @@ useHead(() => ({
       </RouterLink>
     </div>
 
-    <template v-if="event">
-      <article
-        class="card" mt-4 p-6 relative
-        :class="theme ? 'ev-themed' : ''" :style="themeStyle"
-      >
-        <div flex="~ items-start justify-between gap-3">
-          <h1 text-2xl leading-snug font-700 :class="theme ? 'ev-title-themed' : ''">
-            {{ event.name }}
-          </h1>
-          <span text-xs mt-2 op70 shrink-0>{{ formatLabel[event.format] }}</span>
-        </div>
-
-        <div flex="~ col gap-1.5" text-sm mt-4 op80>
-          <span flex="~ items-center gap-1.5">
-            <div i-carbon-calendar shrink-0 /> {{ formatDateRange(event.start, event.end) }}
-            <span v-if="isPast(event.end)" text-xs px-1.5 rounded bg-gray-100 op70 dark:bg-gray-800>已结束</span>
-          </span>
-          <span flex="~ items-center gap-1.5">
-            <div i-carbon-location shrink-0 />
-            {{ event.city }}<template v-if="event.country !== '中国'"> · {{ event.country }}</template><template v-if="event.venue"> · {{ event.venue }}</template>
-          </span>
-          <span v-if="event.organizer" flex="~ items-center gap-1.5">
-            <div i-carbon-group shrink-0 /> {{ event.organizer }}
-          </span>
-        </div>
-
-        <p v-if="event.description" text-base leading-relaxed mt-4 op80>
-          {{ event.description }}
-        </p>
-
-        <div v-if="event.tags.length" mt-4 flex="~ wrap gap-1.5">
-          <span
-            v-for="{ tag, def } in taggedChips" :key="tag"
-            bg="gray-100 dark:gray-800"
-            text-xs px-2 py-0.5 rounded op80 inline-flex gap-1 items-center
-          >
-            <div v-if="def" :class="def.icon" class="ev-icon-tinted" text-xs :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
-            {{ tag }}
-          </span>
-        </div>
-
-        <div v-if="theme" class="ev-watermark" aria-hidden="true">
-          <div
-            v-for="def in theme.icons.slice(1).reverse()"
-            :key="def.icon"
-            class="ev-icon-tinted" :class="[def.icon]"
-            :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }"
-          />
-          <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
-        </div>
-      </article>
-
-      <div grid="~ cols-2 sm:cols-4 gap-2" mt-3>
-        <a
-          :href="event.url" target="_blank" rel="noopener"
-          text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 w-full transition items-center justify-center hover:bg-teal-700
+    <div v-if="event" class="event-layout" :class="{ 'has-related': related.length }">
+      <div class="event-content">
+        <article
+          class="card" mt-4 p-6 relative
+          :class="theme ? 'ev-themed' : ''" :style="themeStyle"
         >
-          前往官网 <div i-carbon-arrow-up-right />
-        </a>
-        <a
-          :href="`/ics/${event.id}.ics`"
-          hover="border-teal-600 text-teal-600" download text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 w-full transition items-center justify-center dark:border-gray-700
-        >
-          <div i-carbon-calendar-add /> 加入日历
-        </a>
-        <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
-      </div>
+          <div flex="~ items-start justify-between gap-3">
+            <h1 text-2xl leading-snug font-700 :class="theme ? 'ev-title-themed' : ''">
+              {{ event.name }}
+            </h1>
+            <span text-xs mt-2 op70 shrink-0>{{ formatLabel[event.format] }}</span>
+          </div>
 
-      <div mt-4 flex="~ justify-end">
-        <a href="#comments" text-sm text-teal-700 py-2 inline-flex gap-1.5 items-center dark:text-teal-400 hover:underline>
-          <div i-carbon-chat aria-hidden="true" /> 查看讨论
-          <div i-carbon-arrow-down aria-hidden="true" />
-        </a>
-      </div>
+          <div flex="~ col gap-1.5" text-sm mt-4 op80>
+            <span flex="~ items-center gap-1.5">
+              <div i-carbon-calendar shrink-0 /> {{ formatDateRange(event.start, event.end) }}
+              <span v-if="isPast(event.end)" text-xs px-1.5 rounded bg-gray-100 op70 dark:bg-gray-800>已结束</span>
+            </span>
+            <span flex="~ items-center gap-1.5">
+              <div i-carbon-location shrink-0 />
+              {{ event.city }}<template v-if="event.country !== '中国'"> · {{ event.country }}</template><template v-if="event.venue"> · {{ event.venue }}</template>
+            </span>
+            <span v-if="event.organizer" flex="~ items-center gap-1.5">
+              <div i-carbon-group shrink-0 /> {{ event.organizer }}
+            </span>
+          </div>
 
-      <section v-if="hasLocation(event)" mt-8>
-        <h2 text-sm tracking-wide font-600 mb-3 op50>
-          地点
-        </h2>
-        <template v-if="hasPreciseLocation(event)">
-          <div flex="~ items-center gap-3 justify-between" p-3 border border-gray-200 rounded-lg dark:border-gray-800>
-            <div text-sm op90 flex="~ items-center gap-1.5" min-w-0>
-              <div i-carbon-location op60 shrink-0 />
-              <span truncate>{{ event.venue }} · {{ event.city }}<template v-if="event.country !== '中国'"> · {{ event.country }}</template></span>
-            </div>
-            <button
-              type="button"
-              text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex shrink-0 gap-1.5 transition items-center hover:bg-teal-700
-              @click="copyAddress()"
+          <p v-if="event.description" text-base leading-relaxed mt-4 op80>
+            {{ event.description }}
+          </p>
+
+          <div v-if="event.tags.length" mt-4 flex="~ wrap gap-1.5">
+            <span
+              v-for="{ tag, def } in taggedChips" :key="tag"
+              bg="gray-100 dark:gray-800"
+              text-xs px-2 py-0.5 rounded op80 inline-flex gap-1 items-center
             >
-              <div :class="addressCopied ? 'i-carbon-checkmark' : 'i-carbon-copy'" />
-              {{ addressCopied ? '已复制' : '复制地址' }}
-            </button>
+              <div v-if="def" :class="def.icon" class="ev-icon-tinted" text-xs :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
+              {{ tag }}
+            </span>
           </div>
 
-          <EventMapEmbed v-if="event.coordinates" :coordinates="event.coordinates" :label="event.venue ?? event.city" mt-3 />
+          <div v-if="theme" class="ev-watermark" aria-hidden="true">
+            <div
+              v-for="def in theme.icons.slice(1).reverse()"
+              :key="def.icon"
+              class="ev-icon-tinted" :class="[def.icon]"
+              :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }"
+            />
+            <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
+          </div>
+        </article>
 
-          <div text-sm mt-3 op80 flex="~ wrap items-center gap-x-2 gap-y-1.5">
-            <span op60>在地图中打开：</span>
-            <a :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
-              <div i-carbon-send-alt /> 高德地图
-            </a>
-            <a :href="baiduMapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
-              <div i-simple-icons-baidu /> 百度地图
-            </a>
-            <a :href="appleMapsSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
-              <div i-simple-icons-apple /> Apple 地图
-            </a>
-          </div>
-        </template>
-        <div v-else p-3 border border-gray-200 rounded-lg dark:border-gray-800>
-          <div text-sm op90 flex="~ items-center gap-1.5">
-            <div i-carbon-location op60 shrink-0 />
-            {{ event.city }}<template v-if="event.country !== '中国'">
-              · {{ event.country }}
-            </template>
-          </div>
-          <div text-xs mt-1.5 op60 flex="~ items-center gap-1.5">
-            <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
-          </div>
-          <div
-            v-if="missingDetails.includes('venue')"
-            text-sm mt-3 pt-3 border-t border-gray-100 flex="~ wrap items-center gap-x-2 gap-y-1.5"
-            dark:border-gray-800
-          >
-            <span op65>知道具体场馆？欢迎帮大家补上。</span>
-            <ContributionMenu intent="edit" :event="event" label="补充地点" />
-          </div>
-        </div>
-      </section>
-
-      <section mt-8>
-        <h2 text-sm tracking-wide font-600 mb-3 op50>
-          相关链接
-        </h2>
-        <div v-if="resolvedLinks.length" flex="~ wrap gap-2">
+        <div grid="~ cols-2 sm:cols-4 gap-2" mt-3>
           <a
-            v-for="link in resolvedLinks" :key="link.url"
-            :href="link.url" target="_blank" rel="noopener"
-            hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+            :href="event.url" target="_blank" rel="noopener"
+            text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex gap-1 w-full transition items-center justify-center hover:bg-teal-700
           >
-            <div :class="link.icon" /> {{ link.label }}
+            前往官网 <div i-carbon-arrow-up-right />
+          </a>
+          <a
+            :href="`/ics/${event.id}.ics`"
+            hover="border-teal-600 text-teal-600" download text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 w-full transition items-center justify-center dark:border-gray-700
+          >
+            <div i-carbon-calendar-add /> 加入日历
+          </a>
+          <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
+        </div>
+
+        <div mt-4 flex="~ justify-end">
+          <a href="#comments" text-sm text-teal-700 py-2 inline-flex gap-1.5 items-center dark:text-teal-400 hover:underline>
+            <div i-carbon-chat aria-hidden="true" /> 查看讨论
+            <div i-carbon-arrow-down aria-hidden="true" />
           </a>
         </div>
-        <div
-          v-else
-          flex="~ wrap items-center gap-x-2 gap-y-1.5"
-          text-sm p-3 border border-gray-300 rounded-lg border-dashed dark:border-gray-700
-        >
-          <div i-carbon-link op45 shrink-0 />
-          <span op65>暂时还没有收录报名、议程或官方社媒等相关链接。</span>
-          <ContributionMenu intent="edit" :event="event" label="补充相关链接" />
-        </div>
-      </section>
 
-      <aside mt-6 px-4 py-3 rounded-lg bg-gray-50 flex="~ wrap items-center justify-between gap-3" dark:bg-gray-900>
-        <div text-sm flex="~ items-center gap-2">
-          <div i-carbon-edit text-gray-500 shrink-0 aria-hidden="true" />
-          <span>信息有误或缺漏？一起完善这场活动。</span>
-        </div>
-        <ContributionMenu intent="edit" :event="event" label="补充活动信息" />
-      </aside>
+        <section v-if="hasLocation(event)" mt-8>
+          <h2 text-sm tracking-wide font-600 mb-3 op50>
+            地点
+          </h2>
+          <template v-if="hasPreciseLocation(event)">
+            <div flex="~ items-center gap-3 justify-between" p-3 border border-gray-200 rounded-lg dark:border-gray-800>
+              <div text-sm op90 flex="~ items-center gap-1.5" min-w-0>
+                <div i-carbon-location op60 shrink-0 />
+                <span truncate>{{ event.venue }} · {{ event.city }}<template v-if="event.country !== '中国'"> · {{ event.country }}</template></span>
+              </div>
+              <button
+                type="button"
+                text-sm text-white px-3 py-1.5 rounded-md bg-teal-600 inline-flex shrink-0 gap-1.5 transition items-center hover:bg-teal-700
+                @click="copyAddress()"
+              >
+                <div :class="addressCopied ? 'i-carbon-checkmark' : 'i-carbon-copy'" />
+                {{ addressCopied ? '已复制' : '复制地址' }}
+              </button>
+            </div>
 
-      <section v-if="related.length" mt-8>
-        <h2 text-sm tracking-wide font-600 mb-3 op50>
-          相关活动
-        </h2>
-        <div grid="~ cols-1 sm:cols-2 gap-3">
-          <EventCard v-for="rel in related" :key="rel.id" :event="rel" />
-        </div>
-      </section>
+            <EventMapEmbed v-if="event.coordinates" :coordinates="event.coordinates" :label="event.venue ?? event.city" mt-3 />
 
-      <EventComments :event-id="event.id" />
-    </template>
+            <div text-sm mt-3 op80 flex="~ wrap items-center gap-x-2 gap-y-1.5">
+              <span op60>在地图中打开：</span>
+              <a :href="amapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
+                <div i-carbon-send-alt /> 高德地图
+              </a>
+              <a :href="baiduMapSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
+                <div i-simple-icons-baidu /> 百度地图
+              </a>
+              <a :href="appleMapsSearchUrl(mapQuery)" target="_blank" rel="noopener" class="chip chip-idle">
+                <div i-simple-icons-apple /> Apple 地图
+              </a>
+            </div>
+          </template>
+          <div v-else p-3 border border-gray-200 rounded-lg dark:border-gray-800>
+            <div text-sm op90 flex="~ items-center gap-1.5">
+              <div i-carbon-location op60 shrink-0 />
+              {{ event.city }}<template v-if="event.country !== '中国'">
+                · {{ event.country }}
+              </template>
+            </div>
+            <div text-xs mt-1.5 op60 flex="~ items-center gap-1.5">
+              <div i-carbon-information shrink-0 /> 具体活动地点请查看官网信息。
+            </div>
+            <div
+              v-if="missingDetails.includes('venue')"
+              text-sm mt-3 pt-3 border-t border-gray-100 flex="~ wrap items-center gap-x-2 gap-y-1.5"
+              dark:border-gray-800
+            >
+              <span op65>知道具体场馆？欢迎帮大家补上。</span>
+              <ContributionMenu intent="edit" :event="event" label="补充地点" />
+            </div>
+          </div>
+        </section>
+
+        <section mt-8>
+          <h2 text-sm tracking-wide font-600 mb-3 op50>
+            相关链接
+          </h2>
+          <div v-if="resolvedLinks.length" flex="~ wrap gap-2">
+            <a
+              v-for="link in resolvedLinks" :key="link.url"
+              :href="link.url" target="_blank" rel="noopener"
+              hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center dark:border-gray-700
+            >
+              <div :class="link.icon" /> {{ link.label }}
+            </a>
+          </div>
+          <div
+            v-else
+            flex="~ wrap items-center gap-x-2 gap-y-1.5"
+            text-sm p-3 border border-gray-300 rounded-lg border-dashed dark:border-gray-700
+          >
+            <div i-carbon-link op45 shrink-0 />
+            <span op65>暂时还没有收录报名、议程或官方社媒等相关链接。</span>
+            <ContributionMenu intent="edit" :event="event" label="补充相关链接" />
+          </div>
+        </section>
+
+        <aside mt-6 px-4 py-3 rounded-lg bg-gray-50 flex="~ wrap items-center justify-between gap-3" dark:bg-gray-900>
+          <div text-sm flex="~ items-center gap-2">
+            <div i-carbon-edit text-gray-500 shrink-0 aria-hidden="true" />
+            <span>信息有误或缺漏？一起完善这场活动。</span>
+          </div>
+          <ContributionMenu intent="edit" :event="event" label="补充活动信息" />
+        </aside>
+      </div>
+
+      <RelatedEvents v-if="related.length" :key="event.id" :events="related" class="event-related" />
+      <EventComments :event-id="event.id" class="event-discussion" />
+    </div>
 
     <div v-else mt-16 text-center op60>
       <div i-carbon-help text-4xl mx-auto mb-3 op50 />
@@ -265,3 +259,44 @@ useHead(() => ({
     </div>
   </div>
 </template>
+
+<style scoped>
+.event-layout {
+  display: grid;
+  grid-template-areas: 'content' 'discussion';
+  gap: 2rem;
+}
+
+.event-layout.has-related {
+  grid-template-areas: 'content' 'related' 'discussion';
+}
+
+.event-content {
+  grid-area: content;
+  min-width: 0;
+}
+
+.event-related {
+  grid-area: related;
+  min-width: 0;
+}
+
+.event-discussion {
+  grid-area: discussion;
+  min-width: 0;
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .event-layout.has-related {
+    grid-template-columns: 18rem minmax(0, 1fr);
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: 'related content' 'related discussion';
+    align-items: start;
+  }
+
+  .event-related {
+    margin-top: 1rem;
+  }
+}
+</style>

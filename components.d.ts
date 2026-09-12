@@ -19,6 +19,7 @@ declare module 'vue' {
     EventMapEmbed: typeof import('./src/components/EventMapEmbed.vue')['default']
     EventShareButtons: typeof import('./src/components/EventShareButtons.vue')['default']
     FilterBar: typeof import('./src/components/FilterBar.vue')['default']
+    RelatedEvents: typeof import('./src/components/RelatedEvents.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheHeader: typeof import('./src/components/TheHeader.vue')['default']

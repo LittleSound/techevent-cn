@@ -24,7 +24,7 @@ describe('eventMarkdown', () => {
   it('puts the canonical source directly below the title and exports all collected details', () => {
     expect(eventMarkdown(event)).toBe(`# 开发者大会
 
-来源：[techevent\\-cn 活动详情](<${eventCanonicalUrl(event.id)}>)
+来源：[Techevents 活动详情](<${eventCanonicalUrl(event.id)}>)
 
 > 可通过来源链接查看最新活动信息，或贡献更正与补充。
 

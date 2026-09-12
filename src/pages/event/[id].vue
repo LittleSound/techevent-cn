@@ -40,7 +40,7 @@ const resolvedLinks = computed(() => (event.value?.links ?? []).map(resolveEvent
 const missingDetails = computed(() => event.value ? missingContributionFields(event.value) : [])
 
 useSeoMeta({
-  title: () => event.value ? `${event.value.name} · techevent-cn` : '活动不存在 · techevent-cn',
+  title: () => event.value ? `${event.value.name} · Techevents` : '活动不存在 · Techevents',
   description: () => event.value?.description ?? '中国（及周边）科技活动日历',
   ogTitle: () => event.value?.name ?? '活动不存在',
   ogDescription: () => event.value?.description ?? '',
@@ -66,7 +66,7 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
   <div class="detail-page">
     <header class="site-header">
       <RouterLink to="/" title="返回首页">
-        <span class="site-name">techevent-cn</span>
+        <span class="site-name">Techevents</span>
         <span class="site-caption">中国（及周边）科技活动日历</span>
       </RouterLink>
       <button class="icon-btn" title="切换暗色模式" aria-label="切换暗色模式" @click="toggleDark()">

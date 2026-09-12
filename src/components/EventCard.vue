@@ -3,7 +3,10 @@ import type { NormalizedEvent } from '~/types'
 import { resolveEventTheme, tagIconFor } from '~/utils/eventTheme'
 import { formatDateRange, isPast } from '~/utils/format'
 
-const { event } = defineProps<{ event: NormalizedEvent }>()
+const { event, variant = 'default' } = defineProps<{
+  event: NormalizedEvent
+  variant?: 'default' | 'muted'
+}>()
 
 const formatLabel: Record<NormalizedEvent['format'], string> = {
   offline: '线下',
@@ -32,7 +35,7 @@ const taggedChips = computed(() =>
     class="card"
     p-4
     block
-    :class="[past ? 'op60 hover:op100' : '', theme ? 'ev-themed' : '']"
+    :class="[past ? 'op60 hover:op100' : '', theme ? 'ev-themed' : '', { 'event-card-muted': variant === 'muted' }]"
     :style="themeStyle"
   >
     <div flex="~ items-start justify-between gap-3">
@@ -84,3 +87,23 @@ const taggedChips = computed(() =>
     </div>
   </RouterLink>
 </template>
+
+<style scoped>
+/* Keep the original background and interaction colors while neutralizing resting accents. */
+.event-card-muted:not(:hover):not(:focus-visible) {
+  border-color: var(--colors-gray-200);
+}
+
+html.dark .event-card-muted:not(:hover):not(:focus-visible) {
+  border-color: var(--colors-gray-800);
+}
+
+.event-card-muted:not(:hover):not(:focus-visible) h3,
+.event-card-muted:not(:hover):not(:focus-visible) .ev-icon-tinted {
+  color: inherit;
+}
+
+.event-card-muted:not(:hover):not(:focus-visible) .ev-watermark {
+  --ev-c: currentColor;
+}
+</style>

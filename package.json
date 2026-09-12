@@ -22,6 +22,7 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
+    "@giscus/vue": "catalog:frontend",
     "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "leaflet": "catalog:frontend",

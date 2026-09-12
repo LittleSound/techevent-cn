@@ -1,7 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { createMemoryHistory, createRouter } from 'vue-router'
+import { parse } from 'vue/compiler-sfc'
 import EventCard from '~/components/EventCard.vue'
+import eventCardSource from '~/components/EventCard.vue?raw'
+import eventThemeCss from '~/styles/event-theme.css?raw'
 import { normalizeEvent } from '~/utils/events'
 
 const event = normalizeEvent({
@@ -16,6 +19,29 @@ const event = normalizeEvent({
 }, 'vue-community')
 
 describe('eventCard', () => {
+  it('uses the neutral card border at rest in both color schemes', () => {
+    const style = document.createElement('style')
+    style.textContent = (eventThemeCss + parse(eventCardSource).descriptor.styles.map(block => block.content).join('\n'))
+      .replaceAll('var(--colors-gray-200)', '#e5e7eb')
+      .replaceAll('var(--colors-gray-800)', '#1f2937')
+    const card = document.createElement('a')
+    card.className = 'card ev-themed event-card-muted'
+    document.head.append(style)
+    document.body.append(card)
+    const originalClass = document.documentElement.className
+    try {
+      document.documentElement.classList.remove('dark')
+      expect(getComputedStyle(card).borderTopColor).toBe('rgb(229, 231, 235)')
+      document.documentElement.classList.add('dark')
+      expect(getComputedStyle(card).borderTopColor).toBe('rgb(31, 41, 55)')
+    }
+    finally {
+      card.remove()
+      style.remove()
+      document.documentElement.className = originalClass
+    }
+  })
+
   it('preserves all content and decorative icons when only the palette is muted', async () => {
     const router = createRouter({ history: createMemoryHistory(), routes: [{ path: '/event/:id', component: { template: '<div />' } }] })
     await router.push('/event/current')

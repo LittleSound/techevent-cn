@@ -89,7 +89,15 @@ const taggedChips = computed(() =>
 </template>
 
 <style scoped>
-/* Limit the resting palette to foreground details; keep original surfaces and hover colors. */
+/* Keep the original background and interaction colors while neutralizing resting accents. */
+.event-card-muted:not(:hover):not(:focus-visible) {
+  border-color: var(--colors-gray-200);
+}
+
+html.dark .event-card-muted:not(:hover):not(:focus-visible) {
+  border-color: var(--colors-gray-800);
+}
+
 .event-card-muted:not(:hover):not(:focus-visible) h3,
 .event-card-muted:not(:hover):not(:focus-visible) .ev-icon-tinted {
   color: inherit;

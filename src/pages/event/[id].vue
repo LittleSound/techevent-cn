@@ -15,7 +15,7 @@ const eventId = computed(() => String(route.params.id).replace(/\.html$/, ''))
 
 const event = computed(() => allEvents.find(e => e.id === eventId.value))
 
-const related = computed(() => event.value ? relatedEvents(event.value, allEvents) : [])
+const related = computed(() => event.value ? relatedEvents(event.value, allEvents, 2) : [])
 
 const theme = computed(() => event.value && resolveEventTheme(event.value))
 
@@ -51,6 +51,7 @@ useSeoMeta({
 })
 
 useHead(() => ({
+  meta: event.value ? [{ name: 'giscus:backlink', content: eventCanonicalUrl(event.value.id) }] : [],
   link: event.value ? [{ rel: 'canonical', href: eventCanonicalUrl(event.value.id) }] : [],
   script: event.value
     // Escape `<` so event text can never close the script tag early.
@@ -145,6 +146,13 @@ useHead(() => ({
         <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
       </div>
 
+      <div mt-4 flex="~ justify-end">
+        <a href="#comments" text-sm text-teal-700 py-2 inline-flex gap-1.5 items-center dark:text-teal-400 hover:underline>
+          <div i-carbon-chat aria-hidden="true" /> 查看讨论
+          <div i-carbon-arrow-down aria-hidden="true" />
+        </a>
+      </div>
+
       <section v-if="hasLocation(event)" mt-8>
         <h2 text-sm tracking-wide font-600 mb-3 op50>
           地点
@@ -225,24 +233,13 @@ useHead(() => ({
         </div>
       </section>
 
-      <section
-        class="mt-10 p-5 border border-teal-200 rounded-xl bg-teal-50/60 dark:border-teal-900 dark:bg-teal-950/25"
-      >
-        <div flex="~ items-start gap-3">
-          <div i-carbon-collaborate text-xl text-teal-600 mt-0.5 shrink-0 />
-          <div>
-            <h2 text-base font-700>
-              发现信息有误或想补充？
-            </h2>
-            <p text-sm mt-1 op70>
-              活动由社区共同维护。你可以直接编辑数据，也可以复制一份完整提示词，让 Agent 帮你调查和整理。
-            </p>
-            <div mt-4>
-              <ContributionMenu intent="edit" :event="event" trigger-style="primary" />
-            </div>
-          </div>
+      <aside mt-6 px-4 py-3 rounded-lg bg-gray-50 flex="~ wrap items-center justify-between gap-3" dark:bg-gray-900>
+        <div text-sm flex="~ items-center gap-2">
+          <div i-carbon-edit text-gray-500 shrink-0 aria-hidden="true" />
+          <span>信息有误或缺漏？一起完善这场活动。</span>
         </div>
-      </section>
+        <ContributionMenu intent="edit" :event="event" label="补充活动信息" />
+      </aside>
 
       <section v-if="related.length" mt-8>
         <h2 text-sm tracking-wide font-600 mb-3 op50>
@@ -252,6 +249,8 @@ useHead(() => ({
           <EventCard v-for="rel in related" :key="rel.id" :event="rel" />
         </div>
       </section>
+
+      <EventComments :event-id="event.id" />
     </template>
 
     <div v-else mt-16 text-center op60>

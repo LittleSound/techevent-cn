@@ -31,3 +31,24 @@ pnpm test         # 运行测试
 ## 技术栈
 
 Vue 3 · Vite · UnoCSS · vue-router（文件路由）。活动数据存放在 `data/events/*.json`，构建时一并生成 [iCalendar](https://datatracker.ietf.org/doc/html/rfc5545) 订阅源。
+
+## Event comments
+
+Event pages embed [giscus](https://giscus.app/) after related events. The widget
+loads only in the browser and lazily loads its iframe; the rest of each page
+remains statically rendered. Comments require a GitHub account.
+
+- Enable Discussions and install the [giscus GitHub App](https://github.com/apps/giscus)
+  for this repository only.
+- Use the **Event comments** category with the **Announcement** format. Public
+  repository and category IDs live in `src/config.ts`; no client secret is needed.
+- Each thread uses the strict key `event:<event-id>`. Keep event filenames stable;
+  renaming one requires migrating its discussion mapping, including the strict
+  matching hash. Titles, domains and `.html` URL variants do not change the key.
+- The `giscus:backlink` meta tag points discussions to the production canonical URL.
+- Moderate comments in GitHub Discussions. The first comment or reaction creates
+  the thread; a GitHub search with no results is normal before that happens.
+
+Before deploying a fork, replace the repository/category IDs with your own.
+Verify desktop/mobile layout, theme changes, navigation between events, and the
+GitHub fallback link. Do not post test comments to real event discussions.

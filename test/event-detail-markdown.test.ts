@@ -47,7 +47,7 @@ describe('event detail Markdown integration', () => {
         await flushPromises()
         const event = allEvents.find(event => event.id === id)!
         expect(wrapper.get('h1').text()).toBe(event.name)
-        expect(wrapper.get('a[href="#comments"]').text()).toContain('查看讨论')
+        expect(wrapper.get('#comments').isVisible()).toBe(true)
         expect(wrapper.getComponent(EventComments).props('eventId')).toBe(id)
         expect(wrapper.get('[data-testid="giscus"]').attributes('term')).toBe(`event:${id}`)
         await wrapper.getComponent(EventMarkdownButton).get('button').trigger('click')

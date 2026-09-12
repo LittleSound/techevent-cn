@@ -8,7 +8,6 @@ import {
 
 export default defineConfig({
   shortcuts: [
-    ['action-button', 'text-sm text-white px-3 py-2 rounded-md bg-teal-600 inline-flex gap-1.5 transition items-center justify-center hover:bg-teal-700'],
     ['icon-btn', 'inline-flex items-center justify-center text-lg op75 hover:op100 hover:text-teal-600 transition cursor-pointer select-none'],
     ['chip', 'inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-sm border border-gray-200 dark:border-gray-700 select-none cursor-pointer transition'],
     ['chip-active', 'bg-teal-600 border-teal-600 text-white hover:bg-teal-700'],

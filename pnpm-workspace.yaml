@@ -37,6 +37,7 @@ catalogs:
     vitest: ^4.0.18
     vue-tsc: ^3.2.5
   frontend:
+    '@giscus/vue': 3.1.1
     # Pinned to match vite-ssg's bundled @unhead/vue so pnpm dedupes to a
     # single head instance — otherwise components' useHead/useSeoMeta calls
     # register with a different head context than the one vite-ssg renders

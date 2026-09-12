@@ -17,3 +17,11 @@ export const siteUrl = 'https://event.rizumu.me'
 export function eventEditUrl(id: string): string {
   return `${repoUrl}/edit/master/data/events/${id}.json`
 }
+
+/** Public giscus identifiers; the GitHub App must have access to this repository. */
+export const giscusConfig = {
+  repo: 'LittleSound/techevent-cn',
+  repoId: 'R_kgDOS7i9yg',
+  category: 'Event comments',
+  categoryId: 'DIC_kwDOS7i9ys4DFcEW',
+} as const

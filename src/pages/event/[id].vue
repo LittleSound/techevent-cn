@@ -143,6 +143,7 @@ useHead(() => ({
           <div i-carbon-calendar-add /> 加入日历
         </a>
         <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
+        <EventMarkdownButton :event="event" />
       </div>
 
       <section v-if="hasLocation(event)" mt-8>

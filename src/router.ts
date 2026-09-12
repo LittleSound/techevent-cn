@@ -1,7 +1,12 @@
 import type { RouterScrollBehavior } from 'vue-router'
 
 /**
- * Keeps browser history navigation natural while ensuring every new page starts at the top.
+ * Restore browser history positions and keep existing detail/discussion links navigable.
  */
-export const scrollBehavior: RouterScrollBehavior = (_to, _from, savedPosition) =>
-  savedPosition ?? { top: 0 }
+export const scrollBehavior: RouterScrollBehavior = (to, _from, savedPosition) => {
+  if (savedPosition)
+    return savedPosition
+  if (to?.hash === '#comments' || to?.hash === '#details')
+    return { el: to.hash, top: 24 }
+  return { top: 0 }
+}

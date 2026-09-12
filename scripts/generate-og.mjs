@@ -122,7 +122,7 @@ function dateLabel(e) {
   return `${e.startDate}${end}`
 }
 
-const SITE = 'event.rizumu.me · techevent-cn'
+const SITE = 'event.rizumu.me · Techevents'
 
 /** satori element helper: h('div', style, ...children). */
 function h(type, style, ...children) {

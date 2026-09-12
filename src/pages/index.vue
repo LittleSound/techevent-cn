@@ -5,7 +5,7 @@ import { siteUrl } from '~/config'
 const { filter, filtered, filteredAnyTime, cities, tags, toggle, reset } = useEvents()
 
 useSeoMeta({
-  ogTitle: 'techevent-cn · 中国科技活动日历',
+  ogTitle: 'Techevents · 中国科技活动日历',
   ogDescription: '中国（及周边）科技活动日历 — 开发者可浏览、筛选与订阅。',
   ogType: 'website',
   ogUrl: siteUrl,

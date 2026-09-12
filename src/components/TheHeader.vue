@@ -10,7 +10,9 @@ const webcalUrl = computed(() => `webcal://${location.host}${calendarUrl}`)
   <header flex="~ wrap items-center gap-3 justify-between" px-5 py-4>
     <div>
       <h1 text-xl tracking-tight font-700>
-        techevent-cn
+        <RouterLink to="/" title="返回首页" class="rounded focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-4">
+          Techevents
+        </RouterLink>
       </h1>
       <p text-sm op60>
         中国（及周边）科技活动日历

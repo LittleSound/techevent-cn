@@ -303,6 +303,7 @@ useHead(() => ({
     grid-template-columns: minmax(0, 1fr) 18rem;
     grid-template-rows: min-content 1fr;
     grid-template-areas: 'content related' 'discussion related';
+    column-gap: 3rem;
     align-items: start;
   }
 

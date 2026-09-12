@@ -39,11 +39,16 @@ defineProps<{ events: NormalizedEvent[] }>()
 }
 
 @media (min-width: 1024px) {
+  h2 {
+    line-height: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
   .related-list {
     grid-auto-flow: row;
     grid-auto-columns: auto;
     overflow: visible;
-    padding: 2px;
+    padding: 0;
   }
 }
 </style>

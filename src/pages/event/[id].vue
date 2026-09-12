@@ -72,7 +72,7 @@ useHead(() => ({
       </button>
     </header>
 
-    <div mt-4>
+    <div v-if="!event" mt-4>
       <RouterLink to="/" text-sm op60 inline-flex gap-1 items-center hover:text-teal-600 hover:op100>
         <div i-carbon-arrow-left /> 返回活动列表
       </RouterLink>
@@ -80,6 +80,11 @@ useHead(() => ({
 
     <div v-if="event" class="event-layout" :class="{ 'has-related': related.length }">
       <div class="event-content">
+        <div flex="~ items-center" text-sm leading-5 mt-4>
+          <RouterLink to="/" text-sm op60 inline-flex gap-1 items-center hover:text-teal-600 hover:op100>
+            <div i-carbon-arrow-left /> 返回活动列表
+          </RouterLink>
+        </div>
         <article
           class="card" mt-4 p-6 relative
           :class="theme ? 'ev-themed' : ''" :style="themeStyle"

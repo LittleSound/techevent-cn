@@ -300,9 +300,9 @@ useHead(() => ({
 
 @media (min-width: 1024px) {
   .event-layout.has-related {
-    grid-template-columns: 18rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 18rem;
     grid-template-rows: min-content 1fr;
-    grid-template-areas: 'related content' 'related discussion';
+    grid-template-areas: 'content related' 'discussion related';
     align-items: start;
   }
 

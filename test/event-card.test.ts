@@ -26,6 +26,8 @@ describe('eventCard', () => {
     expect(wrapper.text()).toContain('opensource')
 
     const originalContent = wrapper.text()
+    const originalPalette = wrapper.attributes('style')
+    const originalIconPalette = wrapper.findAll('.ev-icon-tinted').map(icon => icon.attributes('style')?.split(';').map(part => part.trim()).sort())
     const originalIcons = wrapper.findAll('.ev-watermark > div').map(icon => icon.classes())
     const originalTitle = wrapper.get('h3').attributes()
     const originalDescription = wrapper.get('p').attributes()
@@ -33,6 +35,8 @@ describe('eventCard', () => {
     expect(wrapper.classes()).toContain('event-card-muted')
     expect(wrapper.classes()).toContain('ev-themed')
     expect(wrapper.text()).toBe(originalContent)
+    expect(wrapper.attributes('style')).toBe(originalPalette)
+    expect(wrapper.findAll('.ev-icon-tinted').map(icon => icon.attributes('style')?.split(';').map(part => part.trim()).sort())).toEqual(originalIconPalette)
     expect(wrapper.findAll('.ev-watermark > div').map(icon => icon.classes())).toEqual(originalIcons)
     expect(wrapper.get('h3').attributes()).toEqual(originalTitle)
     expect(wrapper.get('p').attributes()).toEqual(originalDescription)

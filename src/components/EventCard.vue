@@ -89,8 +89,13 @@ const taggedChips = computed(() =>
 </template>
 
 <style scoped>
-/* Desaturate the complete palette without changing content, decoration or layout. */
-.event-card-muted {
-  filter: grayscale(1);
+/* Limit the resting palette to foreground details; keep original surfaces and hover colors. */
+.event-card-muted:not(:hover):not(:focus-visible) h3,
+.event-card-muted:not(:hover):not(:focus-visible) .ev-icon-tinted {
+  color: inherit;
+}
+
+.event-card-muted:not(:hover):not(:focus-visible) .ev-watermark {
+  --ev-c: currentColor;
 }
 </style>

@@ -9,7 +9,6 @@ import { relatedEvents } from '~/utils/related'
 import { buildEventJsonLd, eventCanonicalUrl, eventOgImageUrl } from '~/utils/seo'
 
 const route = useRoute('/event/[id]')
-const router = useRouter()
 
 /** Prerendered files live at /event/<id>.html, so direct visits may carry the extension in the param; strip it so both URL forms resolve to the same event. */
 const eventId = computed(() => String(route.params.id).replace(/\.html$/, ''))
@@ -61,31 +60,6 @@ useHead(() => ({
 }))
 
 const past = computed(() => event.value ? isPast(event.value.end) : false)
-const activeTab = ref<'details' | 'discussion'>('details')
-
-/** Hash links open discussions after hydration, while ordinary event navigation resets the tab. */
-function syncTab() {
-  activeTab.value = route.hash === '#comments' ? 'discussion' : 'details'
-}
-onMounted(syncTab)
-watch(() => [eventId.value, route.hash], syncTab)
-
-/** Keep a shareable tab URL without moving the viewport on each tab switch. */
-async function selectTab(tab: 'details' | 'discussion', scroll = false) {
-  activeTab.value = tab
-  await router.replace({ hash: tab === 'discussion' ? '#comments' : '#details' })
-  if (scroll) {
-    await nextTick()
-    document.getElementById('detail-tabs')?.scrollIntoView({ block: 'start' })
-  }
-}
-
-/** Arrow keys and Home/End move focus and selection together, following the tabs pattern. */
-async function navigateTabs(key: string) {
-  const tab = key === 'Home' ? 'details' : key === 'End' ? 'discussion' : activeTab.value === 'details' ? 'discussion' : 'details'
-  await selectTab(tab)
-  document.getElementById(`${tab}-tab`)?.focus()
-}
 </script>
 
 <template>
@@ -219,16 +193,8 @@ async function navigateTabs(key: string) {
 
       <div class="reading-layout" :class="{ 'has-related': related.length }">
         <RelatedEvents v-if="related.length" :key="event.id" :events="related" class="event-related" />
-        <div class="tab-content">
-          <div id="detail-tabs" class="detail-tabs" role="tablist" aria-label="活动详情与讨论" @keydown.left.prevent="navigateTabs('ArrowLeft')" @keydown.right.prevent="navigateTabs('ArrowRight')" @keydown.home.prevent="navigateTabs('Home')" @keydown.end.prevent="navigateTabs('End')">
-            <button id="details-tab" role="tab" type="button" :aria-selected="activeTab === 'details'" aria-controls="details-panel" :tabindex="activeTab === 'details' ? 0 : -1" @click="selectTab('details')">
-              <div i-carbon-document aria-hidden="true" /> 活动详情
-            </button>
-            <button id="discussion-tab" role="tab" type="button" :aria-selected="activeTab === 'discussion'" aria-controls="discussion-panel" :tabindex="activeTab === 'discussion' ? 0 : -1" @click="selectTab('discussion')">
-              <div i-carbon-chat aria-hidden="true" /> 参与者讨论
-            </button>
-          </div>
-          <div id="details-panel" role="tabpanel" aria-labelledby="details-tab" :hidden="activeTab !== 'details'" tabindex="0">
+        <div class="reading-content">
+          <div id="details">
             <section class="event-intro" aria-labelledby="intro-heading">
               <h2 id="intro-heading">
                 关于这场活动
@@ -319,14 +285,8 @@ async function navigateTabs(key: string) {
                 <ContributionMenu intent="edit" :event="event" label="补充相关链接" />
               </div>
             </section>
-
-            <div class="discussion-prompt">
-              <div><h3>和参与者聊聊</h3><p>找同行、聊见闻，或分享会后资料。</p></div><a href="#comments" @click.prevent="selectTab('discussion', true)">查看讨论 <div i-carbon-arrow-right aria-hidden="true" /></a>
-            </div>
           </div>
-          <div id="discussion-panel" role="tabpanel" aria-labelledby="discussion-tab" :hidden="activeTab !== 'discussion'" tabindex="0">
-            <EventComments :event-id="event.id" class="event-discussion" />
-          </div>
+          <EventComments :event-id="event.id" />
         </div>
       </div>
     </template>
@@ -640,46 +600,21 @@ html.dark .takeaway-panel {
 }
 .reading-layout {
   display: grid;
-  grid-template-areas: 'tabs';
+  grid-template-areas: 'content';
   gap: 2rem;
   margin-top: 2rem;
 }
 .reading-layout.has-related {
   grid-template-columns: minmax(0, 1fr) 18rem;
-  grid-template-areas: 'tabs related';
+  grid-template-areas: 'content related';
 }
-.tab-content {
-  grid-area: tabs;
+.reading-content {
+  grid-area: content;
   min-width: 0;
 }
 .event-related {
   grid-area: related;
   min-width: 0;
-  padding-top: 0.9rem;
-}
-.detail-tabs {
-  display: flex;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--detail-line);
-  scroll-margin-top: 1.5rem;
-}
-.detail-tabs > button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 0;
-  border-bottom: 2px solid transparent;
-  color: var(--detail-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-.detail-tabs > button[aria-selected='true'] {
-  color: var(--detail-accent);
-  border-bottom-color: var(--detail-accent);
-}
-.event-intro {
-  padding-top: 1.75rem;
 }
 .event-intro h2 {
   font-size: 1.05rem;
@@ -699,51 +634,14 @@ html.dark .takeaway-panel {
   flex-direction: column;
   align-items: flex-start;
 }
-.event-discussion {
-  margin-top: 0;
-  padding-top: 1.6rem;
-  border-top: 0;
-}
-.discussion-prompt {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--detail-line);
-}
-.discussion-prompt h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-.discussion-prompt p {
-  font-size: 0.75rem;
-  color: var(--detail-muted);
-  margin-top: 0.2rem;
-}
-.discussion-prompt a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--detail-accent);
-  font-size: 0.8rem;
-  white-space: nowrap;
-}
 .detail-page :is(button, a, [tabindex]):focus-visible {
   outline: 2px solid #36a48c;
   outline-offset: 4px;
 }
-.detail-page :is([role='tabpanel'])[hidden] {
-  display: none;
-}
 @media (max-width: 1023px) {
   .reading-layout.has-related {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'related' 'tabs';
-  }
-  .event-related {
-    padding-top: 0;
+    grid-template-areas: 'related' 'content';
   }
 }
 @media (max-width: 700px) {
@@ -790,9 +688,6 @@ html.dark .takeaway-panel {
   .reading-layout {
     margin-top: 1.5rem;
     gap: 1.5rem;
-  }
-  .discussion-prompt {
-    flex-wrap: wrap;
   }
 }
 </style>

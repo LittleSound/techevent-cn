@@ -41,33 +41,25 @@ async function openEvent(path = '/event/offline') {
 }
 
 describe('c3 event details', () => {
-  it('switches accessible tabs without hiding the shared tools or contribution entry', async () => {
-    const { wrapper, router } = await openEvent()
-    expect(wrapper.get('#details-tab').attributes('aria-selected')).toBe('true')
-    expect(wrapper.get('#discussion-panel').attributes('hidden')).toBeDefined()
-    await wrapper.get('#discussion-tab').trigger('click')
-    await flushPromises()
-    expect(router.currentRoute.value.hash).toBe('#comments')
-    expect(wrapper.get('#discussion-panel').attributes('hidden')).toBeUndefined()
-    expect(wrapper.get('#details-panel').attributes('hidden')).toBeDefined()
+  it('shows details followed by discussion without tabs or hidden panels', async () => {
+    const { wrapper } = await openEvent()
+    expect(wrapper.find('[role="tablist"]').exists()).toBe(false)
+    expect(wrapper.find('[role="tabpanel"]').exists()).toBe(false)
+    expect(wrapper.get('.event-intro').isVisible()).toBe(true)
+    const comments = wrapper.get('event-comments-stub')
+    expect(comments.isVisible()).toBe(true)
+    expect(wrapper.get('#details').element.compareDocumentPosition(comments.element) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     expect(wrapper.getComponent(EventMarkdownButton).isVisible()).toBe(true)
     expect(wrapper.get('.contribution-panel').isVisible()).toBe(true)
-    await wrapper.get('#detail-tabs').trigger('keydown', { key: 'Home' })
-    await flushPromises()
-    expect(wrapper.get('#details-tab').attributes('tabindex')).toBe('0')
-    expect(document.activeElement?.id).toBe('details-tab')
-    expect(router.currentRoute.value.hash).toBe('#details')
-    await wrapper.get('#detail-tabs').trigger('keydown', { key: 'ArrowRight' })
-    await flushPromises()
-    expect(document.activeElement?.id).toBe('discussion-tab')
   })
 
-  it('opens discussion deep links and resets tabs when navigating to another event', async () => {
+  it('keeps details visible for discussion links and updates comments on event navigation', async () => {
     const { wrapper, router } = await openEvent('/event/offline.html#comments')
-    expect(wrapper.get('#discussion-tab').attributes('aria-selected')).toBe('true')
+    expect(wrapper.get('.event-intro').isVisible()).toBe(true)
+    expect(wrapper.get('event-comments-stub').isVisible()).toBe(true)
     await router.push('/event/online')
     await flushPromises()
-    expect(wrapper.get('#details-tab').attributes('aria-selected')).toBe('true')
+    expect(wrapper.get('.event-intro').isVisible()).toBe(true)
     expect(wrapper.get('event-comments-stub').attributes('eventid')).toBe('online')
   })
 
@@ -102,10 +94,10 @@ describe('c3 event details', () => {
     expect(wrapper.find('a[href*="amap"]').exists()).toBe(true)
   })
 
-  it('omits event actions and discussion tabs for an unknown event', async () => {
+  it('omits event actions and discussion for an unknown event', async () => {
     const { wrapper } = await openEvent('/event/missing')
     expect(wrapper.text()).toContain('活动不存在或已被移除')
-    expect(wrapper.find('[role="tablist"]').exists()).toBe(false)
+    expect(wrapper.find('event-comments-stub').exists()).toBe(false)
     expect(wrapper.findComponent(EventMarkdownButton).exists()).toBe(false)
   })
 })

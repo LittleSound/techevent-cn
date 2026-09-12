@@ -150,6 +150,7 @@ useHead(() => ({
             <div i-carbon-calendar-add /> 加入日历
           </a>
           <EventShareButtons :url="eventCanonicalUrl(event.id)" :title="event.name" />
+          <EventMarkdownButton :event="event" />
         </div>
 
         <div mt-4 flex="~ justify-end">

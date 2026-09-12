@@ -17,6 +17,7 @@ declare module 'vue' {
     EventComments: typeof import('./src/components/EventComments.vue')['default']
     EventDetailCard: typeof import('./src/components/EventDetailCard.vue')['default']
     EventMapEmbed: typeof import('./src/components/EventMapEmbed.vue')['default']
+    EventMarkdownButton: typeof import('./src/components/EventMarkdownButton.vue')['default']
     EventShareButtons: typeof import('./src/components/EventShareButtons.vue')['default']
     FilterBar: typeof import('./src/components/FilterBar.vue')['default']
     RelatedEvents: typeof import('./src/components/RelatedEvents.vue')['default']

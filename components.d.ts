@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CalendarEventPopover: typeof import('./src/components/CalendarEventPopover.vue')['default']
     CalendarView: typeof import('./src/components/CalendarView.vue')['default']
     ContributionMenu: typeof import('./src/components/ContributionMenu.vue')['default']
     EventCard: typeof import('./src/components/EventCard.vue')['default']

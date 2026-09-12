@@ -26,6 +26,7 @@
     "@unhead/vue": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "leaflet": "catalog:frontend",
+    "reka-ui": "catalog:frontend",
     "vue": "catalog:frontend",
     "vue-router": "catalog:frontend"
   },

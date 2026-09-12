@@ -16,7 +16,7 @@ const event = normalizeEvent({
 }, 'vue-community')
 
 describe('eventCard', () => {
-  it('preserves the full default card and reduces secondary content only in compact mode', async () => {
+  it('preserves all content and decorative icons when only the palette is muted', async () => {
     const router = createRouter({ history: createMemoryHistory(), routes: [{ path: '/event/:id', component: { template: '<div />' } }] })
     await router.push('/event/current')
     const wrapper = mount(EventCard, { props: { event }, global: { plugins: [router] } })
@@ -25,17 +25,20 @@ describe('eventCard', () => {
     expect(wrapper.text()).toContain(event.organizer)
     expect(wrapper.text()).toContain('opensource')
 
-    await wrapper.setProps({ variant: 'compact' })
-    expect(wrapper.classes()).not.toContain('ev-themed')
-    expect(wrapper.find('.ev-watermark').exists()).toBe(false)
-    expect(wrapper.find('.ev-icon-tinted').exists()).toBe(false)
-    expect(wrapper.text()).not.toContain(event.organizer)
-    expect(wrapper.text()).not.toContain('opensource')
-    expect(wrapper.text()).toContain('vue')
-    expect(wrapper.text()).toContain('ai')
-    expect(wrapper.text()).toContain(event.city)
-    expect(wrapper.get('p').text()).toBe(event.description)
-    expect(wrapper.get('h3').text()).toBe(event.name)
+    const originalContent = wrapper.text()
+    const originalIcons = wrapper.findAll('.ev-watermark > div').map(icon => icon.classes())
+    const originalTitle = wrapper.get('h3').attributes()
+    const originalDescription = wrapper.get('p').attributes()
+    await wrapper.setProps({ variant: 'muted' })
+    expect(wrapper.classes()).toContain('event-card-muted')
+    expect(wrapper.classes()).toContain('ev-themed')
+    expect(wrapper.text()).toBe(originalContent)
+    expect(wrapper.findAll('.ev-watermark > div').map(icon => icon.classes())).toEqual(originalIcons)
+    expect(wrapper.get('h3').attributes()).toEqual(originalTitle)
+    expect(wrapper.get('p').attributes()).toEqual(originalDescription)
+    expect(wrapper.find('.ev-watermark').exists()).toBe(true)
+    expect(wrapper.text()).toContain(event.organizer)
+    expect(wrapper.text()).toContain('opensource')
     expect(wrapper.attributes('href')).toBe(`/event/${event.id}`)
 
     await wrapper.setProps({ variant: 'default' })

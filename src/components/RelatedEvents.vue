@@ -11,7 +11,7 @@ defineProps<{ events: NormalizedEvent[] }>()
     </h2>
     <ul class="related-list" aria-label="相关活动">
       <li v-for="event in events" :key="event.id" min-w-0>
-        <EventCard :event="event" variant="compact" h-full />
+        <EventCard :event="event" variant="muted" h-full />
       </li>
     </ul>
   </section>

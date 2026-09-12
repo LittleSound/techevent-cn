@@ -41,6 +41,12 @@ async function openEvent(path = '/event/offline') {
 }
 
 describe('c3 event details', () => {
+  it('shares the existing primary button style for official and Markdown actions', async () => {
+    const { wrapper } = await openEvent()
+    expect(wrapper.get('.official-button').classes()).toContain('action-button')
+    expect(wrapper.getComponent(EventMarkdownButton).get('button').classes()).toContain('action-button')
+  })
+
   it('shows details followed by discussion without tabs or hidden panels', async () => {
     const { wrapper } = await openEvent()
     expect(wrapper.find('[role="tablist"]').exists()).toBe(false)

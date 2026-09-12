@@ -117,7 +117,7 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
             <p>{{ past ? '回顾资料与后续动态，请查看主办方官网。' : '报名方式、参与条件与最新安排，请以主办方官网为准。' }}</p>
           </div>
         </div>
-        <a :href="event.url" target="_blank" rel="noopener" class="official-button">前往官网 <div i-carbon-arrow-up-right aria-hidden="true" /></a>
+        <a :href="event.url" target="_blank" rel="noopener" class="official-button action-button">前往官网 <div i-carbon-arrow-up-right aria-hidden="true" /></a>
       </section>
 
       <div class="planning-grid">
@@ -167,7 +167,7 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
           </div>
           <EventMarkdownButton :key="event.id" :event="event" variant="primary" />
           <div class="secondary-actions">
-            <a :href="`/ics/${event.id}.ics`" download><div i-carbon-calendar-add aria-hidden="true" /> 加入日历</a>
+            <a :href="`/ics/${event.id}.ics`" download text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 transition items-center justify-center hover:text-teal-600 dark:border-gray-700 hover:border-teal-600><div i-carbon-calendar-add aria-hidden="true" /> 加入日历</a>
             <EventShareButtons :key="event.id" :url="eventCanonicalUrl(event.id)" :title="event.name" />
           </div>
         </section>
@@ -311,8 +311,6 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
   --detail-surface: #fff;
   --detail-soft: #f5f8f5;
   --detail-accent: #0d806a;
-  --detail-action: #0d7664;
-  --detail-action-hover: #115e52;
   max-width: 72rem;
   margin: 0 auto;
   padding: 0 2rem 4rem;
@@ -325,8 +323,6 @@ html.dark .detail-page {
   --detail-surface: var(--colors-gray-900);
   --detail-soft: var(--colors-gray-900);
   --detail-accent: var(--colors-teal-400);
-  --detail-action: var(--colors-teal-700);
-  --detail-action-hover: var(--colors-teal-800);
 }
 .site-header {
   display: flex;
@@ -435,20 +431,7 @@ html.dark .event-hero .ev-title-themed {
   line-height: 1.8;
 }
 .official-button {
-  display: inline-flex;
   flex-shrink: 0;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.15rem;
-  border-radius: 0.65rem;
-  background: var(--detail-action);
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-.official-button:hover {
-  background: var(--detail-action-hover);
 }
 .planning-grid {
   display: grid;
@@ -574,22 +557,8 @@ html.dark .takeaway-panel {
 }
 .secondary-actions > a,
 .secondary-actions :deep(button) {
-  display: inline-flex;
   flex: 1 1 auto;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.4rem;
-  border: 0;
   width: auto;
-  background: transparent;
-  color: var(--detail-ink);
-  font-size: 0.75rem;
-  border-radius: 0.5rem;
-}
-.secondary-actions > a:hover,
-.secondary-actions :deep(button:hover) {
-  background: var(--detail-surface);
 }
 .contribution-panel {
   margin-top: 1.5rem;
@@ -635,7 +604,7 @@ html.dark .takeaway-panel {
   align-items: flex-start;
 }
 .detail-page :is(button, a, [tabindex]):focus-visible {
-  outline: 2px solid #36a48c;
+  outline: 2px solid var(--colors-teal-500);
   outline-offset: 4px;
 }
 @media (max-width: 1023px) {

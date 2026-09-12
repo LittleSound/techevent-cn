@@ -25,27 +25,11 @@ async function copyMarkdown() {
 <template>
   <button
     type="button"
-    :class="{ 'markdown-primary': variant === 'primary' }"
+    :class="variant === 'primary' ? 'action-button w-full' : 'text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 w-full transition items-center justify-center dark:border-gray-700 hover:border-teal-600 hover:text-teal-600'"
     title="复制完整活动信息，方便交给 Agent 规划行程"
-    hover="border-teal-600 text-teal-600" text-sm px-3 py-1.5 border border-gray-200 rounded-md inline-flex gap-1.5 w-full transition items-center justify-center dark:border-gray-700
     @click="copyMarkdown"
   >
     <div :class="copied && !failed ? 'i-carbon-checkmark' : 'i-carbon-copy'" aria-hidden="true" />
     <span aria-live="polite">{{ failed ? '复制失败，请重试' : copied ? '已复制 Markdown' : '复制 Markdown' }}</span>
   </button>
 </template>
-
-<style scoped>
-.markdown-primary {
-  padding: 0.85rem 1rem;
-  color: white;
-  background: var(--detail-action, #0d7664);
-  border-color: var(--detail-action, #0d7664);
-}
-
-.markdown-primary:hover {
-  color: white;
-  background: var(--detail-action-hover, #115e52);
-  border-color: var(--detail-action-hover, #115e52);
-}
-</style>

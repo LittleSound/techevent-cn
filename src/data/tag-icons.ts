@@ -3,6 +3,10 @@ import { tagIcons as sharedTagIcons } from './tag-icons.mjs'
 export interface TagIconDef {
   /** UnoCSS icon class, any Iconify collection, e.g. 'i-simple-icons-vuedotjs'. */
   icon: string
+  /** Source icon color, kept independent of readable text and accent shades. */
+  iconColor: string
+  /** Optional hand-picked icon variant for dark surfaces, preserving brand identity. */
+  iconColorDark?: string
   /** Chromatic 800 hex color, derived from the source hue for light surfaces. */
   color: string
   /** Chromatic 300 hex color, derived from the same source hue for dark surfaces. */

@@ -53,13 +53,16 @@ techevent-cn 的活动数据来自社区共同维护。添加或修改一个活�
 
 原始映射表在 [`src/data/tag-icons.mjs`](./src/data/tag-icons.mjs) 的 `tagIconSources` 中；页面和分享图共用生成后的 `tagIcons`：
 
-| 字段    | 必填 | 说明                                                                     |
-| ------- | ---- | ------------------------------------------------------------------------ |
-| `icon`  | ✅   | UnoCSS 图标类名，如 `i-simple-icons-vuedotjs`，可以用任意 Iconify 图标集 |
-| `color` | ✅   | 品牌 / 概念原色（hex）。系统提取 OKLCH hue 后生成适合亮暗主题的颜色      |
-| `tier`  | ✅   | 图标的展示层级，见下面的说明                                             |
+| 字段        | 必填 | 说明                                                                           |
+| ----------- | ---- | ------------------------------------------------------------------------------ |
+| `icon`      | ✅   | UnoCSS 图标类名，如 `i-simple-icons-vuedotjs`，可以用任意 Iconify 图标集       |
+| `color`     | ✅   | Source brand / concept icon color (hex). Also seeds the readable text palette. |
+| `colorDark` |      | Optional hand-picked icon color for dark surfaces.                             |
+| `tier`      | ✅   | 图标的展示层级，见下面的说明                                                   |
 
-颜色由 culori 提取原色的 OKLCH hue，再映射到 `@proj-airi/chromatic`：浅色主题用 800，深色主题用 300。原色的低色度会保留，灰色不会变成彩色；输出会做 sRGB 色域映射。无需再手动维护 `colorDark`。
+Icon colors stay faithful to the source `color`; optional `colorDark` provides a hand-picked icon variant for dark surfaces. Resolved definitions expose these as `iconColor` / `iconColorDark`, which all icon renderers (including OG images) must use.
+
+Text and accent colors are generated separately: culori extracts the source OKLCH hue and maps it to `@proj-airi/chromatic` (800 for light surfaces, 300 for dark surfaces). Low source chroma is preserved and output is mapped to sRGB. The resolved `color` / `colorDark` fields are for readable text, borders, glows, and calendar bars.
 
 `tier` 决定图标出现在哪里：
 

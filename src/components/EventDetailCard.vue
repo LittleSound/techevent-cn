@@ -58,7 +58,7 @@ const taggedChips = computed(() =>
         :key="tag"
         class="text-xs px-2 py-0.5 rounded bg-gray-100 op80 inline-flex gap-1 items-center dark:bg-gray-800"
       >
-        <div v-if="def" :class="[def.icon]" class="ev-icon-tinted text-xs" :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
+        <div v-if="def" :class="[def.icon]" class="ev-icon-tinted text-xs" :style="{ '--ev-icon-c': def.iconColor, '--ev-icon-c-dark': def.iconColorDark }" />
         {{ tag }}
       </span>
     </div>
@@ -83,7 +83,7 @@ const taggedChips = computed(() =>
     </div>
 
     <div v-if="theme" class="ev-watermark" aria-hidden="true">
-      <div :class="theme.primary.icon" :style="{ fontSize: '70px', color: 'var(--ev-c)' }" />
+      <div class="ev-icon-tinted" :class="theme.primary.icon" :style="{ 'fontSize': '70px', '--ev-icon-c': theme.primary.iconColor, '--ev-icon-c-dark': theme.primary.iconColorDark }" />
     </div>
   </div>
 </template>

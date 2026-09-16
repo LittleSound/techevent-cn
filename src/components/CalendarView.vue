@@ -49,59 +49,14 @@ function goToday() {
 
 // --- detail popover ---
 const selected = ref<NormalizedEvent | null>(null)
-const anchor = ref<DOMRect | null>(null)
-let closeTimer: ReturnType<typeof setTimeout> | undefined
-
-function open(event: NormalizedEvent, el: EventTarget | null) {
-  if (!(el instanceof HTMLElement))
-    return
-  clearTimeout(closeTimer)
-  anchor.value = el.getBoundingClientRect()
-  selected.value = event
-}
+const activeSegment = ref<string | null>(null)
 
 function close() {
-  clearTimeout(closeTimer)
   selected.value = null
+  activeSegment.value = null
 }
 
-function cancelClose() {
-  clearTimeout(closeTimer)
-}
-
-/** Small grace period so the pointer can travel from the chip into the card. */
-function scheduleClose() {
-  if (canHover.value)
-    closeTimer = setTimeout(() => (selected.value = null), 140)
-}
-
-function onChipEnter(event: NormalizedEvent, el: EventTarget | null) {
-  if (canHover.value)
-    open(event, el)
-}
-
-function onChipClick(event: NormalizedEvent, el: EventTarget | null) {
-  if (selected.value === event)
-    close()
-  else
-    open(event, el)
-}
-
-/** Desktop card position, anchored to the chip and clamped to the viewport. */
-const floatStyle = computed(() => {
-  if (!canHover.value || !anchor.value)
-    return undefined
-  const width = 288
-  const margin = 8
-  const estHeight = 240
-  const left = Math.max(margin, Math.min(anchor.value.left, window.innerWidth - width - margin))
-  const below = anchor.value.bottom + 6
-  const flip = below + estHeight > window.innerHeight
-  const top = flip ? Math.max(margin, anchor.value.top - estHeight - 6) : below
-  return { left: `${left}px`, top: `${top}px`, width: `${width}px` }
-})
-
-watch(cursor, close)
+watch([cursor, canHover], close)
 </script>
 
 <template>
@@ -173,39 +128,44 @@ watch(cursor, close)
             </div>
           </div>
 
-          <button
+          <CalendarEventPopover
             v-for="seg in week.segments"
             :key="seg.event.id + seg.startCol"
-            type="button"
-            class="text-[10px] leading-4.5 mx-0.5 px-1 text-left block truncate transition sm:text-xs sm:leading-5"
-            :class="[
-              themeById.get(seg.event.id)
-                ? (selected === seg.event ? 'ev-bar ev-bar-selected' : 'ev-bar')
-                : (selected === seg.event
-                  ? 'bg-teal-600 text-white'
-                  : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70'),
-              seg.continuesLeft ? 'rounded-l-none' : 'rounded-l',
-              seg.continuesRight ? 'rounded-r-none' : 'rounded-r',
-            ]"
-            :style="{
-              'gridColumn': `${seg.startCol + 1} / span ${seg.span}`,
-              'gridRow': seg.lane + 2,
-              '--ev-color': themeById.get(seg.event.id)?.primary.color,
-              '--ev-color-dark': themeById.get(seg.event.id)?.primary.colorDark
-                ?? themeById.get(seg.event.id)?.primary.color,
-            }"
-            :title="seg.event.name"
-            @mouseenter="onChipEnter(seg.event, $event.currentTarget)"
-            @mouseleave="scheduleClose()"
-            @click="onChipClick(seg.event, $event.currentTarget)"
+            :event="seg.event"
+            :can-hover="canHover"
+            :open="activeSegment === `${w}:${seg.event.id}:${seg.startCol}`"
+            @update:open="activeSegment = $event ? `${w}:${seg.event.id}:${seg.startCol}` : null"
+            @select="selected = selected === seg.event ? null : seg.event"
           >
-            <div
-              v-if="themeById.get(seg.event.id) && !seg.continuesLeft"
-              :class="themeById.get(seg.event.id)!.primary.icon"
-              class="text-[11px] mr-0.5 align-[-2px] inline-block sm:text-xs"
-            />
-            {{ seg.continuesLeft ? '◂ ' : '' }}{{ seg.event.name }}
-          </button>
+            <button
+              type="button"
+              class="text-[10px] leading-4.5 mx-0.5 px-1 text-left block truncate transition sm:text-xs sm:leading-5"
+              :class="[
+                themeById.get(seg.event.id)
+                  ? (activeSegment === `${w}:${seg.event.id}:${seg.startCol}` || selected === seg.event ? 'ev-bar ev-bar-selected' : 'ev-bar')
+                  : (activeSegment === `${w}:${seg.event.id}:${seg.startCol}` || selected === seg.event
+                    ? 'bg-teal-600 text-white'
+                    : 'bg-teal-50 text-teal-800 hover:bg-teal-100 dark:bg-teal-900/40 dark:text-teal-200 dark:hover:bg-teal-900/70'),
+                seg.continuesLeft ? 'rounded-l-none' : 'rounded-l',
+                seg.continuesRight ? 'rounded-r-none' : 'rounded-r',
+              ]"
+              :style="{
+                'gridColumn': `${seg.startCol + 1} / span ${seg.span}`,
+                'gridRow': seg.lane + 2,
+                '--ev-color': themeById.get(seg.event.id)?.primary.color,
+                '--ev-color-dark': themeById.get(seg.event.id)?.primary.colorDark
+                  ?? themeById.get(seg.event.id)?.primary.color,
+              }"
+              :title="seg.event.name"
+            >
+              <div
+                v-if="themeById.get(seg.event.id) && !seg.continuesLeft"
+                :class="themeById.get(seg.event.id)!.primary.icon"
+                class="text-[11px] mr-0.5 align-[-2px] inline-block sm:text-xs"
+              />
+              {{ seg.continuesLeft ? '◂ ' : '' }}{{ seg.event.name }}
+            </button>
+          </CalendarEventPopover>
         </div>
       </div>
     </div>
@@ -222,16 +182,6 @@ watch(cursor, close)
           <EventDetailCard :event="selected" />
         </div>
       </template>
-
-      <div
-        v-else-if="selected && canHover"
-        class="text-gray-700 p-4 card shadow-xl fixed z-50 dark:text-gray-200"
-        :style="floatStyle"
-        @mouseenter="cancelClose()"
-        @mouseleave="scheduleClose()"
-      >
-        <EventDetailCard :event="selected" />
-      </div>
     </Teleport>
   </div>
 </template>

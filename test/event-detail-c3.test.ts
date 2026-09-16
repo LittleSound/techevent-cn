@@ -41,6 +41,16 @@ async function openEvent(path = '/event/offline') {
 }
 
 describe('hybrid event details', () => {
+  it('preserves source brand colors in detail chips and watermarks', async () => {
+    const { wrapper } = await openEvent()
+    const icons = wrapper.findAll('.i-simple-icons-vuedotjs')
+    expect(icons).toHaveLength(2)
+    for (const icon of icons) {
+      expect(icon.classes()).toContain('ev-icon-tinted')
+      expect((icon.element as HTMLElement).style.getPropertyValue('--ev-icon-c')).toBe('#42b883')
+    }
+  })
+
   it('groups each desktop column independently so recommendations cannot stretch discussion spacing', async () => {
     const { wrapper } = await openEvent()
     expect(wrapper.get('.main-column').find('.contribution-panel').exists()).toBe(true)

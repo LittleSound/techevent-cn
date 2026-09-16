@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { tagIcons } from '~/data/tag-icons'
+import { tagIconSources } from '~/data/tag-icons.mjs'
 
 /**
  * Every icon in the mapping table must resolve against an installed
@@ -34,6 +35,9 @@ describe('tagIcons table', () => {
   })
 
   it('every color is a hex value', () => {
+    for (const def of Object.values(tagIconSources))
+      expect(def.color).toMatch(/^#[0-9a-f]{6}$/i)
+
     for (const def of Object.values(tagIcons)) {
       expect(def.color).toMatch(/^#[0-9a-f]{6}$/i)
       if (def.colorDark)

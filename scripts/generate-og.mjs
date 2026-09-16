@@ -96,7 +96,7 @@ function watermark(icons, longName) {
   if (!icons.length)
     return h('div', { display: 'flex' })
   const [primary, ...secondaries] = icons
-  const primaryIcon = resolveIcon(primary.icon, primary.colorDark ?? primary.color)
+  const primaryIcon = resolveIcon(primary.icon, primary.iconColorDark ?? primary.iconColor)
   if (!primaryIcon)
     return h('div', { display: 'flex' })
   // Long event names already shrink to the 56px font branch; ease the watermark back too so text stays legible.
@@ -104,7 +104,7 @@ function watermark(icons, longName) {
   const secondaryOpacity = longName ? 0.3 : 0.55
   const children = [
     ...secondaries.slice().reverse().map((def) => {
-      const resolved = resolveIcon(def.icon, def.colorDark ?? def.color)
+      const resolved = resolveIcon(def.icon, def.iconColorDark ?? def.iconColor)
       return resolved && { type: 'img', props: { src: resolved.src, width: 130, height: 130, style: { marginRight: '-28px', marginBottom: '10px', opacity: secondaryOpacity } } }
     }).filter(Boolean),
     { type: 'img', props: { src: primaryIcon.src, width: 280, height: 280, style: { opacity: primaryOpacity } } },

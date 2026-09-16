@@ -1,6 +1,8 @@
 // @unocss-include
 // The directive above makes UnoCSS extract the `i-*` icon classes from this
-// plain .ts file (it is outside the default extraction pipeline).
+// plain .mjs file (it is outside the default extraction pipeline).
+
+import { eventPalette } from '../utils/eventPalette.mjs'
 
 /** Shared defs so grouped tags (e.g. the AI family) dedupe to one card icon. */
 const ai = /** @type {const} */ ({ icon: 'i-hugeicons-ai-brain-03', color: '#8b5cf6', tier: 2 })
@@ -14,7 +16,7 @@ const academia = /** @type {const} */ ({ icon: 'i-mdi-school', color: '#92400e',
 const python = /** @type {const} */ ({ icon: 'i-simple-icons-python', color: '#3776ab', tier: 1 })
 const google = /** @type {const} */ ({ icon: 'i-simple-icons-google', color: '#4285f4', tier: 1 })
 
-export const tagIcons = /** @type {const} */ ({
+export const tagIconSources = /** @type {const} */ ({
   // --- Tier 1: brand / tech logos (official brand colors) ---
   'vue': { icon: 'i-simple-icons-vuedotjs', color: '#42b883', tier: 1 },
   'vite': { icon: 'i-simple-icons-vite', color: '#646cff', tier: 1 },
@@ -78,3 +80,11 @@ export const tagIcons = /** @type {const} */ ({
   'enterprise': { icon: 'i-carbon-enterprise', color: '#64748b', tier: 3 },
   'maker': { icon: 'i-carbon-tools', color: '#64748b', tier: 3 },
 })
+
+/** Resolve once per shared definition so tag aliases keep their identity. */
+const resolved = new Map()
+export const tagIcons = Object.fromEntries(Object.entries(tagIconSources).map(([tag, def]) => {
+  if (!resolved.has(def))
+    resolved.set(def, { ...def, ...eventPalette(def.color), iconColor: def.color, iconColorDark: 'colorDark' in def ? def.colorDark : undefined })
+  return [tag, resolved.get(def)]
+}))

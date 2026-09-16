@@ -123,7 +123,7 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
                 bg="gray-100 dark:gray-800"
                 text-xs px-2 py-0.5 rounded op80 inline-flex gap-1 items-center
               >
-                <div v-if="def" :class="def.icon" class="ev-icon-tinted" text-xs :style="{ '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }" />
+                <div v-if="def" :class="def.icon" class="ev-icon-tinted" text-xs :style="{ '--ev-icon-c': def.iconColor, '--ev-icon-c-dark': def.iconColorDark }" />
                 {{ tag }}
               </span>
             </div>
@@ -133,9 +133,9 @@ const past = computed(() => event.value ? isPast(event.value.end) : false)
                 v-for="def in theme.icons.slice(1).reverse()"
                 :key="def.icon"
                 class="ev-icon-tinted" :class="[def.icon]"
-                :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.color, '--ev-icon-c-dark': def.colorDark }"
+                :style="{ 'fontSize': '58px', 'marginRight': '-18px', 'marginBottom': '6px', '--ev-icon-c': def.iconColor, '--ev-icon-c-dark': def.iconColorDark }"
               />
-              <div :class="theme.primary.icon" :style="{ fontSize: '105px', color: 'var(--ev-c)' }" />
+              <div class="ev-icon-tinted" :class="theme.primary.icon" :style="{ 'fontSize': '105px', '--ev-icon-c': theme.primary.iconColor, '--ev-icon-c-dark': theme.primary.iconColorDark }" />
             </div>
           </article>
 

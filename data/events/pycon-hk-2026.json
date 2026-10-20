@@ -1,0 +1,29 @@
+{
+  "name": "PyCon HK 2026",
+  "description": "香港年度 Python 大会：14 日为三轨演讲、海报与社区摊位，15 日为开源 Sprint，另有 PyNight 晚会。",
+  "startDate": "2026-11-14",
+  "endDate": "2026-11-15",
+  "city": "香港",
+  "country": "中国",
+  "venue": "IVE（李惠利）香港资讯科技学院，将军澳景岭路 3 号",
+  "format": "offline",
+  "url": "https://pycon.hk/2026/en",
+  "tags": [
+    "python",
+    "pycon",
+    "community",
+    "opensource",
+    "conference"
+  ],
+  "organizer": "PyCon HK",
+  "sources": [
+    "https://pycon.hk/2026/en",
+    "https://www.eventbrite.hk/e/pycon-hk-2026-tickets-1998483131845"
+  ],
+  "links": [
+    {
+      "url": "https://www.eventbrite.hk/e/pycon-hk-2026-tickets-1998483131845",
+      "label": "购票"
+    }
+  ]
+}

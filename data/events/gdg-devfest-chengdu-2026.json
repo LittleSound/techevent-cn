@@ -1,0 +1,20 @@
+{
+  "name": "Google DevFest 2026 Chengdu",
+  "description": "GDG 成都首届 DevFest，包含专家分享、动手工作坊与交流，免费报名。",
+  "startDate": "2026-11-01",
+  "city": "成都",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-chengdu-presents-2026-google-devfest-chengdu/",
+  "tags": [
+    "ai",
+    "gdg",
+    "devfest",
+    "community",
+    "android"
+  ],
+  "organizer": "GDG Chengdu",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-chengdu-presents-2026-google-devfest-chengdu/"
+  ]
+}

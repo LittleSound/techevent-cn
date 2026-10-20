@@ -1,0 +1,22 @@
+{
+  "name": "JSDC 2026 × MOPCON",
+  "description": "台湾 JavaScript 开发者大会，今年与 MOPCON 合办，单日社区会议，主题覆盖 Web、JavaScript 与 AI。",
+  "startDate": "2026-10-31",
+  "city": "高雄",
+  "country": "中国",
+  "venue": "国立高雄科技大学楠梓校区国际会议厅",
+  "format": "offline",
+  "url": "https://2026.jsdc.tw/",
+  "tags": [
+    "javascript",
+    "frontend",
+    "web",
+    "community",
+    "conference"
+  ],
+  "organizer": "JSDC.tw",
+  "sources": [
+    "https://2026.jsdc.tw/",
+    "https://github.com/jsdc-core/jsdc2026"
+  ]
+}

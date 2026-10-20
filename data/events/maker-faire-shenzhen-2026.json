@@ -1,0 +1,22 @@
+{
+  "name": "Maker Faire Shenzhen 2026",
+  "description": "深圳年度创客嘉年华（大湾区国际创客峰会），今年主题为 OPC 创造者，设展区、创新论坛与工作坊；创客招募 10 月 30 日截止。",
+  "startDate": "2026-12-12",
+  "endDate": "2026-12-13",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "南山区万科云设计公社",
+  "format": "offline",
+  "url": "https://www.shenzhenmakerfaire.com/2026/",
+  "tags": [
+    "maker",
+    "hardware",
+    "3dprinting",
+    "community"
+  ],
+  "organizer": "Seeed Studio / 柴火创客",
+  "sources": [
+    "https://www.shenzhenmakerfaire.com/2026/",
+    "https://makerfaire.com/upcoming-faires/"
+  ]
+}

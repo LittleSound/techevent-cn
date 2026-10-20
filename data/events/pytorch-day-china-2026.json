@@ -1,0 +1,21 @@
+{
+  "name": "PyTorch Day China 2026",
+  "description": "PyTorch 社区在中国的一日技术大会，议题涵盖训练、推理与负责任 AI。",
+  "startDate": "2026-12-12",
+  "city": "北京",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://www.lfopensource.cn/pytorch-day-china/",
+  "tags": [
+    "pytorch",
+    "python",
+    "ai",
+    "opensource",
+    "linux-foundation",
+    "conference"
+  ],
+  "organizer": "PyTorch Foundation / Linux Foundation",
+  "sources": [
+    "https://www.lfopensource.cn/pytorch-day-china/"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Ubuntu Summit 26.10",
+  "description": "Canonical 随 Ubuntu 26.10 发布举办的半年度峰会，伦敦现场并全程免费线上直播，涵盖桌面、社区、基础设施与 AI 等议题。",
+  "startDate": "2026-11-12",
+  "endDate": "2026-11-13",
+  "city": "伦敦",
+  "country": "英国",
+  "format": "hybrid",
+  "url": "https://ubuntu.com/summit",
+  "tags": [
+    "ubuntu",
+    "linux",
+    "opensource",
+    "community",
+    "conference"
+  ],
+  "organizer": "Canonical",
+  "sources": [
+    "https://ubuntu.com/summit",
+    "https://events.canonical.com/category/1/"
+  ],
+  "links": [
+    {
+      "url": "https://events.canonical.com/event/158/",
+      "label": "活动页"
+    },
+    {
+      "url": "https://discourse.ubuntu.com/c/ubuntu-summit/"
+    }
+  ]
+}

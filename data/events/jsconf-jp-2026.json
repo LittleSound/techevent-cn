@@ -1,0 +1,31 @@
+{
+  "name": "JSConf JP 2026",
+  "description": "日本 Node.js 协会主办的第 7 届 JSConf JP，四个分会场，议程包含 Brendan Eich 访谈。",
+  "startDate": "2026-11-22",
+  "city": "东京",
+  "country": "日本",
+  "venue": "ベルサール神田（千代田区神田錦町 3-6-2）",
+  "format": "offline",
+  "url": "https://jsconf.jp/2026/",
+  "tags": [
+    "javascript",
+    "node",
+    "frontend",
+    "web",
+    "conference"
+  ],
+  "organizer": "Japan Node.js Association",
+  "sources": [
+    "https://x.com/jsconfjp/status/2062705247462764581",
+    "https://pretix.eu/jsconfjp/2026/"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/jsconfjp"
+    },
+    {
+      "url": "https://pretix.eu/jsconfjp/2026/",
+      "label": "购票"
+    }
+  ]
+}

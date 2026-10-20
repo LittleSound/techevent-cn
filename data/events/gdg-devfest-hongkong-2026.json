@@ -1,0 +1,23 @@
+{
+  "name": "DevFest Hong Kong 2026",
+  "description": "GDG Hong Kong 与 GDG Cloud Hong Kong 联办的 DevFest，主题为 Agentic 时代的构建、安全与扩展。",
+  "startDate": "2026-12-05",
+  "city": "香港",
+  "country": "中国",
+  "venue": "HKPC Academy，九龙塘达之路 78 号生产力大楼 1 楼",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-cloud-hong-kong-presents-devfest-2026-hong-kong/",
+  "tags": [
+    "ai",
+    "gdg",
+    "devfest",
+    "cloud",
+    "community",
+    "conference"
+  ],
+  "organizer": "GDG Hong Kong / GDG Cloud Hong Kong",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-cloud-hong-kong-presents-devfest-2026-hong-kong/",
+    "https://sessionize.com/devfest-hong-kong-2026/"
+  ]
+}

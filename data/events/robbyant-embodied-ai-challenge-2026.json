@@ -1,0 +1,21 @@
+{
+  "name": "首届蚂蚁灵波具身大模型挑战赛 · 线下真机决赛",
+  "description": "基于开源 LingBot-VLA 2.0 的具身智能挑战赛。线上初赛 10 月 26 日截止，入围队伍在上海进行真机调优与部署。",
+  "startDate": "2026-11-13",
+  "endDate": "2026-11-15",
+  "city": "上海",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://tianchi.aliyun.com/competition/entrance/532514",
+  "tags": [
+    "ai",
+    "embodied-ai",
+    "robotics",
+    "hackathon"
+  ],
+  "organizer": "蚂蚁灵波科技、魔搭社区、阿里云天池",
+  "sources": [
+    "https://www.qbitai.com/2026/09/489105.html",
+    "https://tianchi.aliyun.com/competition/entrance/532514"
+  ]
+}

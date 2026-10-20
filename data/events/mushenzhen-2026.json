@@ -1,0 +1,22 @@
+{
+  "name": "muShenzhen 2026",
+  "description": "The Mu（muShanghai 原班人马）在深圳的约 20 天「创客之城」快闪社区，聚焦硬件与 Physical AI，含百人 Garage 硬件营、每周主题与产业参访。",
+  "startDate": "2026-11-29",
+  "endDate": "2026-12-18",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "华侨城创意文化园北区（OCT-LOFT）",
+  "format": "offline",
+  "url": "https://mushenzhen.xyz/",
+  "tags": [
+    "maker",
+    "hardware",
+    "ai",
+    "community",
+    "startup"
+  ],
+  "organizer": "The Mu",
+  "sources": [
+    "https://mushenzhen.xyz/"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Google DevFest 2026 杭州站",
+  "description": "GDG 杭州年度 DevFest，聚焦 AI / Gemini 等 Google 技术的演讲与动手环节。",
+  "startDate": "2026-10-31",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "桔子水晶杭州阿里巴巴未来科技城酒店",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-hangzhou-presents-google-devfest-2026-hang-zhou-zhan/",
+  "tags": [
+    "ai",
+    "gdg",
+    "devfest",
+    "community",
+    "conference"
+  ],
+  "organizer": "GDG Hangzhou",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-hangzhou-presents-google-devfest-2026-hang-zhou-zhan/",
+    "https://gdg.community.dev/gdg-hangzhou/"
+  ]
+}

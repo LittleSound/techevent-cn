@@ -1,0 +1,22 @@
+{
+  "name": "Agentic Infra 操作系统大会 & openEuler Summit 2026",
+  "description": "openEuler 社区年度峰会，聚焦 Agentic Infra、超节点 OS、内核与 AI 软件栈。",
+  "startDate": "2026-11-13",
+  "endDate": "2026-11-14",
+  "city": "北京",
+  "country": "中国",
+  "venue": "中关村国际创新中心",
+  "format": "offline",
+  "url": "https://www.openeuler.openatom.cn/zh/interaction/summit-list/summit2026/",
+  "tags": [
+    "linux",
+    "opensource",
+    "openeuler",
+    "ai",
+    "conference"
+  ],
+  "organizer": "openEuler 社区",
+  "sources": [
+    "https://www.openeuler.openatom.cn/zh/interaction/summit-list/summit2026/"
+  ]
+}

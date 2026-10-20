@@ -1,0 +1,20 @@
+{
+  "name": "SEE Conf 2026 蚂蚁终端体验科技大会",
+  "description": "蚂蚁集团主办的终端体验技术大会，主题「创造力复兴，探索 AI 时代的用户体验与工程实践」，覆盖前端、终端、互动可视化与 AI Coding。",
+  "startDate": "2026-11-28",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "蚂蚁 A 空间",
+  "format": "offline",
+  "url": "https://seeconf.antgroup.com/",
+  "tags": [
+    "frontend",
+    "mobile",
+    "ai",
+    "conference"
+  ],
+  "organizer": "蚂蚁集团",
+  "sources": [
+    "https://seeconf.antgroup.com/"
+  ]
+}

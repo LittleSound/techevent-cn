@@ -1,0 +1,29 @@
+{
+  "name": "フロントエンドカンファレンス東京 2026",
+  "description": "第二届东京前端大会，主题「聊聊前端的未来」，聚焦前端前沿、AI × 前端与设计 × 前端。",
+  "startDate": "2026-12-05",
+  "city": "东京",
+  "country": "日本",
+  "venue": "Abema Towers（涩谷区宇田川町 40-1）",
+  "format": "offline",
+  "url": "https://fortee.jp/fec-tokyo-2026",
+  "tags": [
+    "frontend",
+    "web",
+    "conference"
+  ],
+  "organizer": "フロントエンドカンファレンス東京実行委員会",
+  "sources": [
+    "https://note.com/fec_tokyo/n/nfa9aa6606721",
+    "https://fortee.jp/fec-tokyo-2026"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/fec_tokyo"
+    },
+    {
+      "url": "https://fec-tokyo.connpass.com/",
+      "label": "connpass"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "AICon 全球人工智能开发与应用大会 2026 北京站",
+  "description": "InfoQ 主办的 AI 应用工程大会，主题「探索 AI 应用边界」，聚焦企业 Agent 的任务委托、结果验收与规模化运营。",
+  "startDate": "2026-12-18",
+  "endDate": "2026-12-19",
+  "city": "北京",
+  "country": "中国",
+  "venue": "北京新云南皇冠假日酒店",
+  "format": "offline",
+  "url": "https://aicon.infoq.cn/2026/beijing",
+  "tags": [
+    "ai",
+    "agent",
+    "llm",
+    "conference"
+  ],
+  "organizer": "InfoQ 中国",
+  "sources": [
+    "https://aicon.infoq.cn/2026/beijing"
+  ]
+}

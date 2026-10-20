@@ -1,0 +1,22 @@
+{
+  "name": "QCon 全球软件开发大会 2026 上海站",
+  "description": "InfoQ 主办的综合软件开发大会，今年以 AI Native 与 Agent 架构为主线。",
+  "startDate": "2026-10-22",
+  "endDate": "2026-10-24",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海建工浦江皇冠假日酒店",
+  "format": "offline",
+  "url": "https://qcon.infoq.cn/2026/shanghai",
+  "tags": [
+    "ai",
+    "agent",
+    "architecture",
+    "conference"
+  ],
+  "organizer": "InfoQ 中国",
+  "sources": [
+    "https://qcon.infoq.cn/2026/shanghai",
+    "https://www.bagevent.com/event/9131804"
+  ]
+}

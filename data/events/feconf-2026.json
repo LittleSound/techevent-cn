@@ -1,0 +1,20 @@
+{
+  "name": "FEConf 2026",
+  "description": "韩国规模最大的前端开发者大会第 10 届（主题 Forward Ever），议题涵盖 E2E 测试、微前端、设计系统、端侧 AI 与 WebGPU 等。",
+  "startDate": "2026-10-24",
+  "city": "首尔",
+  "country": "韩国",
+  "venue": "Lotte World Tower",
+  "format": "offline",
+  "url": "https://2026.feconf.kr/",
+  "tags": [
+    "frontend",
+    "javascript",
+    "web",
+    "conference"
+  ],
+  "organizer": "FEDG",
+  "sources": [
+    "https://2026.feconf.kr/"
+  ]
+}

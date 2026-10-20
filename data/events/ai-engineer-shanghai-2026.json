@@ -1,0 +1,33 @@
+{
+  "name": "AI Engineer Shanghai 2026",
+  "description": "AI Engineer 系列首次在中国办会，中英双语。两个分会场：开源模型与 AI Infra（Agent、评测、推理），以及 Physical AI（VLA、机器人、Sim2Real）。",
+  "startDate": "2026-11-05",
+  "endDate": "2026-11-06",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海虹桥希尔顿酒店",
+  "format": "offline",
+  "url": "https://ai.engineer/shanghai/2026",
+  "tags": [
+    "ai",
+    "agent",
+    "llm",
+    "opensource",
+    "conference"
+  ],
+  "organizer": "AI Engineer × Standup Partners × Superlinear Academy",
+  "sources": [
+    "https://ai.engineer/shanghai/2026",
+    "https://x.com/aiDotEngineer/status/2079971402434916605"
+  ],
+  "links": [
+    {
+      "url": "https://www.huodongxing.com/event/1879040305100",
+      "label": "活动行购票"
+    },
+    {
+      "url": "https://luma.com/j9iqfmh8",
+      "label": "Luma 购票"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "TSKaigi Sendai 2026",
+  "description": "TSKaigi 在东京以外的第三场地方站，单日 TypeScript 技术会议。",
+  "startDate": "2026-11-01",
+  "city": "仙台",
+  "country": "日本",
+  "venue": "YUI NOS（Urbannet 仙台中央大厦 4F）",
+  "format": "offline",
+  "url": "https://sendai.tskaigi.org/",
+  "tags": [
+    "typescript",
+    "javascript",
+    "frontend",
+    "conference"
+  ],
+  "organizer": "TSKaigi Association",
+  "sources": [
+    "https://sendai.tskaigi.org/",
+    "https://tskaigi.hatenablog.com/entry/hello-tskaigi-sendai-2026"
+  ]
+}

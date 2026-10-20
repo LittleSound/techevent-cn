@@ -1,0 +1,22 @@
+{
+  "name": "muShenzhen 2026",
+  "description": "The Mu（muShanghai 原班人马）在深圳的「创客之城」快闪社区，整体为 11 月 29 日至 12 月 18 日，含百人 Garage 硬件营与 Machines（11/30–12/4）、Life（12/7–11）、Intelligence（12/14–18）三个主题周。此处标注 AI、Agent 与 Physical AI 主题的 Intelligence 周。",
+  "startDate": "2026-12-14",
+  "endDate": "2026-12-18",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "华侨城创意文化园北区（OCT-LOFT）",
+  "format": "offline",
+  "url": "https://mushenzhen.xyz/",
+  "tags": [
+    "maker",
+    "hardware",
+    "ai",
+    "community",
+    "startup"
+  ],
+  "organizer": "The Mu",
+  "sources": [
+    "https://mushenzhen.xyz/"
+  ]
+}

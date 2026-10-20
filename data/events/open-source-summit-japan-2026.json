@@ -1,0 +1,20 @@
+{
+  "name": "Open Source Summit Japan 2026",
+  "description": "Linux 基金会在日本的旗舰开源会议，覆盖 Linux 内核、云原生与开源 AI，与 Embedded Linux Conference Asia 等同期举办。",
+  "startDate": "2026-12-07",
+  "endDate": "2026-12-09",
+  "city": "东京",
+  "country": "日本",
+  "format": "offline",
+  "url": "https://events.linuxfoundation.org/open-source-summit-japan/",
+  "tags": [
+    "opensource",
+    "linux",
+    "linux-foundation",
+    "conference"
+  ],
+  "organizer": "The Linux Foundation",
+  "sources": [
+    "https://events.linuxfoundation.org/open-source-summit-japan/"
+  ]
+}

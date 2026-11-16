@@ -1,0 +1,28 @@
+{
+  "name": "COSCon'26 第十一届中国开源年会",
+  "description": "开源社主办的中国开源年会，首次落地杭州，主题「开源下一代 / Open Source: The Next Generation」，涵盖下一代开源技术、人才、社区与商业；主论坛发布《中国人工智能开源生态蓝皮书》，另设智能体构建与治理、AI 原生开源操作系统、具身智能开源等分论坛。",
+  "startDate": "2026-11-14",
+  "endDate": "2026-11-15",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "云谷中心（西湖区灯彩街 1009 号）",
+  "format": "offline",
+  "url": "https://kaiyuanshe.cn/",
+  "tags": [
+    "opensource",
+    "community",
+    "ai",
+    "conference"
+  ],
+  "organizer": "开源社 KAIYUANSHE",
+  "sources": [
+    "https://zj.cnr.cn/gstjzj/20261116/t20261116_527874016.shtml",
+    "https://bbs.openkylin.top/t/topic/173871",
+    "https://www.cnblogs.com/alisystemsoftware/p/23642602"
+  ],
+  "links": [
+    {
+      "url": "https://x.com/kaiyuanshe"
+    }
+  ]
+}

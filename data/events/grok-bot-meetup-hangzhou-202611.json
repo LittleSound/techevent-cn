@@ -1,0 +1,27 @@
+{
+  "name": "Grok Bot Meetup Hangzhou",
+  "description": "Grok Bot 线下交流活动杭州第二场（首场已于 9 月 19 日举办），下午 2 点到 5 点半，安排包括使用案例与踩坑分享、开放麦、茶歇与自由交流。报名需经主办方审核。",
+  "startDate": "2026-11-29",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "首章新所（上城区水墩北路 1 号）",
+  "format": "offline",
+  "url": "https://luma.com/SpaceXAI-Hangzhou-20261129",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Hangzhou, China",
+  "sources": [
+    "https://luma.com/SpaceXAI-Hangzhou-20261129",
+    "https://luma.com/spacexai-hangzhou",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-hangzhou",
+      "label": "杭州社区活动日历"
+    }
+  ]
+}

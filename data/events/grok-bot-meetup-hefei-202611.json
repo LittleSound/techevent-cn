@@ -1,0 +1,25 @@
+{
+  "name": "Grok Bot Meetup Hefei",
+  "description": "Grok Bot 线下交流活动合肥站，下午 2 点到 5 点，安排包括使用案例与踩坑分享、开放麦、茶歇与自由交流。报名需经主办方审核，地址报名后可见。",
+  "startDate": "2026-11-28",
+  "city": "合肥",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/SpaceXSI-Hefei-20261128",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Hefei, China",
+  "sources": [
+    "https://luma.com/SpaceXSI-Hefei-20261128",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-hefei",
+      "label": "合肥社区活动日历"
+    }
+  ]
+}

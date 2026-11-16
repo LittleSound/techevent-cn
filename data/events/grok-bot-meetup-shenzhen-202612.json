@@ -1,0 +1,26 @@
+{
+  "name": "Grok Bot Meetup Shenzhen 202612",
+  "description": "Grok Bot 全国首场硬件主题线下活动，下午 2 点到 6 点，多场硬件相关分享并深入讲解 Grok Bot 与硬件的结合。名额有限，需主办方审核，地址报名后可见。",
+  "startDate": "2026-12-12",
+  "city": "深圳",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/spacexsi-shenzhen-20261212",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "hardware",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Shenzhen, China",
+  "sources": [
+    "https://luma.com/spacexsi-shenzhen-20261212",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-shenzhen",
+      "label": "深圳社区活动日历"
+    }
+  ]
+}

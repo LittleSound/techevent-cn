@@ -1,0 +1,25 @@
+{
+  "name": "Grok Bot Build Night Beijing",
+  "description": "Grok Bot 北京 Build Night，19:00–21:30：Demo 与灵感分享、现场动手 Build、Show & Tell，提供晚餐与额度，需自带电脑。名额已满，可加入候补。",
+  "startDate": "2026-11-20",
+  "city": "北京",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/spacexai-2fbr",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Beijing, China",
+  "sources": [
+    "https://luma.com/spacexai-2fbr",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-beijing",
+      "label": "北京社区活动日历"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Grok Bot Meetup Zhengzhou",
+  "description": "Grok Bot 线下交流活动郑州站，14:00–18:00（13:30 签到），安排包括主题分享、茶歇、开放麦与自由交流。名额有限，需主办方审核。",
+  "startDate": "2026-11-28",
+  "city": "郑州",
+  "country": "中国",
+  "venue": "粤海酒店（二七区德化街 5 号）",
+  "format": "offline",
+  "url": "https://luma.com/spacexai-zhengzhou1128",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Zhengzhou, China",
+  "sources": [
+    "https://luma.com/spacexai-zhengzhou1128",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-zhengzhou",
+      "label": "郑州社区活动日历"
+    }
+  ]
+}

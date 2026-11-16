@@ -1,0 +1,30 @@
+{
+  "name": "DDC 2026 地瓜机器人开发者大会",
+  "description": "地瓜机器人年度开发者大会，含 Keynote、RDK 与机器狗工作坊、RoboParty 开源人形机器人创造营，以及同场举办的首届地瓜机器人黑客松「Beyond the Screen」（48 小时，12 月 7 日晚决赛路演，报名 11 月 30 日截止）。",
+  "startDate": "2026-12-05",
+  "endDate": "2026-12-07",
+  "city": "上海",
+  "country": "中国",
+  "venue": "上海张江科学会堂",
+  "format": "offline",
+  "url": "https://cn.d-robotics.cc/ddc/2026",
+  "tags": [
+    "robotics",
+    "embodied-ai",
+    "ai",
+    "hardware",
+    "hackathon",
+    "conference"
+  ],
+  "organizer": "地瓜机器人",
+  "sources": [
+    "https://cn.d-robotics.cc/ddc/2026",
+    "https://hackathon.d-robotics.cc"
+  ],
+  "links": [
+    {
+      "url": "https://hackathon.d-robotics.cc",
+      "label": "黑客松"
+    }
+  ]
+}

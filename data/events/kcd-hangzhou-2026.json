@@ -1,0 +1,29 @@
+{
+  "name": "KCD Hangzhou 2026",
+  "description": "CNCF 官方支持的 Kubernetes Community Days 杭州站，主题为 Agent 时代的云原生，设 Agent Infra、AI 可观测与可靠性、AI Infra 与 LLM Serving 三个分会场。",
+  "startDate": "2026-11-28",
+  "city": "杭州",
+  "country": "中国",
+  "venue": "云谷中心（西湖区灯彩街 1009 号）",
+  "format": "offline",
+  "url": "https://community2.cncf.io/events/details/cncf-kcd-hangzhou-presents-kcd-hangzhou-2026/",
+  "tags": [
+    "kubernetes",
+    "cloud-native",
+    "cncf",
+    "ai",
+    "opensource",
+    "conference"
+  ],
+  "organizer": "KCD Hangzhou 组委会",
+  "sources": [
+    "https://community2.cncf.io/events/details/cncf-kcd-hangzhou-presents-kcd-hangzhou-2026/",
+    "https://www.cncf.io/kcds/"
+  ],
+  "links": [
+    {
+      "url": "https://sessionize.com/kcd-hangzhou-2026",
+      "label": "Sessionize"
+    }
+  ]
+}

@@ -5,6 +5,7 @@
   "endDate": "2026-12-09",
   "city": "东京",
   "country": "日本",
+  "venue": "Toranomon Hills Forum（虎之门之丘森大厦 5F）",
   "format": "offline",
   "url": "https://events.linuxfoundation.org/open-source-summit-japan/",
   "tags": [
@@ -15,6 +16,7 @@
   ],
   "organizer": "The Linux Foundation",
   "sources": [
-    "https://events.linuxfoundation.org/open-source-summit-japan/"
+    "https://events.linuxfoundation.org/open-source-summit-japan/",
+    "https://events.linuxfoundation.org/open-source-summit-japan/attend/venue-travel/"
   ]
 }

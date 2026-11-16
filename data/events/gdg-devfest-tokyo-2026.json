@@ -1,0 +1,27 @@
+{
+  "name": "GDG DevFest Tokyo 2026",
+  "description": "GDG Tokyo 与 GDG Shibuya 合办的年度 DevFest，以 Gemini 与生成式 AI 开发为主线，免费入场，需在 connpass 报名。",
+  "startDate": "2026-11-29",
+  "city": "东京",
+  "country": "日本",
+  "venue": "JP Tower Hall & Conference（KITTE 4F）",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-tokyo-presents-google-developer-group-devfest-tokyo-2026/",
+  "tags": [
+    "ai",
+    "gdg",
+    "devfest",
+    "community",
+    "conference"
+  ],
+  "organizer": "GDG Tokyo / GDG Shibuya",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-tokyo-presents-google-developer-group-devfest-tokyo-2026/"
+  ],
+  "links": [
+    {
+      "url": "https://gdg-tokyo.connpass.com/event/405628/",
+      "label": "connpass 报名"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "WebConf Taiwan 2026",
+  "description": "台湾一年一度的网页技术大会，今年主题「涌现」（Agent・Connections・Code），两天议程覆盖前端、后端、AI Agent、UI/UX、DevOps 与安全。",
+  "startDate": "2026-12-11",
+  "endDate": "2026-12-12",
+  "city": "台北",
+  "country": "中国",
+  "venue": "瓶盖工厂台北制造所（POPOP Taipei）",
+  "format": "offline",
+  "url": "https://webconf.tw/",
+  "tags": [
+    "web",
+    "frontend",
+    "ai",
+    "community",
+    "conference"
+  ],
+  "sources": [
+    "https://webconf.tw/"
+  ],
+  "links": [
+    {
+      "url": "https://5xcamp.us/webconf2026-ticket",
+      "label": "购票"
+    },
+    {
+      "url": "https://www.facebook.com/WebConfTaiwan/"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "极客公园创新大会 IF 2027",
+  "description": "极客公园第 17 届年度科技创新大会，主题「Revaluation 价值，另有答案」；另设 Personal AI、AI 创作、具身智能、硬件与 Maker、AI 实践五场小场深谈。",
+  "startDate": "2026-12-05",
+  "endDate": "2026-12-06",
+  "city": "北京",
+  "country": "中国",
+  "venue": "798 艺术区",
+  "format": "offline",
+  "url": "https://events.geekpark.net/activities/f36dfbba-3f0c-422f-81ba-6f18760c16e3",
+  "tags": [
+    "ai",
+    "startup",
+    "hardware",
+    "maker",
+    "conference"
+  ],
+  "organizer": "极客公园",
+  "sources": [
+    "http://www.geekpark.net/news/373553",
+    "https://events.geekpark.net/activities/f36dfbba-3f0c-422f-81ba-6f18760c16e3"
+  ]
+}

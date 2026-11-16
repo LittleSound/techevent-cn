@@ -1,0 +1,21 @@
+{
+  "name": "2026 中国 AI 智能体大会（北京站）",
+  "description": "智东西发起、智猩猩主办的智能体大会，主题「范式进击 创新涌动」，含企业级智能体创新论坛及 Coding Agent、Personal Agent、Agent Harness、Agent 记忆、Agent Sandbox 等八场技术研讨会；主会场观众票免费但需审核。",
+  "startDate": "2026-12-15",
+  "endDate": "2026-12-16",
+  "city": "北京",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://zhidx.com/p/604860.html",
+  "tags": [
+    "ai",
+    "agent",
+    "agentic-ai",
+    "ai-coding",
+    "conference"
+  ],
+  "organizer": "智东西 / 智猩猩",
+  "sources": [
+    "https://zhidx.com/p/604860.html"
+  ]
+}

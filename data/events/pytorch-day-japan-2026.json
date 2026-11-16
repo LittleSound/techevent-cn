@@ -1,0 +1,22 @@
+{
+  "name": "PyTorch Day Japan 2026",
+  "description": "PyTorch 基金会主办的单日开源 AI 技术会议，紧接 Open Source Summit Japan 之后举办。",
+  "startDate": "2026-12-10",
+  "city": "东京",
+  "country": "日本",
+  "format": "offline",
+  "url": "https://events.linuxfoundation.org/pytorch-day-japan/",
+  "tags": [
+    "pytorch",
+    "python",
+    "ai",
+    "opensource",
+    "linux-foundation",
+    "conference"
+  ],
+  "organizer": "PyTorch Foundation / The Linux Foundation",
+  "sources": [
+    "https://events.linuxfoundation.org/pytorch-day-japan/",
+    "https://events.linuxfoundation.org/about/calendar/"
+  ]
+}

@@ -4,6 +4,7 @@
   "startDate": "2026-12-12",
   "city": "北京",
   "country": "中国",
+  "venue": "阿里巴巴北京朝阳科技园 B 区",
   "format": "offline",
   "url": "https://www.lfopensource.cn/pytorch-day-china/",
   "tags": [
@@ -16,6 +17,7 @@
   ],
   "organizer": "PyTorch Foundation / Linux Foundation",
   "sources": [
-    "https://www.lfopensource.cn/pytorch-day-china/"
+    "https://www.lfopensource.cn/pytorch-day-china/",
+    "https://www.lfopensource.cn/pytorch-day-china/attend/venue-travel/"
   ]
 }

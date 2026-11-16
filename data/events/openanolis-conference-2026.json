@@ -1,0 +1,20 @@
+{
+  "name": "2026 龙蜥操作系统大会",
+  "description": "龙蜥社区（OpenAnolis）年度大会，主题「智焕新生·生态聚变」，聚焦 Agent 驱动的操作系统全生命周期演进。官方目前表述为「计划于」12 月 29 日举办。",
+  "startDate": "2026-12-29",
+  "city": "北京",
+  "country": "中国",
+  "venue": "中关村国家自主创新示范区会议中心",
+  "format": "offline",
+  "url": "https://hd.aliyun.com/form/9431",
+  "tags": [
+    "linux",
+    "opensource",
+    "ai",
+    "conference"
+  ],
+  "organizer": "龙蜥社区（OpenAnolis）",
+  "sources": [
+    "https://hd.aliyun.com/form/9431"
+  ]
+}

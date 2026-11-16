@@ -1,0 +1,35 @@
+{
+  "name": "ClawCon Shenzhen 2026 & Claw Hack",
+  "description": "OpenClaw 在 muShenzhen 举办的三天活动：12 月 4–5 日为首届官方黑客松 Claw Hack（软硬件双赛道，含 M5Stack、Seeed Studio 工作坊，申请 11 月 25 日截止），6 日下午为主会 ClawCon。两者分别在 Luma 登记并需审核。",
+  "startDate": "2026-12-04",
+  "endDate": "2026-12-06",
+  "city": "深圳",
+  "country": "中国",
+  "venue": "华侨城创意文化园（OCT-LOFT）muShenzhen",
+  "format": "offline",
+  "url": "https://openclaw.ai/blog/openclaw-shenzhen-claw-hack-2026",
+  "tags": [
+    "ai",
+    "agent",
+    "hardware",
+    "maker",
+    "hackathon",
+    "conference"
+  ],
+  "organizer": "OpenClaw",
+  "sources": [
+    "https://openclaw.ai/blog/openclaw-shenzhen-claw-hack-2026",
+    "https://luma.com/5qn54uk7",
+    "https://luma.com/9dvpb26c"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/9dvpb26c",
+      "label": "Claw Hack 报名"
+    },
+    {
+      "url": "https://luma.com/5qn54uk7",
+      "label": "ClawCon 报名"
+    }
+  ]
+}

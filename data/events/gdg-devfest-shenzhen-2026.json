@@ -1,0 +1,20 @@
+{
+  "name": "GDG DevFest Shenzhen 2026",
+  "description": "GDG Shenzhen 年度 DevFest，主题「Greater Bay Developers, Building What's Next」，聚焦 AI、云与现代应用开发；具体场馆待公布。",
+  "startDate": "2026-12-13",
+  "city": "深圳",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://gdg.community.dev/events/details/google-gdg-shenzhen-presents-greater-bay-developers-building-whats-next/",
+  "tags": [
+    "ai",
+    "gdg",
+    "devfest",
+    "community",
+    "conference"
+  ],
+  "organizer": "GDG Shenzhen",
+  "sources": [
+    "https://gdg.community.dev/events/details/google-gdg-shenzhen-presents-greater-bay-developers-building-whats-next/"
+  ]
+}

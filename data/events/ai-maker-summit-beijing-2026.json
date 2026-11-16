@@ -1,0 +1,21 @@
+{
+  "name": "AI Maker Summit 2026 北京站",
+  "description": "面向 AI 产品与开发者的一日大会，议题涵盖 AI Agent、AI Native 产品、AI Maker、Harness Engineering 与 AI Coding；为 2026 年继深圳、上海之后的第三站。",
+  "startDate": "2026-12-26",
+  "city": "北京",
+  "country": "中国",
+  "venue": "北京朝阳悠唐皇冠假日酒店",
+  "format": "offline",
+  "url": "https://aimakersummit.com/2026/beijing",
+  "tags": [
+    "ai",
+    "agent",
+    "ai-coding",
+    "startup",
+    "conference"
+  ],
+  "organizer": "AI Maker Summit 组委会",
+  "sources": [
+    "https://aimakersummit.com/2026/beijing"
+  ]
+}

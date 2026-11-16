@@ -1,0 +1,26 @@
+{
+  "name": "Grok Bot for Founders Build Afternoon Hong Kong",
+  "description": "面向香港创业者与企业主的 Grok Bot 动手下午场（13:30–16:30），与 TCS、HKU RISE 合办：上手工作坊、三场闪电分享、Build 时间与现场 Demo。报名需经主办方审核。",
+  "startDate": "2026-11-21",
+  "city": "香港",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/grokbot-hk-founders",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "startup",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Hong Kong",
+  "sources": [
+    "https://luma.com/grokbot-hk-founders",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-hong-kong",
+      "label": "香港社区活动日历"
+    }
+  ]
+}

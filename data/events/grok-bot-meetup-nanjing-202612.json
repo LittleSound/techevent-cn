@@ -1,0 +1,25 @@
+{
+  "name": "Grok Bot Meetup Nanjing",
+  "description": "Grok Bot 线下交流活动南京站，14:00–18:00，安排包括主题分享、茶歇、开放麦与自由交流。名额已满，可加入候补；具体场地待定。",
+  "startDate": "2026-12-05",
+  "city": "南京",
+  "country": "中国",
+  "format": "offline",
+  "url": "https://luma.com/spacexai-nanjing1205",
+  "tags": [
+    "ai",
+    "agentic-ai",
+    "meetup"
+  ],
+  "organizer": "SpaceXAI for Nanjing, China",
+  "sources": [
+    "https://luma.com/spacexai-nanjing1205",
+    "https://cursor.com/community"
+  ],
+  "links": [
+    {
+      "url": "https://luma.com/spacexai-nanjing",
+      "label": "南京社区活动日历"
+    }
+  ]
+}
